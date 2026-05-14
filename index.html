@@ -998,768 +998,68 @@
       border-radius: 12px;
       border: 1px solid transparent;
       cursor: pointer;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      transition: all 0.2s;
     }
 
-    .confirm-cancel-btn {
-      background: var(--surface2);
-      color: var(--text-dim);
-      border-color: var(--border) !important;
-    }
-    .confirm-cancel-btn:hover { background: var(--surface3); color: var(--text); }
-
-    .confirm-ok-btn.danger {
+    .confirm-btns .confirm-yes {
       background: var(--red);
       color: #fff;
-    }
-    .confirm-ok-btn.danger:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,82,82,0.3); }
-
-    .confirm-ok-btn.warning {
-      background: var(--amber);
-      color: #000;
-    }
-    .confirm-ok-btn.warning:hover { filter: brightness(1.05); transform: translateY(-1px); }
-
-    /* ─── EMPTY STATE ─── */
-    .empty {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--text-dim);
-    }
-
-    .empty i { font-size: 2.8rem; margin-bottom: 1rem; opacity: 0.3; }
-    .empty p { font-size: 1rem; }
-
-    /* ─── TOAST ─── */
-    #toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(120px);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px 28px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      z-index: 999;
-      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
-      backdrop-filter: blur(10px);
-      white-space: nowrap;
-    }
-
-    #toast.show { transform: translateX(-50%) translateY(0); }
-    #toast.success { border-color: rgba(0,230,118,0.4); color: var(--green); }
-    #toast.error   { border-color: rgba(255,82,82,0.4); color: var(--red); }
-
-    /* ─── ABOUT MODAL ─── */
-    .about-modal {
-      max-width: 360px;
-      text-align: center;
-    }
-
-    .about-avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #00e676 0%, #00b248 100%);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 2.2rem;
-      color: #000;
-      box-shadow: 0 0 0 4px var(--surface), 0 0 0 8px rgba(0,230,118,0.35);
-      animation: fadeUp 0.4s 0.1s ease both;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about-avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .about-name {
-      font-size: 1.3rem;
       font-weight: 900;
-      margin-bottom: 4px;
-      animation: fadeUp 0.4s 0.15s ease both;
     }
 
-    .about-role {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 1.8rem;
-      animation: fadeUp 0.4s 0.18s ease both;
-    }
-
-    .about-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      animation: fadeUp 0.4s 0.22s ease both;
-    }
-
-    .about-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-      border: 1.5px solid transparent;
-      color: var(--text);
-    }
-
-    .about-link.whatsapp-personal {
-      background: rgba(37,211,102,0.08);
-      border-color: rgba(37,211,102,0.2);
-    }
-
-    .about-link.whatsapp-personal:hover {
-      background: rgba(37,211,102,0.16);
-      border-color: rgba(37,211,102,0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,211,102,0.15);
-    }
-
-    .about-link.whatsapp-group {
-      background: rgba(0,166,255,0.08);
-      border-color: rgba(0,166,255,0.2);
-    }
-
-    .about-link.whatsapp-group:hover {
-      background: rgba(0,166,255,0.16);
-      border-color: rgba(0,166,255,0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,166,255,0.15);
-    }
-
-    .about-link-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      transition: transform 0.25s;
-    }
-
-    .whatsapp-personal .about-link-icon {
-      background: #25d366;
-      color: #fff;
-    }
-
-    .whatsapp-group .about-link-icon {
-      background: linear-gradient(135deg, #00aaff, #0077cc);
-      color: #fff;
-    }
-
-    .about-link:hover .about-link-icon { transform: scale(1.1) rotate(-5deg); }
-
-    .about-link-text { text-align: right; flex: 1; }
-    .about-link-label { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 2px; }
-    .about-link-value { font-weight: 800; font-size: 0.95rem; }
-
-    .about-link-arrow {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .about-link:hover .about-link-arrow {
-      transform: translateX(-4px);
-      color: var(--text);
-    }
-
-    /* ─── LIVE SCORE BAR ─── */
-    .live-score-bar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.4s ease both;
-    }
-
-    .live-score-pill {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 1rem;
-      border: 1.5px solid transparent;
-      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
-    }
-
-    .live-score-pill.correct-pill {
-      background: rgba(0,230,118,0.08);
-      border-color: rgba(0,230,118,0.2);
-      color: var(--green);
-    }
-
-    .live-score-pill.wrong-pill {
-      background: rgba(255,82,82,0.08);
-      border-color: rgba(255,82,82,0.2);
-      color: var(--red);
-    }
-
-    .live-score-pill .pill-num {
-      font-size: 1.4rem;
-      font-weight: 900;
-      min-width: 24px;
-      text-align: center;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    .live-score-pill .pill-num.bump {
-      transform: scale(1.4);
-    }
-
-    /* ─── OPTION SLIDE ANIMATIONS ─── */
-    @keyframes slideFromRight {
-      from { opacity: 0; transform: translateX(60px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideFromLeft {
-      from { opacity: 0; transform: translateX(-60px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideFromBottom {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .slide-right { animation: slideFromRight 0.7s cubic-bezier(0.22,1,0.36,1) both; }
-    .slide-left  { animation: slideFromLeft  0.7s cubic-bezier(0.22,1,0.36,1) both; }
-    .slide-up-ex { animation: slideFromBottom 1.5s cubic-bezier(0.22,1,0.36,1) both; }
-
-    /* ─── REVIEW MODAL ─── */
-    .review-modal {
-      max-width: 700px;
-      max-height: 85vh;
-    }
-
-    .review-item {
+    .confirm-btns .confirm-no {
       background: var(--surface2);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1.3rem 1.5rem;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.35s ease both;
-    }
-
-    .review-item.review-wrong  { border-color: rgba(255,82,82,0.35); }
-    .review-item.review-correct{ border-color: rgba(0,230,118,0.25); }
-    .review-item.review-skipped{ border-color: rgba(255,171,64,0.3); }
-
-    .review-item-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 0.8rem;
-    }
-
-    .review-badge {
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .badge-wrong   { background: rgba(255,82,82,0.15);  color: var(--red); }
-    .badge-correct { background: rgba(0,230,118,0.12); color: var(--green); }
-    .badge-skipped { background: rgba(255,171,64,0.15); color: var(--amber); }
-
-    .review-q-text {
-      font-size: 0.97rem;
-      font-weight: 700;
-      line-height: 1.6;
-    }
-
-    .review-answers {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.88rem;
-    }
-
-    .review-answer-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 9px;
-    }
-
-    .review-answer-row.user-wrong {
-      background: rgba(255,82,82,0.08);
-      color: var(--red);
-    }
-
-    .review-answer-row.correct-ans {
-      background: rgba(0,230,118,0.08);
-      color: var(--green);
-    }
-
-    .review-explanation {
-      margin-top: 0.8rem;
-      background: rgba(0,230,118,0.05);
-      border: 1px solid rgba(0,230,118,0.15);
-      border-radius: 9px;
-      padding: 0.8rem 1rem;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.65;
-    }
-
-    .review-explanation strong { color: var(--green); }
-
-    /* about btn in nav */
-    .btn-about {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text-dim);
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.05rem;
-      transition: all 0.25s;
-      padding: 0;
-    }
-
-    .btn-about:hover {
-      border-color: #25d366;
-      color: #25d366;
-      background: rgba(37,211,102,0.08);
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-family: 'Cairo', sans-serif;
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ─── SUBJECT CARDS ─── */
-    #subjects-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .subject-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
-      position: relative;
-      overflow: hidden;
-      animation: fadeUp 0.5s ease both;
-    }
-
-    .subject-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--green-glow), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .subject-card:hover {
-      border-color: var(--green);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow), var(--shadow-green);
-    }
-
-    .subject-card:hover::before { opacity: 1; }
-
-    .subject-card .s-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      background: var(--green-glow);
-      border: 1px solid rgba(0,230,118,0.2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green);
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-      transition: transform 0.3s;
-    }
-
-    .subject-card:hover .s-icon { transform: scale(1.1) rotate(-5deg); }
-
-    .subject-card h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 8px; }
-
-    .subject-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
-
-    .subject-meta-pill {
-      display: flex; align-items: center; gap: 5px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-dim);
-    }
-
-    /* ─── SUMMARY CARDS ─── */
-    .summary-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.6rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.9rem;
-      transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-      animation: fadeUp 0.4s ease both;
-      text-decoration: none;
       color: var(--text);
+      border-color: var(--border);
+      font-weight: 700;
     }
 
-    .summary-card:hover {
-      border-color: var(--green);
-      transform: translateX(-4px);
-      box-shadow: var(--shadow);
-    }
+    .confirm-btns .confirm-yes:hover { filter: brightness(1.15); }
+    .confirm-btns .confirm-no:hover { background: var(--surface3); }
 
-    .summary-card .sum-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
-      background: rgba(255,171,64,0.12);
-      border: 1px solid rgba(255,171,64,0.25);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--amber);
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      transition: transform 0.25s;
-    }
-
-    .summary-card:hover .sum-icon { transform: scale(1.1) rotate(-5deg); }
-
-    .summary-card .sum-info { flex: 1; }
-    .summary-card .sum-info h4 { font-size: 1rem; font-weight: 800; margin-bottom: 3px; }
-    .summary-card .sum-info p  { color: var(--text-dim); font-size: 0.85rem; }
-
-    .sum-download {
-      display: flex; align-items: center; gap: 6px;
-      background: var(--green);
-      color: #000;
-      font-weight: 900;
-      font-size: 0.82rem;
-      padding: 7px 14px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      transition: filter 0.2s, transform 0.2s;
-    }
-
-    .summary-card:hover .sum-download { filter: brightness(1.1); transform: scale(1.04); }
-
-    /* admin summaries table */
-    .admin-summary-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      transition: all 0.25s;
-      animation: fadeUp 0.4s ease both;
-    }
-
-    .admin-summary-card:hover { border-color: var(--border-hover); transform: translateX(-3px); }
-
-    @media (max-width: 600px) {
-      .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .quiz-card { padding: 1.4rem; }
+      .page-title { font-size: 1.8rem; }
       .score-pct { font-size: 3.5rem; }
-      .question-text { font-size: 1.05rem; }
-      nav { padding: 0 1rem; }
-      #main { padding: 1.5rem 0.75rem; }
-      .question-card { padding: 1.5rem; }
     }
   </style>
 </head>
-<body data-theme="dark">
-
-  <!-- NAVBAR -->
+<body>
+  <!-- Navbar -->
   <nav>
-    <div class="nav-brand" onclick="showHome()">
-      <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-      امتحانات الدفعة
+    <div class="nav-brand" onclick="goHome()">
+      <div class="logo-icon">🏥</div>
+      <span>امتحانات الدفعة</span>
     </div>
     <div class="nav-actions">
-      <button class="btn-about" onclick="openAbout()" title="تواصل مع المطور">
-        <i class="fas fa-user-circle"></i>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="icon-sun fas fa-sun"></i>
+        <i class="icon-moon fas fa-moon"></i>
       </button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الثيم">
-        <i class="fas fa-sun icon-sun"></i>
-        <i class="fas fa-moon icon-moon"></i>
-      </button>
-      <button class="btn btn-ghost" onclick="showHome()">
-        <i class="fas fa-home"></i> الرئيسية
-      </button>
-      <button class="btn btn-primary" onclick="promptAdmin()">
-        <i class="fas fa-cog"></i> الإدارة
+      <button class="btn btn-blue" onclick="promptAdminPassword()" id="admin-btn">
+        <i class="fas fa-lock"></i>
+        <span>Admin</span>
       </button>
     </div>
   </nav>
 
-  <div id="main">
+  <!-- Main Content -->
+  <div id="main"></div>
 
-    <!-- HOME PAGE -->
-    <div id="home-page">
-      <div class="loading" id="home-loading">
-        <div class="spinner"></div>
-        <p>جاري تحميل البيانات...</p>
-      </div>
-      <div id="home-content" class="hidden">
-        <!-- SUBJECTS VIEW -->
-        <div id="subjects-view">
-          <h2 class="page-title">👋 Welcome to the Exams Web<span></span></h2>
-          <p class="page-sub">اختر المادة</p>
-          <div id="subjects-list"></div>
-        </div>
-        <!-- SUBJECT DETAIL VIEW -->
-        <div id="subject-detail-view" class="hidden">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem" class="animate-up">
-            <button class="btn btn-ghost" onclick="showSubjectsView()">
-              <i class="fas fa-arrow-right"></i> رجوع
-            </button>
-            <h2 style="font-size:1.5rem;font-weight:900" id="subject-detail-title"></h2>
-          </div>
-          <!-- tabs -->
-          <div style="display:flex;gap:8px;margin-bottom:1.5rem">
-            <button class="btn btn-primary" id="tab-quizzes-btn" onclick="switchSubjectTab('quizzes')">
-              <i class="fas fa-clipboard-list"></i> الامتحانات
-            </button>
-            <button class="btn btn-ghost" id="tab-summaries-btn" onclick="switchSubjectTab('summaries')">
-              <i class="fas fa-file-alt"></i> الملخصات
-            </button>
-          </div>
-          <div id="subject-quizzes-list"></div>
-          <div id="subject-summaries-list" class="hidden"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- QUIZ PAGE -->
-    <div id="quiz-page" class="hidden">
-      <div class="quiz-header">
-        <div class="quiz-header-title" id="quiz-title"></div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <span class="progress-pill" id="progress"></span>
-          <button class="btn btn-danger" onclick="exitQuiz()">
-            <i class="fas fa-times"></i> خروج
-          </button>
-        </div>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
-      </div>
-      <!-- LIVE SCORE BAR -->
-      <div class="live-score-bar">
-        <div class="live-score-pill correct-pill">
-          <i class="fas fa-check-circle"></i>
-          <span>صح</span>
-          <span class="pill-num" id="live-correct">0</span>
-        </div>
-        <div class="live-score-pill wrong-pill">
-          <i class="fas fa-times-circle"></i>
-          <span>غلط</span>
-          <span class="pill-num" id="live-wrong">0</span>
-        </div>
-      </div>
-      <div class="question-card" id="question-card"></div>
-      <div class="quiz-actions">
-        <button class="btn btn-ghost" onclick="skipQuestion()">
-          <i class="fas fa-forward"></i> تخطي السؤال
-        </button>
-        <button class="btn btn-primary" id="submit-btn" onclick="submitAnswer()">
-          تقديم الإجابة <i class="fas fa-check"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- RESULTS PAGE -->
-    <div id="results-page" class="hidden">
-      <h2 class="results-title">🎉 اكتمل الاختبار!</h2>
-      <p class="results-sub">إليك نتيجتك النهائية</p>
-
-      <div class="stats-grid">
-        <div class="stat-card" style="animation-delay:0.1s">
-          <div class="stat-num" id="correct-count" style="color:var(--green)">0</div>
-          <div class="stat-label">إجابة صحيحة</div>
-        </div>
-        <div class="stat-card" style="animation-delay:0.2s">
-          <div class="stat-num" id="wrong-count" style="color:var(--red)">0</div>
-          <div class="stat-label">إجابة خاطئة</div>
-        </div>
-        <div class="stat-card" style="animation-delay:0.3s">
-          <div class="stat-num" id="skipped-count" style="color:var(--amber)">0</div>
-          <div class="stat-label">تم تخطيها</div>
-        </div>
-      </div>
-
-      <div class="score-display">
-        <div class="score-pct" id="accuracy" style="color:var(--green)">0%</div>
-        <div class="score-frac" id="score">0/0</div>
-      </div>
-
-      <div class="results-actions">
-        <button class="btn btn-ghost" onclick="backToHome()">
-          <i class="fas fa-home"></i> الرئيسية
-        </button>
-        <button class="btn btn-primary" onclick="showReviewModal()" id="review-btn">
-          <i class="fas fa-search"></i> مراجعة الأسئلة
-        </button>
-      </div>
-    </div>
-
-    <!-- ADMIN PAGE -->
-    <div id="admin-page" class="hidden">
-      <div class="admin-header">
-        <h2 style="font-size:1.8rem;font-weight:900">
-          <i class="fas fa-shield-alt" style="color:var(--green);margin-left:8px"></i>
-          لوحة الإدارة
-        </h2>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-blue" id="admin-tab-quizzes" onclick="switchAdminTab('quizzes')" style="font-size:0.88rem">
-            <i class="fas fa-clipboard-list"></i> الامتحانات
-          </button>
-          <button class="btn btn-ghost" id="admin-tab-summaries" onclick="switchAdminTab('summaries')" style="font-size:0.88rem">
-            <i class="fas fa-file-alt"></i> الملخصات
-          </button>
-          <button class="btn btn-ghost" id="admin-tab-subjects" onclick="switchAdminTab('subjects')" style="font-size:0.88rem">
-            <i class="fas fa-layer-group"></i> المواد
-          </button>
-          <button class="btn btn-primary" id="admin-add-btn" onclick="showAddQuizModal()">
-            <i class="fas fa-plus"></i> امتحان جديد
-          </button>
-        </div>
-      </div>
-      <div id="admin-quizzes-list"></div>
-      <div id="admin-summaries-list" class="hidden"></div>
-      <div id="admin-subjects-list" class="hidden"></div>
-    </div>
-
-  </div>
-
-  <!-- BULK ACTION BAR -->
-  <div id="bulk-bar">
-    <span class="bulk-count" id="bulk-count">0</span>
-    <span class="bulk-label">امتحان محدد</span>
-    <div style="width:1px;height:24px;background:var(--border)"></div>
-    <button class="btn btn-danger" onclick="deleteSelectedQuizzes()" style="gap:6px">
-      <i class="fas fa-trash"></i> حذف المحدد
-    </button>
-    <button class="btn btn-ghost" onclick="clearSelection()" style="padding:9px 14px">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-
-  <!-- TOAST -->
-  <div id="toast"></div>
-
-  <!-- MODAL: Import Questions from TXT -->
-  <div id="import-modal" class="modal-overlay hidden">
-    <div class="modal modal-lg">
-      <h3><i class="fas fa-file-import" style="color:var(--green);margin-left:8px"></i> استيراد أسئلة من ملف TXT</h3>
-
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;font-size:0.85rem;line-height:1.9;color:var(--text-dim)">
-        <strong style="color:var(--text);display:block;margin-bottom:6px">📄 صيغة الملف المطلوبة:</strong>
-        <div style="background:var(--surface3);border-radius:8px;padding:0.9rem;font-family:monospace;font-size:0.8rem;color:var(--text);direction:ltr;text-align:left;white-space:pre-wrap">MCQ
-ما هو عاصمة مصر؟
-القاهرة
-الإسكندرية
-أسوان
-الأقصر
-1
-الإسكندرية هي ثاني أكبر مدينة
-
-TF
-الأرض كروية الشكل؟
-1
-نعم، الأرض كروية وليست مسطحة
-
-ESSAY
-اشرح مفهوم التضخم الاقتصادي؟
-تضخم,اقتصاد,أسعار</div>
-        <div style="margin-top:10px;color:var(--text-dim)">
-          <strong style="color:var(--amber)">MCQ:</strong> النوع → نص السؤال → 4 خيارات → رقم الإجابة الصحيحة (1-4) → شرح اختياري<br>
-          <strong style="color:var(--amber)">TF:</strong> النوع → نص السؤال → الإجابة (1=صح / 0=خطأ) → شرح اختياري<br>
-          <strong style="color:var(--amber)">ESSAY:</strong> النوع → نص السؤال → كلمات مفتاحية مفصولة بفاصلة (اختياري)<br>
-          <strong style="color:var(--green)">سطر فاضي</strong> يفصل بين الأسئلة
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>اختر ملف TXT</label>
-        <input type="file" id="import-file-input" accept=".txt" style="
-          width:100%;
-          background:var(--surface2);
-          border:1.5px dashed var(--border);
-          border-radius:var(--radius-sm);
-          padding:14px;
-          color:var(--text);
-          font-family:'Cairo',sans-serif;
-          font-size:0.93rem;
-          cursor:pointer;
-          transition:border-color 0.2s;
-        " onchange="previewImport(this)">
-      </div>
-
-      <div id="import-preview" style="display:none;margin-bottom:1rem">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-          <strong style="font-size:0.9rem">معاينة الأسئلة المكتشفة:</strong>
-          <span id="import-count" style="background:var(--green);color:#000;padding:3px 12px;border-radius:20px;font-size:0.82rem;font-weight:900"></span>
-        </div>
-        <div id="import-preview-list" style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
-      </div>
-
-      <div id="import-error" style="display:none;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);border-radius:10px;padding:1rem;color:var(--red);font-size:0.88rem;margin-bottom:1rem"></div>
-
-      <div class="modal-actions">
-        <button class="btn btn-ghost" onclick="closeModal('import-modal')">إلغاء</button>
-        <button class="btn btn-primary" id="import-confirm-btn" onclick="confirmImport()" disabled style="opacity:0.5">
-          <i class="fas fa-file-import"></i> استيراد الأسئلة
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- PASSWORD MODAL -->
-  <div id="pwd-modal" class="modal-overlay hidden">
+  <!-- Password Modal -->
+  <div class="modal-overlay hidden" id="password-modal">
     <div class="modal pwd-modal">
-      <div class="pwd-icon-wrap">
-        <i class="fas fa-lock"></i>
+      <div class="pwd-icon-wrap">🔐</div>
+      <h2 class="pwd-title">Admin Access</h2>
+      <p class="pwd-sub">Enter the admin password to continue</p>
+      
+      <div class="pwd-input-wrap">
+        <input type="password" class="pwd-input" id="pwd-input" placeholder="••••••••" onkeyup="updatePwdDots()">
+        <button class="pwd-toggle" onclick="togglePwdVisibility()">
+          <i class="fas fa-eye"></i>
+        </button>
       </div>
-      <h3 class="pwd-title">وضع الإدارة</h3>
-      <p class="pwd-sub">ادخل كلمة السر للوصول للوحة التحكم</p>
 
       <div class="pwd-dots" id="pwd-dots">
         <div class="pwd-dot"></div>
@@ -1768,1777 +1068,357 @@ ESSAY
         <div class="pwd-dot"></div>
         <div class="pwd-dot"></div>
         <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-      </div>
-
-      <div class="pwd-input-wrap">
-        <input
-          type="password"
-          class="pwd-input"
-          id="pwd-input"
-          placeholder="● ● ● ● ● ● ● ●"
-          maxlength="20"
-          oninput="onPwdInput()"
-          onkeydown="if(event.key==='Enter') submitPwd()"
-          autocomplete="off"
-        >
-        <button class="pwd-toggle" onclick="togglePwdVisibility()" id="pwd-eye">
-          <i class="fas fa-eye" id="pwd-eye-icon"></i>
-        </button>
       </div>
 
       <div class="pwd-error" id="pwd-error"></div>
 
-      <button class="pwd-btn" onclick="submitPwd()">
-        <i class="fas fa-unlock-alt"></i>
-        دخول
-      </button>
-
-      <button
-        class="btn btn-ghost"
-        onclick="closeModal('pwd-modal')"
-        style="width:100%;margin-top:10px;justify-content:center"
-      >
-        إلغاء
+      <button class="pwd-btn" onclick="checkPassword()">
+        <i class="fas fa-lock-open"></i>
+        <span>Unlock Admin</span>
       </button>
     </div>
   </div>
 
-  <!-- MODAL: Add/Edit Quiz -->
-  <div id="quiz-modal" class="modal-overlay hidden">
-    <div class="modal modal-lg">
-      <h3 id="modal-title">إضافة امتحان جديد</h3>
-      <div class="form-group">
-        <label>اسم الامتحان</label>
-        <input type="text" id="quiz-name-input" placeholder="مثال: امتحان اقتصاد - سوق العمل">
-      </div>
-      <div class="form-group">
-        <label>المادة</label>
-        <select id="quiz-subject-input"><option value="">-- اختر المادة --</option></select>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-ghost" onclick="closeModal('quiz-modal')">إلغاء</button>
-        <button class="btn btn-primary" onclick="saveQuizModal()">حفظ</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: Add/Edit Summary -->
-  <div id="summary-modal" class="modal-overlay hidden">
-    <div class="modal modal-lg">
-      <h3 id="summary-modal-title"><i class="fas fa-file-alt" style="color:var(--green);margin-left:8px"></i> إضافة ملخص</h3>
-      <div class="form-group">
-        <label>اسم الملخص</label>
-        <input type="text" id="summary-name-input" placeholder="مثال: ملخص الفصل الأول - قواعد البيانات">
-      </div>
-      <div class="form-group">
-        <label>المادة</label>
-        <select id="summary-subject-input"><option value="">-- اختر المادة --</option></select>
-      </div>
-      <div class="form-group">
-        <label>رابط الملخص (Google Drive أو أي رابط تحميل)</label>
-        <input type="url" id="summary-url-input" placeholder="https://drive.google.com/...">
-      </div>
-      <div class="form-group">
-        <label>وصف مختصر (اختياري)</label>
-        <textarea id="summary-desc-input" rows="2" placeholder="مثال: يشمل المحاضرات من 1 لـ 5"></textarea>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-ghost" onclick="closeModal('summary-modal')">إلغاء</button>
-        <button class="btn btn-primary" onclick="saveSummaryModal()">حفظ</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: Add Question -->
-  <div id="question-modal" class="modal-overlay hidden">
-    <div class="modal modal-lg">
-      <h3 id="question-modal-title">إضافة سؤال جديد</h3>
-
-      <div class="form-group">
-        <label>نوع السؤال</label>
-        <select id="q-type" onchange="updateQuestionForm()">
-          <option value="mcq">اختياري (MCQ)</option>
-          <option value="tf">صح / خطأ</option>
-          <option value="essay">مقالي</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>نص السؤال</label>
-        <textarea id="q-text" rows="3" placeholder="اكتب السؤال هنا..."></textarea>
-      </div>
-
-      <div id="mcq-section">
-        <div class="form-group">
-          <label>الخيار A</label>
-          <input type="text" id="opt-0" placeholder="الخيار الأول">
-        </div>
-        <div class="form-group">
-          <label>الخيار B</label>
-          <input type="text" id="opt-1" placeholder="الخيار الثاني">
-        </div>
-        <div class="form-group">
-          <label>الخيار C</label>
-          <input type="text" id="opt-2" placeholder="الخيار الثالث">
-        </div>
-        <div class="form-group">
-          <label>الخيار D</label>
-          <input type="text" id="opt-3" placeholder="الخيار الرابع">
-        </div>
-        <div class="form-group">
-          <label>الإجابة الصحيحة</label>
-          <select id="correct-mcq">
-            <option value="0">A</option>
-            <option value="1">B</option>
-            <option value="2">C</option>
-            <option value="3">D</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="tf-section" class="hidden">
-        <div class="form-group">
-          <label>الإجابة الصحيحة</label>
-          <select id="correct-tf">
-            <option value="0">صح</option>
-            <option value="1">خطأ</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>سبب الإجابة (اختياري)</label>
-          <textarea id="tf-reason" rows="2" placeholder="مثال: الجملة خاطئة لأن..."></textarea>
-        </div>
-      </div>
-
-      <div id="essay-section" class="hidden">
-        <div class="form-group">
-          <label>كلمات مفتاحية (افصل بينها بفاصلة)</label>
-          <input type="text" id="keywords" placeholder="مثال: تضخم, أسعار, نقود">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>شرح الإجابة (اختياري)</label>
-        <textarea id="q-explanation" rows="2" placeholder="اكتب شرحاً للإجابة..."></textarea>
-      </div>
-
-      <div class="modal-actions">
-        <button class="btn btn-ghost" onclick="closeModal('question-modal')">إلغاء</button>
-        <button class="btn btn-primary" id="save-question-btn" onclick="saveQuestion()">إضافة السؤال</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- CUSTOM CONFIRM DIALOG -->
+  <!-- Confirm Dialog -->
   <div id="confirm-overlay">
     <div id="confirm-box">
-      <div class="confirm-icon-wrap danger" id="confirm-icon">
-        <i class="fas fa-trash-alt" id="confirm-icon-i"></i>
-      </div>
-      <div id="confirm-title">هل أنت متأكد؟</div>
-      <div id="confirm-msg"></div>
+      <div class="confirm-icon-wrap"></div>
+      <h3 id="confirm-title"></h3>
+      <p id="confirm-msg"></p>
       <div class="confirm-btns">
-        <button class="confirm-cancel-btn" onclick="confirmResolve(false)">إلغاء</button>
-        <button class="confirm-ok-btn danger" id="confirm-ok-btn" onclick="confirmResolve(true)">تأكيد</button>
+        <button class="confirm-no" onclick="cancelConfirm()">Cancel</button>
+        <button class="confirm-yes" onclick="acceptConfirm()">Delete</button>
       </div>
     </div>
   </div>
-
-  <!-- ABOUT MODAL -->
-  <div id="about-modal" class="modal-overlay hidden">
-    <div class="modal about-modal">
-      <div class="about-avatar"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwdIkaJMBnkdioVT9MfzpTaTJ9+3mA/wB0j+lEDMrwlHEbbzhycAdOc1qRXGpDJi1NOVLNi6x0+tDu9hO/QxzGV+8rj6im4T1b8q2vO1NlUC7jbYwIBnQ4OPf60yW+1SzhVZGTy/uDKo/TtmlqK7MgqAAQcg+1IAWOAMmpfLBiBOe/NSQbYJg+3ft+bacYPPSrik3ZlIhELkgYqQQoBgglicVK8ox5ygKTIcHGR9MU3O4Flz7etaWitgIxGm0sRuGcDaaQhBztz7Zp0sQQblIz6j/PWtCwktInea+i80PC2xA2Du7E+2aIq75dgM9EWTKkKDyc5qFgM8Age9XftCkFIv3YIOApxj8epqIh1JxMcjrk05KOwEKR7lLbsY6jFNOAfWpzkr86Bh/fTrULRkYI+YHoRUyiktAH+QQoZmjAPvmm+WpP+sQfn/hUyW6sq7mOTjnIAXr1qNYwpViykdgahsCIrjvketOSIupKsC393vUxKOSZHL89On5VK1pPHDHK0e2F/u+9VCnKWy2ApqFDgSA474605lQcgOFPTI61JJn77RHA4+aiOUbQhUEDkZPSnyrYCIbc9/yp4CYySw+gp6tlc7T/AN8g5pp2kcgr7irSSQDVRnDMDwuM8ijZgA56/SjBjyCAwYdv501o5IzhlZSRnkdql97AO/d+WTzvH5Giox0b6UVDkBZtiVktmG7PmnG0gHt0Jra2TkEP9p+Z+MCFs9/zrEiZVFuXICiU5yu4Y47d6vm4swWwbV85I32pXH5GkgJmzBD5kySJH93c1nGR1P65ArJujD5xeFywbJPybMHPpVm6+zPbHyprcMuPljR1L/nx71n/AEoYEpkZYVUY2nJPFTrLLc28UCkssW4qgGcE9Tj8Kpn7q1ZsImmu0jV2QudgZR68Uk7CvZFyLTjLFdTRxs0UQySxHHPf1zz0qm8LFtyoVHbmvWtE+G8MFrnUbq4kMigPCh2jrnmtU+APDxbaLFwQOT5jZ/PNcNbN8JG0Y3b6nFPMaMXZXZ4rJ5s8kss+3cTuJ+UZJI6AcVVkLozozZyeT616z4k+Hdounu+kLIHUbjGzZ3Y6nJ7+3es7w98OLHUbBL6/vbkq4OEVNhGD6nPFN5nh3T9pcpY6jy89zzMGgEg8V7VB8NvDe5l8u8fbjLPLgHPpxzUp+G/htldUhuAw7+cTisP7YoJ9fuM/7So+Z45NdtLb20YRE8pSpZRgtk5ya29O0mCbRr7UDdpFJbqpRSfvk8cDHPP5A5ro/E/gzSNJ07zYYr/eMBWOArHuSSePyrF8F6GPEWrSRzGQWUS7nx1PoM+ua9GnmFKVN1pbI3WKhKm6nRGNAjz3KoiKxC55AXIGSTk96pPM4yvlR445C9e/J/GvV9T+HenQ6XdvaeeLpYy0X7wkZHYjHfpXkJRhLsAJJOMCs6GMpYiLdPoOhiYVk+XoPHlucD5T9alnuppLaCBnJSIFVA+td94R8E6Zq+lyXF2ty8wfAGfKHT8c108Pw88PHI8ieRgMBvNOP061hLN6VCUoa+ZjPMKUJOOp4oGKdXYH0Bq7Hew/2fJAbdPMLBhIcZ46jpXrd18NPD7wkJHdwuehRyx/IivPfFPg+bw+TPC0stmTs8x024Pp/wDq9K2wmbUpy5YOzfc0o46nUlyrc5zZLLgqWbPUegpbu2e0umgYAsvoc1CrFcEHBB4pXbcxdzkk5Nd3NFx8zq0Dc+wDdwDkCpJJZrltzsWOMe+BxT7Wze7cJEpZj2+gp8sCwRFmyXDEYA6ematRmo3ewysNpVuCMLz+dFLKMSy49Oc0VlKSQhRG72iMqlsO2cdRwKczQlADDNnjPzcVXXGeSR9KeMbgBIw988VCuA9ja7TtSYHtlhUBpxdgxG8nHfNIXJ9PypMAP3F/Gug8FXKW3iW0aTyQnmKCZs4xnsB3rnixbGe1TW0FzM/+jRSuw/55gkj8qzqRUoOL6kVIqUHFn0dqVpPe2E8EMpt7gj5JRn5W7HtmvJ9Q8OeNbZi2+6u4lOVaGcuD74zmjR/GPiTw7ZhLqwee1U4DTxspBPbd/jXUad8UtKvGWK8tJrZm4yCHX+mK8GnRxWFvyRUonjQpV6F+VKSOat/iBrWiWC2FzYAyKTh7gMG/L2rBbxpraswtbyS1iZy4ihOFUk5OK9sm03SdasS7W8M0M6Y8zHIHqp7GvB9f0mTS9WuoVikFvFKUSQgkEA8c966sDUw9aUlyWl1OnCSo1W1yWZ6r8Or+71XT7ue9naeRHQKzyl8cHsTxWT8TNZ1PTL+zSzu57dGi3ERtgZ3Hr71a+FEUsWkXzSRuoaVSpIwD8p6VjfFdwdStVdCHEPykPnI3HqMcVzU4R/tBxtp/wDCEY/XHG2hxNzrOp6iDHdXs8yuwLB3JyfWvZvAWkrpvhqGUoFmuv3jHvjt+nNeTeE9IXWtft7R92xmy2B/COTz24r3yeKX7DJHabFl8srFv+6pxgZ+laZtVUVGjHS5eYzSSpR0K9hqVtqLXH2VwRBM0L+7CvGvH2kNpHiad4wVhnbzYiPfr+RzXovgzw3qvh+4u/tk0MkM+DhWOdwPXp6Zqt8TdHF7oK3yofMtGySP7jdf1xXNg6kKGK5YO8XoYYacaOItF3TKvwuvbm40y9SZ5JVjdAuTkrwc1V+KN/dWtxYRW0skSPGxYIduTuqx8K3WOyvYhA6uzqWbqDwcfTrXZ302kR3USX8lqJpOIluNpJ57A+9FaoqWOc+W/l8hVJqninK1/+GPMfh9q+uS63FbLNJLbMT5qysWUDHXr1rv/ABu/leEr5yowqjaxAOGyAMZ/GtkxwWMDukSRxqCxEaAZP0FeOeOfF82tSLZJby29vCxysn3mbpzjinSvjMSqkI2S3KhfE11KKskcaW3PknJqaGPcSd6qAaq96eWBKkHgdq+mi7HumhHcyII2iRYdikfKCN/B+Y+/OPSoJrhklV45gzFR8yjGCP60s0UqW8cjRnEwIQjuQeailCiFUP309O4PNbTlK3K2BGWdQ4YAluCTyaKa2DnFFYtgXrZPNihhX7OjOXJeYDHHuanl0m5V4xi0cycKqSD3Pbp0qrCjyxwIjFSd/P5VLFYGTfm5hUq5X51P55A6c1PK90S0+g99Ev1wTYnB6bX6/rWeqxeZtkDqOhxgkGrhtZ44TMl5AMAkqs2G49qzyckknJ9aOVrcFfqOmQRzOgOdpIzWv4V1UaPr9teFN4RuV3YyDwR0rHk/1rfWm1MoqcXF9QlFSi4vqfRDSaX4o06S2SYTWrbfMVH+YEYOD3Hp+dYc/wAMtBku0eIXMaZJKpJwAPcgmvGIrma3YNDI8bDoUYg1s6RLres36Wtvqcqu/GZLgr1/U/QZry4ZXWhLloVLJ9DzY4CrB2pTsj2efVdJ8LWi2d1d7RFDuRXYF2AOMD1NeFazqB1PVrm7GQsshcDoBk+navW9P+FmlBRJqt/c3kp5O19q5788mrUngzwRbARNBbNKSFw97hv/AEKvXweRyoXk5XkzuwuXOjeTd2zK+FhiTRLsCQFjMM5GP4c1z3xOu/M1SGHkqI+CJCQeepHQGtTxj4EstJ0yW/0S4kiES7pYmnBUjPOOc56cc15gWklYAszntzmuWWVzoYp1pPcy+ouGIdVs9c+GVpHa6LLfvsBlOxT0JAP09eB9KteMPHh8PXMdna28U05QO5kJwmegwK4vT/BfiuTShNHm2iRxJHDJJtYkfxY7Y9/wrM8PeHbvxPrUltNKylMmZ2cb1/Bjz9KzeTTniPaVdb7Ih5c51uepqn0N+D4raoZwJLS02sw3Ha3A9ua9QM0OoWCKzKI7qAsCOeCOcfTOa8U8TeCr/wANlZnZZ7Rn2LOgxz7jtXeaR4ASTTbGd9Wmjn8klBBJlAxB2uvfuCR9RVVsglVlakuVodbKlNpU/daH+BoE0hdYtgwYxXCrk4+bgkcgc5HP41h/FO7Q32nmJ8uiNynY7u9cJqEd7pupXFpM7pNE5RwGI5HFeh+C/BtpJpX9s6+CVfBhjkOAEByWP1x+WfWqw+UVJ4r2l9ev3WHSwE3X9o2b3gTxP/bWmpbXYYXMQKq7/wDLYAZOPUgdR6YNZnxD8NnU7VtXskaSWIYlRW7Dvju3r7CuT8ZazbNqkA0rzbc22QgT5BFz0AH8RPJPuB2rnv7b1LEw+2TYmIaQBz8xHQ/X3rKrlbw+KcqUrW6fmRLAunX56UrGeeDRSnk0dutdx3k6TgxbGJBX7pHP1704vlQEKk9MYPNVRyRVksYSVThT1J5Jqr3AGCMpZl2444FFTRCGaCZpncOF+TauQTkcGiqcbJMAtIIrk28Usvlqd/zflV20smUS+VfXESpIyhokLKcY5yDVOyS2kaBbptsXz55xzxip47KxYTHfKQrsEZJU6Z44OD0zUR3J6lnybqFzjUpEQjfvkgcZHHPQ+p5rBckuxJBOeoGK3FsI1GDcXqn7pKbWHXA6N0rGuIjDcvGd3DEAsME/hVSQyNjljSUrfeNJUjCtHQ5b2LWLY6e5S4ZwqkDPU9/as6u6+GbhdWuMnkREgBR6jv8A0rowlP2laMbl0480kj1LUbm6s9Bm+zBrm5EGxNoyzuRjOO/JzXm/h34eTXF0J9Yk8uNcObdDlnGe5HA/nXS+JvGS+H2hxELmSQHEe/bsweuff+lY2j+PtW1bUEt00mORWPzGNiu0Z6k9BxXu1FQdVQm9V0Oyfs+ZJi+PvFNnHaS6Rp8K+bIoSWXy8bVH8IOMnoOaqfDfw5BM39sXse8K+23RhwWHVvw7e/0rofF0FpNol091HFlULI7Llwe2G7cnp71b8PRCPw1YRRfuwIFztx35P86r6q5Ynmm7pLQPZ3qXZV8a+MzotqbW12m9mXjPJjB7kep7V5f4e1a90zXIJ7WZ1Z5FDqGwJBnkHsRVfW7ya/1i5nnJLs5GD1AHAH5AV0vgXw2bu7XUryNhbRn92CPvt/gP/rV5rnUxOKShsmYOUqlTQ9C8V7brwreecMgQs/zrkhhyOe3TrWT8OdfS70s2M2Tc2akIeuYieg9cH+lUviDraW+kjTo3RpJyMgHJVB/LNcP4SvLqz8SWjWql3d/LKjup4P6V2V66hiowXo/mazmlVSPQ9U8IprPi221KXyxbsN9wqnIZlIwPX5hjP0NXfGXipNB057eMRteT58pAOEXpuP07f/Wq/f6lFpdrLezNGI44yV55Pt75NeIarqU+rajNeXLbpJGz7AdgPanjqkcLF8nxSHWkqa93dlWSRpZGkc5Zjkn1NNoor51tt3ZwhRRRSAKkad2yM4HtUfpUmxf9v8qaQEscieWWKDcuMDsaKgIA/vfjRTuwLlr5H7oz42gOQDnBPbOOcVZt4tNMMjSFGIkIUNKyMVzx2IqDTp7a3ubeS7iMsI3BlABIz3APBx71PHdWPlys1vbqzSMyxujHapPADA0o7k9R62umkEEAkfxLdqAe3cev86zr1IEn224kCgch3Dc+xHGKvynT5Iyim1Qv/GqyZT8KynULIyqwdc8MO9WxjW+8frSU5/vn602oGKqlmCgEk8ACvSvBGmX+m6fLK9uscly67DJnO0ew5HXvXntjcC2ullZpVC94m2t+B7fWutTx0LayijtbRVm2lWd2LbR755Y988V6WXTo0pupUextRlGL5pHW3vhzTtR1IX9+ZHVcIELYQYP9Sf1pl34h0Dw3bfZ7V4XdN37qEZJOe5HHrya43U9SGpq/nay5bdwgkwhGR2CjnHP6dqyjZ6Ukalrre4++FkAH3iOPl54x+ftW1XN6abdGGr6sqWKjf3ETeIPFl9rx8twIbYHIiQ9fcnvXTeDvF1tDaRafekRGIHEhPDDsMetcIIrY3EgMu2LqhzknnjP4U4wWg5W4zz344/zmsKGKrqftm0792TGpNS5z1a58OeH57l9UMaMG/efMwCMe+Rmqms+L9N0q0MFnIs06r+7SL7qdsE9PwFeaOkPkHZMS3YFqWKK0ZEMkpUkfNz0OfTFdk8waVqcUm+typYjlXuqxFe3s9/dPcXDl5HPJrq/h5ZK+pTXr7QIV2qW9T1I+gB/Ouc+z6fgkXLH0yMVbs9T/ALOs54LaZlaf92zBshUJ+YjjqQAK4aD9nWVWq79dzGnUXPzM3/iBrn2hodNiYEKBJKQOpPKj8jn8a4Wt2W20cyO8l/K7Fyo2kHvwScdMdfSoriy0pbaRoLzdMB8qs/HXnnHp+dY4qtKvUdRjnNzldmPRRinxAeYMgEehrnSIGUVpNBZfKRepzjIEJ4Hf64p/l6cjkfbpSmOSsAz19z6c1XIBmrIyAgE4PYHFBcnHGfrUsjKHYRykpn5SeCRTN/qwP1o8rgMO4jJBwPaip2kUwFUDDI+bJ469qKiQEtnOLdonKFuGAC9c1ag1CGNJPkZd8jOMwI4x25NQWN6+myW12saPgsAG/D8qfFrDrHKjGUCVmZ1icKpz1GMGiG5PUbczWdywYvIhC4G2BQD9cGs89eD3rQur+K9QGdZ3lVcBjIuPyxWd/FxVMZNGqtI4YD6mrZ0m6wCturA45WQHr+NU14831PH61qGytwm4xtHjhmZnGOnP3elUmkloFyjNYTwIXltnRQdpJPeq+F54P51LO8X3Yg4IJyS+QfpwKijIZ/3jlQepxmi6ANoPc/Wl8sH+MD61bMCRId5JA6np+XrT4VmkUeVIyqWAVd1Pk7i5imtszdHQ/wDAxSPtiOMAuPyFXJZJY0l3yMxHyYPY1m0SSgtOo1qP8xs88j0NTrB5sZkj5A6r3FVas2ThbgB/uMMMPUVNN3dmKWiuNaA4ztb8sUv2dtobBAPfIqeWBECky4LEgKVJOPX8aaiWpsZNxk+1bl8vA+XbznNOyBEHk4POP++hTvKGOgP0bP8AIUsNpNcXaQIoMkhG3JwDmp7J2gaVDtB6HPTIpJDIVjjOPmjB9yeP0pXjVMjgsDgFTwRiln80FgNuCclF/wAKjJ+ZV/2R/Kqi1cC95HkWUTxsqO2OCuTISemcUs0CW2oHaFXcmdpxgHPuDVFbtgiq2TtGBz0H4/zqxZTSzXTMdzEJgY3EgfhzVyqRaskMs27qk8oIHJUnDLyfb5TVbU5ixWNB+7PzZ4IY/XaKuws7Tny5HOMh9pkJJHQHnPrVC5t72SRnktp1UZYKwYhR1PWs2tBFNPuSfT+tFOUDY/HUf1FFQ0A5HmSEYk2oTwM00ySE8uD+VPhLb0Aj83APykZq38w4GnqSR3U/41tCkpK9/wAykrmeWfPUfpT0VnbgjP4VI9tNJIxW3ZefugcCotjRy7WGHBHBqeRp6oVhcbSRkHJ6iugmhK5UodjDaR5RwB6/f5rn0VmUnHGeuO9XDcXAk3BbbIB6Rp3/AAppX6CHT6UkKGQzvtHUmL/69UCqh2CNuUdCRjNTStLOAGEWF/uqq/ypixkA/LnihxfYLksam5hIZuU6flUscu22eRFxtAUdODVZEcIyhfvY5p6QuCAysBnJ9KqLZLG3Dkg5HtVWpHJYA/U5+tM4rKo7stCVLbkeegOPvDrUVPVQx+VsH0NRF2dxPY1baWASJJdq0whZl8rsRz+WM1X+yTPam6WJvJEgQt23YJ/lSwSOrTYDBnGSAPXg1NiMWczNdP5quqxxKvDKc5PtW26IQy7R5tQ22sEaMdoEcDbg3HUEdaitIX85kf5WBIIYHg96f5kUUcLW5lF4rEsQRgDtg0y2Z28yXDOw54zyfek+/UroMnIDHEo3A9lx+tMClpA20kBAWwfahzLIx47elSRl47ldhwwCc4zg8du9KK7jK+xc9/zFPiYxNuVA3HRgCK1/PvgwzOMMcA/Zhyew/HFZ9/BLHL50ilhIfvmPZz3GKbsgEW5dWLfZ4iTjrF0+lON84LEwQHccnMX/ANeoSsTbQMA7R04yaaRtAZcjA5PY0AN4ETH5skY+770U9mfyQuV244xj2opNXAjRzGQR6EdcVN57TKQIlDY++Cciq55C/SrcK7Y1XH3hmtqSbdk9CkyJ4plUtvLDvg1EuSwPfNaRBzjA9OtUCoWbaOm6rq01B3QmOtji4QbFkyfuMcA+xNaT5ZTjTrBBnGRP0P8A33WbaYN3Hn+8O6+v+1x+dbHmYVCXUbmzzJAP6VzRYitJMqRkmw0/C8/LLuP/AKFzVNlXImKRKshOEVs7fw6irl6y/ZZAsik5AwJY2z+CjNQv81hbqZOASSC+ccdcY4/Ohyd0hNkL2/lKWXLfNjjPH1qaJvJAaZsDB+Rmz2x07VXnu2dvkAQAYyoAJ+tViSTyavmjHzC1x8j5wF4A6Co6mt7Z7mTYnXGST0Aqx9khTOZN7AZIHAApKlUqLntoVYo04MQQRwfpVlhbgDCjPBxuP4irUGli6gLpIFc5IQ8kY7U6eGqVJcsNWNRb0I7e7jyC5PmjGG2jAwc8jvVmczSW0n+jxyPNNvFwnUeq8dBzWXPbvbyFHwGHbOabFPLCwaNypHoaTfK+Wa1MnBp3RNJG4ZvlJ7HA6GpLUOh2kEB+OOMjFWoLsXbYcBZtp2lSVDn0OKYsbCRc7v3Y7nOBzxUtWemwlJ7MrXWyN9oiK8dcYpobbKHwThVJ/SmyLnLAgD3brU1urtcbIwrM6qoBGcnjFC1dix/2yAsC0TdD0Cen+7UObNhyLgH6qamk067LDNsQSCflHX36+9V5beSHHmoyZ6bgRmhxYxcIT8mdueA3XHvU91bLCsDI29pV3EDt/n+lVxIQuPl6dmprOWPI9uCK0TiotNaggYYiYlfxopW5iJKt6ZorKQxmPu8dquxhTGmCM46VTPAjJ9P61LA23I25B5962jLlZL0LIwCR0qm/zSk9s1bZ2YYUEe5qKO3YsMDvTk3JpIjmI7Rc3KAK7MSMBFDHr6Hg1qSXRtkHmpcod5z8ka9un3c9CKylVsAq2ARtPGe9OmhMUAkMysScbO+MdayUXa5fMtie4vkniMamfBxjcwI49gBUU8+bWOIFsL1yxI/AdqktjJ9mNx5JZITtZwmVGQcZPr6VRkdnfJGPanJcseZ9RLVje5PagDNH8qfEPmJ7445xWK3LNS1dLa3Yx43SfLluOM+tU5JtrsFC59T0+lMhkLARMgIJ+Qgcg06aEsWKsGYHkbcZ9/eu+dWU6ajBaIdyHhRyeTyAK2LaeS3KScsSuCCcMc+n+elYwYhg3U9++a0vOjuJt21Xd+2TkU8FPkk2nZ9BxdhLxjOSWI3dRwB/Ksqr0rhASmcA4BI61VlXE7g469jWOKlzS5nuSwRtuDnGDWpLIDErtHv8wYY9ckd6yT0X24rT0vMsogLNsfO0pjcp9Bn1rGGuhlU25uxWURSuUGRxhSSBSAKbnG35cgYq9fGy+y7Y5JmnaTLBkXAHY5Bzn26VA4Xzo2RsgtkZXFN6XGpEsFtG6SEo+Q5AILgKPwBqG4EEXDickjghwR+qipYPLHmghfvHBO329SKLhDJC2V3soO0DJx7jDEDpSV7FopWsazy7HOBjqAP6kVObIdmfnp8gPf2JqGybY8h3hDs4J6Z/I06aeRAB5kEoPogP9KSemoyOYum+Ik4U45XB7UUwsXDsQAT2UYFFKV2A+N1KgSH5R6DmnF3BzGqhenLA1Bx5Z559Knto45B85y2eAeg461Tk9heo6Od3dVLxpnjJzxT5FnRpQHYqh+ZlXp7mq06KkoVRjvz1qXL28zFOAp/TuPehNrclxSZNG0KxDeA3HIJxmmXclrIirboVO7ktnJHaoSyx/KAM+tSAIIy7Fc4yADya29o2uTQSjrca7vDB5Kysofl0B4OOmRVU052LMSepptYVJ8z02LSFoU4OaSioGTrmOUMoIIOV56VbRg8geEMuRnk5Ofb2qgr8AHt0qZWZovLQkt04HaurD1VB/iAtxIHmUrtAxjcvGT60yAjzkznAPJFNCM3RSfXAzmlKujANlCOeRjFZ8zc+drqBNKFX5CcYOcDtVU4LHFOdwRgZ9z600feBqak+aWgCHk0+GR45AUbBphGDSVmnZi3NW4haWEXCyIGcglET07+30qYSz6q0cHnHMKMys7YVABk/QcVRtZiPkH3WGG5xjBrVtYmittTmNs8YW1I3M2cszqufpya7aEru3R7mXwuzGDR79Ri3vbOUN837u8Tk/QkHNJJpGtoxLWLy4HURrIPzGazoNPurmBpooy6DOcHpjqfpWnHbaesY3i8hkQYcoNw3YzxitoQpS3jb5/8AALckjLeyu4fMEtrOh6HdERj/AAqv5Y2k7uR2IrRk1HULOaRbe7vYos8BpGBI96mF5PfaPfPdt5pjMYjYgZBLeuPQGuWcKe0bg5WsZCA+W/0H86KXzGMbKMbe/FFZdNCxp4QjIqZYCFDJMpzgELnj61AQQvseaVJpIwQjsoPJwazlvoInmUfKrTKzA4GFOSPrUrK0jDcu0fxc5zVMtJI4ZmLHsTWjbxFZCH/1jHkHA2/qOfb3rSEu4mh4treSCRzjdghRnBDf1FU5IFSAleW71sOkKjmNDgdSnQeucf1qhfG3eJhEAHBB+Xpj65rdKMk3bUEmZdFLwFOetIOTXGUOOOgH403vVidFijjQHLEbmqDt0ptWEnfUmjW3aP55GV/pxQRAsgCuxXnJp9tLBGjCSLJIwDjPNV2ILkhcLnpWnMrLRFFkmJWUCeXZjnHrSFLYt/rnPuRTZJUaEiP5AWB8vGfxzSWzrHLlx9D6VTmr2sv6+YXGzLEoHluW9c01fmBXv1FSXLLJLmMEjHJx1PrTFUggkEc9cVk99BMRupB6jvTQpPQdKtm2D2wkXduxnGM5pYZ1jhWCRcwsdz7cBieg59B6UrEqSexHbxFm3bJHX+LYucV0X2uyGmTwrKnmyiM7XbhlVs7c84zgcVzTOVnJiYptPBTI/GrsUlqgjluozMQ24qDgvn1b2Pb9a1pT5WROnzO/Yn+2QC4WOezeIbzvSFtu4FcAY471bMlrGmImurIlssJ0LA9h1B5xTrZtPvLyN76zl+xvgL5D8qcddzZ/I1rppOhOxS31m/tm252ykYznGOO3vWjw8+Xng9F5kSlFK7M+Z7e9tniOrW7gjO2SIAnnseOfrVPyxY+GtQjLiTdexxggZBAVzkenWtCXwTI2TBqNu/oGxn8cE1n30LWejpp3yvILlpZBGTj7oA7Z9ayjUne7dyKdSD0i7mHvAjcBfvd/SikfgHCAD0PaiobZ13GFiVAPakHXmiikBPtU8rMv48VKsl0gJSVjk5JD5zRRVAJJcTOoWToO4UD+VRZ2ru529APeiirU2kBCwIPPWhRk0UVm1aVgJmnG3Crz/fPU1CWJoopOTYBn2FGfYUUUgEzS7j6D8qKKADcakS4ljbKORj0NFFNNoLF5dTYwuAipKQclBgMPpWeGyhG3JHIOegooqpScrNkqKWqJPPHkhPKTfuz5g649MdKjLAoVLscHIHaiipuUT291JG2DIwjONyjofwq15weIvuIIBCse4oortwkndp9iJpNFf7ZcJnbKwzwcU6e4aWzhB4Ks3I98f4UUVyy3JUUmtCqXJVstnPqelFFFSzU//9k=" alt="STAR BOY"></div>
-      <div class="about-name">STAR BOY</div>
-      <div class="about-role">الفرقة الثالثة · قسم نظم ومعلومات</div>
-
-      <div class="about-links">
-
-        <a class="about-link whatsapp-personal"
-           href="https://wa.me/+201154335024"
-           target="_blank" rel="noopener">
-          <div class="about-link-icon">
-            <i class="fab fa-whatsapp"></i>
-          </div>
-          <div class="about-link-text">
-            <div class="about-link-label">تواصل مباشر</div>
-            <div class="about-link-value">WhatsApp شخصي</div>
-          </div>
-          <i class="fas fa-arrow-left about-link-arrow"></i>
-        </a>
-
-        <a class="about-link whatsapp-group"
-           href="https://chat.whatsapp.com/LSYI2zPFgt31ON4NmVYYy2"
-           target="_blank" rel="noopener">
-          <div class="about-link-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="about-link-text">
-            <div class="about-link-label">انضم للمجموعة</div>
-            <div class="about-link-value">جروب الدفعة</div>
-          </div>
-          <i class="fas fa-arrow-left about-link-arrow"></i>
-        </a>
-
-      </div>
-
-      <button
-        class="btn btn-ghost"
-        onclick="closeModal('about-modal')"
-        style="width:100%;margin-top:1.2rem;justify-content:center">
-        إغلاق
-      </button>
-    </div>
-  </div>
-
-  <!-- REVIEW MODAL -->
-  <div id="review-modal" class="modal-overlay hidden">
-    <div class="modal review-modal">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
-        <h3 style="margin:0">📋 مراجعة الأسئلة</h3>
-        <button class="btn btn-ghost" onclick="closeModal('review-modal')" style="padding:8px 12px">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <!-- filter tabs -->
-      <div style="display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap">
-        <button class="btn" id="filter-all"    onclick="setReviewFilter('all')"     style="font-size:0.82rem;padding:7px 14px;background:var(--green);color:#000;border-color:transparent">الكل</button>
-        <button class="btn btn-ghost" id="filter-wrong"  onclick="setReviewFilter('wrong')"   style="font-size:0.82rem;padding:7px 14px">❌ الخاطئة</button>
-        <button class="btn btn-ghost" id="filter-correct" onclick="setReviewFilter('correct')" style="font-size:0.82rem;padding:7px 14px">✅ الصحيحة</button>
-        <button class="btn btn-ghost" id="filter-skipped" onclick="setReviewFilter('skipped')" style="font-size:0.82rem;padding:7px 14px">⏭ المتخطاة</button>
-      </div>
-      <div id="review-list"></div>
-    </div>
-  </div>
-
-  <footer>
-    <div style="font-size:0.9rem;font-weight:700">⭐ BY : STAR BOY</div>
-    <div style="font-size:0.8rem;margin-top:6px">الفرقة الثالثة — قسم نظم ومعلومات</div>
-  </footer>
 
   <script>
-    // ====================== SUPABASE ======================
-    const SUPABASE_URL = 'https://qokkdckumwyykjeysyiq.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjdHNmcmxncXZmaXZram1ycHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3OTcyMzMsImV4cCI6MjA5NDM3MzIzM30.Dpn3Id5Ja1MpDPw51VkYyTGhnS0RRT8KICWiawmRZQk';    const api = (path, options = {}) => fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=representation',
-        ...options.headers
-      },
-      ...options
-    });
+    // ========== CONFIG ==========
+    const CORRECT_PASSWORD = 'samir123';
+    const ADMIN_KEY = 'admin_access_granted';
 
-    // ====================== STATE ======================
+    // ========== STATE ==========
     let quizzes = [];
-    let summaries = [];
-    let subjects = [];   // list of {id, name}
-    let currentSubject = null;
-    let currentSubjectTab = 'quizzes';
-    let adminTab = 'quizzes';
-    let editingSummaryId = null;
-    let currentQuiz = null;
+    let currentPage = 'home';
+    let currentQuizId = null;
     let currentQuestionIndex = 0;
     let userAnswers = {};
-    let selectedIndex = null;
-    let editingQuizId = null;
-    let addingQuestionToQuizId = null;
-    let editingQuestionIndex = null;
-    let selectedQuizIds = new Set();
-    let selectMode = false;
-    // ADMIN_PASSWORD is no longer stored here — it is verified via Supabase app_config table
+    let isAdmin = localStorage.getItem(ADMIN_KEY) === 'true';
 
-    // ====================== THEME ======================
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+    // ========== PASSWORD ==========
+    function promptAdminPassword() {
+      document.getElementById('password-modal').classList.remove('hidden');
+      document.getElementById('pwd-input').focus();
+      document.getElementById('pwd-error').textContent = '';
     }
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.body.setAttribute('data-theme', savedTheme);
-
-    // ====================== CUSTOM CONFIRM ======================
-    let _confirmResolve = null;
-
-    function showConfirm({ title, msg, type = 'danger', icon = 'fa-trash-alt', okText = 'تأكيد' }) {
-      return new Promise(resolve => {
-        _confirmResolve = resolve;
-        document.getElementById('confirm-title').textContent = title;
-        document.getElementById('confirm-msg').textContent = msg;
-        document.getElementById('confirm-icon-i').className = `fas ${icon}`;
-        document.getElementById('confirm-icon').className = `confirm-icon-wrap ${type}`;
-        const okBtn = document.getElementById('confirm-ok-btn');
-        okBtn.textContent = okText;
-        okBtn.className = `confirm-ok-btn ${type}`;
-        document.getElementById('confirm-overlay').classList.add('open');
-      });
-    }
-
-    function confirmResolve(val) {
-      document.getElementById('confirm-overlay').classList.remove('open');
-      if (_confirmResolve) { _confirmResolve(val); _confirmResolve = null; }
-    }
-
-    // Close on overlay click
-    document.getElementById('confirm-overlay').addEventListener('click', function(e) {
-      if (e.target === this) confirmResolve(false);
-    });
-
-
-    function toast(msg, type = 'success') {
-      const el = document.getElementById('toast');
-      el.textContent = msg;
-      el.className = `show ${type}`;
-      setTimeout(() => el.className = '', 2500);
-    }
-
-    // ====================== API ======================
-    async function loadQuizzes() {
-      try {
-        const [qRes, sRes, subRes] = await Promise.all([
-          api('quizzes?select=*&order=id'),
-          api('summaries?select=*&order=id').catch(() => ({ ok: true, json: async () => [] })),
-          api('subjects?select=*&order=name').catch(() => ({ ok: true, json: async () => [] }))
-        ]);
-        if (!qRes.ok) throw new Error();
-        quizzes   = await qRes.json();
-        summaries = sRes.ok    ? (await sRes.json())    : [];
-        subjects  = subRes.ok  ? (await subRes.json())  : [];
-        renderHome();
-      } catch {
-        toast('خطأ في تحميل البيانات', 'error');
-        quizzes = [];
-        summaries = [];
-        renderHome();
-      }
-    }
-
-    async function createQuiz(title, subject) {
-      const res = await api('quizzes', {
-        method: 'POST',
-        body: JSON.stringify({ title, subject: subject || '', questions: [], published: false })
-      });
-      if (!res.ok) throw new Error();
-      return (await res.json())[0];
-    }
-
-    async function createSummary(data) {
-      const res = await api('summaries', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      });
-      if (!res.ok) throw new Error();
-      return (await res.json())[0];
-    }
-
-    async function updateSummary(id, data) {
-      const res = await api(`summaries?id=eq.${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(data)
-      });
-      if (!res.ok) throw new Error();
-    }
-
-    async function deleteSummaryFromDB(id) {
-      const res = await api(`summaries?id=eq.${id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error();
-    }
-
-    async function createSubject(name) {
-      const res = await api('subjects', {
-        method: 'POST',
-        body: JSON.stringify({ name })
-      });
-      if (!res.ok) throw new Error();
-      return (await res.json())[0];
-    }
-
-    async function deleteSubjectFromDB(id) {
-      const res = await api(`subjects?id=eq.${id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error();
-    }
-
-    async function updateQuiz(id, data) {
-      const res = await api(`quizzes?id=eq.${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(data)
-      });
-      if (!res.ok) throw new Error();
-    }
-
-    async function deleteQuizFromDB(id) {
-      const res = await api(`quizzes?id=eq.${id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error();
-    }
-
-    // ====================== HOME ======================
-    const SUBJECT_ICONS = ['fa-database','fa-network-wired','fa-code','fa-calculator','fa-brain','fa-flask','fa-microchip','fa-laptop-code','fa-project-diagram','fa-chart-bar','fa-book','fa-graduation-cap'];
-
-    function getSubjectIcon(name, idx) {
-      return SUBJECT_ICONS[idx % SUBJECT_ICONS.length];
-    }
-
-    function renderHome() {
-      document.getElementById('home-loading').classList.add('hidden');
-      document.getElementById('home-content').classList.remove('hidden');
-      showSubjectsView();
-    }
-
-    function showSubjectsView() {
-      document.getElementById('subjects-view').classList.remove('hidden');
-      document.getElementById('subject-detail-view').classList.add('hidden');
-      currentSubject = null;
-
-      const published = quizzes.filter(q => q.published);
-      // gather all subjects from quizzes + summaries
-      const subjectMap = {};
-      published.forEach(q => {
-        const s = (q.subject || 'عام').trim();
-        if (!subjectMap[s]) subjectMap[s] = { quizCount: 0, summaryCount: 0 };
-        subjectMap[s].quizCount++;
-      });
-      summaries.forEach(s => {
-        const sub = (s.subject || 'عام').trim();
-        if (!subjectMap[sub]) subjectMap[sub] = { quizCount: 0, summaryCount: 0 };
-        subjectMap[sub].summaryCount++;
-      });
-
-      const subjects = Object.keys(subjectMap);
-      const container = document.getElementById('subjects-list');
-
-      if (subjects.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-book-open"></i><p>لا يوجد محتوى متاح حالياً</p></div>`;
-        return;
-      }
-
-      container.innerHTML = subjects.map((name, idx) => {
-        const info = subjectMap[name];
-        return `
-          <div class="subject-card" onclick="openSubject('${name.replace(/'/g,"\'")}', ${idx})" style="animation-delay:${idx * 0.07}s">
-            <div class="s-icon"><i class="fas ${getSubjectIcon(name, idx)}"></i></div>
-            <h3>${name}</h3>
-            <div class="subject-meta">
-              ${info.quizCount > 0 ? `<span class="subject-meta-pill"><i class="fas fa-clipboard-list"></i> ${info.quizCount} امتحان</span>` : ''}
-              ${info.summaryCount > 0 ? `<span class="subject-meta-pill"><i class="fas fa-file-alt"></i> ${info.summaryCount} ملخص</span>` : ''}
-            </div>
-          </div>`;
-      }).join('');
-    }
-
-    function openSubject(name, iconIdx) {
-      currentSubject = name;
-      document.getElementById('subjects-view').classList.add('hidden');
-      document.getElementById('subject-detail-view').classList.remove('hidden');
-      document.getElementById('subject-detail-title').textContent = name;
-      switchSubjectTab('quizzes');
-    }
-
-    function switchSubjectTab(tab) {
-      currentSubjectTab = tab;
-      const qBtn = document.getElementById('tab-quizzes-btn');
-      const sBtn = document.getElementById('tab-summaries-btn');
-      const qList = document.getElementById('subject-quizzes-list');
-      const sList = document.getElementById('subject-summaries-list');
-
-      if (tab === 'quizzes') {
-        qBtn.className = 'btn btn-primary';
-        sBtn.className = 'btn btn-ghost';
-        qList.classList.remove('hidden');
-        sList.classList.add('hidden');
-        renderSubjectQuizzes();
+    function checkPassword() {
+      const pwd = document.getElementById('pwd-input').value;
+      const errorEl = document.getElementById('pwd-error');
+      
+      if (pwd === CORRECT_PASSWORD) {
+        localStorage.setItem(ADMIN_KEY, 'true');
+        isAdmin = true;
+        document.getElementById('password-modal').classList.add('hidden');
+        document.getElementById('pwd-input').value = '';
+        showAdminPanel();
       } else {
-        sBtn.className = 'btn btn-primary';
-        qBtn.className = 'btn btn-ghost';
-        sList.classList.remove('hidden');
-        qList.classList.add('hidden');
-        renderSubjectSummaries();
-      }
-    }
-
-    function renderSubjectQuizzes() {
-      const list = quizzes.filter(q => q.published && (q.subject || 'عام').trim() === currentSubject);
-      const container = document.getElementById('subject-quizzes-list');
-      if (list.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-clipboard-list"></i><p>لا توجد امتحانات في هذه المادة</p></div>`;
-        return;
-      }
-      container.innerHTML = list.map((q, idx) => `
-        <div class="quiz-card" onclick="startQuiz(${q.id})" style="animation-delay:${idx * 0.07}s">
-          <div class="q-icon"><i class="fas fa-file-alt"></i></div>
-          <h3>${q.title}</h3>
-          <p>${(q.questions || []).length} سؤال</p>
-          <div class="arrow"><i class="fas fa-play-circle"></i> ابدأ التدريب</div>
-        </div>
-      `).join('');
-    }
-
-    function renderSubjectSummaries() {
-      const list = summaries.filter(s => (s.subject || 'عام').trim() === currentSubject);
-      const container = document.getElementById('subject-summaries-list');
-      if (list.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-file-alt"></i><p>لا توجد ملخصات في هذه المادة</p></div>`;
-        return;
-      }
-      container.innerHTML = list.map((s, idx) => `
-        <a class="summary-card" href="${s.url}" target="_blank" rel="noopener" style="animation-delay:${idx * 0.06}s">
-          <div class="sum-icon"><i class="fas fa-file-alt"></i></div>
-          <div class="sum-info">
-            <h4>${s.title}</h4>
-            ${s.description ? `<p>${s.description}</p>` : ''}
-          </div>
-          <div class="sum-download"><i class="fas fa-download"></i> تحميل</div>
-        </a>
-      `).join('');
-    }
-
-    // ====================== QUIZ ======================
-    function saveQuizState() {
-      if (!currentQuiz) return;
-      sessionStorage.setItem('quizState', JSON.stringify({
-        quizId: currentQuiz.id,
-        currentQuestionIndex,
-        userAnswers,
-        selectedIndex
-      }));
-    }
-
-    function restoreQuizState() {
-      const saved = sessionStorage.getItem('quizState');
-      if (!saved || quizzes.length === 0) return;
-      const state = JSON.parse(saved);
-      const quiz = quizzes.find(q => q.id === state.quizId);
-      if (!quiz) return;
-      currentQuiz = quiz;
-      currentQuestionIndex = state.currentQuestionIndex;
-      userAnswers = state.userAnswers;
-      selectedIndex = state.selectedIndex;
-      showPage('quiz-page');
-      document.getElementById('quiz-title').textContent = currentQuiz.title;
-      showCurrentQuestion();
-      updateLiveScore();
-      if (selectedIndex !== null) {
+        errorEl.textContent = '❌ Incorrect password';
+        document.getElementById('pwd-input').classList.add('error');
         setTimeout(() => {
-          const el = document.getElementById(`opt-${selectedIndex}`);
-          if (el) el.classList.add('selected');
-        }, 50);
+          document.getElementById('pwd-input').classList.remove('error');
+        }, 400);
       }
-      sessionStorage.removeItem('quizState');
-      toast('تم استعادة الامتحان ✅');
-    }
-
-    function startQuiz(id) {
-      sessionStorage.removeItem('quizState');
-      currentQuiz = quizzes.find(q => q.id === id);
-      if (!currentQuiz.questions || currentQuiz.questions.length === 0) {
-        return toast('هذا الامتحان لا يحتوي على أسئلة بعد!', 'error');
-      }
-      currentQuestionIndex = 0;
-      userAnswers = {};
-      selectedIndex = null;
-      updateLiveScore();
-      showPage('quiz-page');
-      document.getElementById('quiz-title').textContent = currentQuiz.title;
-      showCurrentQuestion();
-    }
-
-    function updateLiveScore() {
-      let correct = 0, wrong = 0;
-      currentQuiz.questions.forEach((q, i) => {
-        const ans = userAnswers[i];
-        if (ans === null || ans === undefined) return;
-        if (q.type === 'essay') {
-          if (q.keywords && q.keywords.some(kw => ans.toLowerCase().includes(kw.toLowerCase()))) correct++;
-          else wrong++;
-        } else {
-          if (ans === q.correct) correct++; else wrong++;
-        }
-      });
-      const cEl = document.getElementById('live-correct');
-      const wEl = document.getElementById('live-wrong');
-      if (!cEl || !wEl) return;
-
-      const prevC = parseInt(cEl.textContent) || 0;
-      const prevW = parseInt(wEl.textContent) || 0;
-      cEl.textContent = correct;
-      wEl.textContent = wrong;
-
-      if (correct > prevC) { cEl.classList.add('bump'); setTimeout(() => cEl.classList.remove('bump'), 400); }
-      if (wrong  > prevW) { wEl.classList.add('bump'); setTimeout(() => wEl.classList.remove('bump'), 400); }
-    }
-
-    function updateProgressBar() {
-      const total = currentQuiz.questions.length;
-      const pct = ((currentQuestionIndex + 1) / total) * 100;
-      document.getElementById('progress-bar').style.width = pct + '%';
-    }
-
-    function showCurrentQuestion() {
-      selectedIndex = null;
-      const q = currentQuiz.questions[currentQuestionIndex];
-      const total = currentQuiz.questions.length;
-      document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${total}`;
-      updateProgressBar();
-
-      const isLast = currentQuestionIndex === total - 1;
-      document.getElementById('submit-btn').innerHTML = isLast
-        ? 'إنهاء الامتحان <i class="fas fa-flag-checkered"></i>'
-        : 'تقديم الإجابة <i class="fas fa-check"></i>';
-
-      let html = `
-        <div class="question-num">السؤال ${currentQuestionIndex + 1} من ${total}</div>
-        <div class="question-text">${q.question}</div>
-      `;
-
-      if (q.type === 'mcq') {
-        // A,C من اليمين — B,D من اليسار
-        const dirs = ['slide-right','slide-left','slide-right','slide-left'];
-        const delays = [0.1, 0.25, 0.4, 0.55];
-        html += `<div class="options-grid">`;
-        q.options.forEach((opt, i) => {
-          html += `
-            <div class="option ${dirs[i]}" id="opt-${i}" onclick="selectOption(${i})" style="animation-delay:${delays[i]}s">
-              <span class="option-letter">${String.fromCharCode(65 + i)}</span>
-              <span>${opt}</span>
-            </div>`;
-        });
-        html += `</div>`;
-      } else if (q.type === 'tf') {
-        html += `
-          <div class="tf-grid">
-            <div class="tf-option slide-right" id="opt-0" onclick="selectOption(0)" style="animation-delay:0.05s">✅ صح</div>
-            <div class="tf-option slide-left"  id="opt-1" onclick="selectOption(1)" style="animation-delay:0.12s">❌ خطأ</div>
-          </div>`;
-      } else {
-        html += `<textarea id="essay-input" rows="6" placeholder="اكتب إجابتك هنا..." class="slide-right"></textarea>`;
-      }
-
-      document.getElementById('question-card').innerHTML = html;
-      document.getElementById('question-card').style.animation = 'none';
-      requestAnimationFrame(() => {
-        document.getElementById('question-card').style.animation = '';
-      });
-    }
-
-    function selectOption(i) {
-      selectedIndex = i;
-      document.querySelectorAll('.option, .tf-option').forEach(el => el.classList.remove('selected'));
-      const el = document.getElementById(`opt-${i}`);
-      if (el) el.classList.add('selected');
-      saveQuizState();
-    }
-
-    function submitAnswer() {
-      const q = currentQuiz.questions[currentQuestionIndex];
-      if (q.type === 'mcq' || q.type === 'tf') {
-        if (selectedIndex === null) return toast('اختر إجابة أولاً!', 'error');
-        userAnswers[currentQuestionIndex] = selectedIndex;
-      } else {
-        const val = document.getElementById('essay-input').value.trim();
-        if (!val) return toast('اكتب إجابة!', 'error');
-        userAnswers[currentQuestionIndex] = val;
-      }
-      showFeedback();
-    }
-
-    function showFeedback() {
-      const q = currentQuiz.questions[currentQuestionIndex];
-      const container = document.getElementById('question-card');
-      const userChoice = userAnswers[currentQuestionIndex];
-      const isCorrect = (q.type === 'mcq' || q.type === 'tf') ? userChoice === q.correct : false;
-
-      // update live score after answer
-      updateLiveScore();
-
-      let html = `<div class="question-text">${q.question}</div>`;
-
-      if (q.type === 'mcq') {
-        const dirs = ['slide-right','slide-left','slide-right','slide-left'];
-        const delays = [0.03, 0.08, 0.13, 0.18];
-        html += `<div class="options-grid">`;
-        q.options.forEach((opt, i) => {
-          let cls = '';
-          if (i === q.correct) cls = 'correct';
-          else if (i === userChoice) cls = 'wrong';
-          html += `
-            <div class="option ${cls} ${dirs[i]}" style="animation-delay:${delays[i]}s">
-              <span class="option-letter">${String.fromCharCode(65 + i)}</span>
-              <span>${opt}</span>
-              ${i === q.correct ? '<i class="fas fa-check" style="margin-right:auto;color:var(--green)"></i>' : ''}
-              ${i === userChoice && i !== q.correct ? '<i class="fas fa-times" style="margin-right:auto;color:var(--red)"></i>' : ''}
-            </div>`;
-        });
-        html += `</div>`;
-        if (!isCorrect && q.explanation) {
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.25s"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
-        }
-      } else if (q.type === 'tf') {
-        html += `<div class="tf-grid">`;
-        ['✅ صح', '❌ خطأ'].forEach((label, i) => {
-          let cls = i === q.correct ? 'correct' : i === userChoice ? 'wrong' : '';
-          const dir = i === 0 ? 'slide-right' : 'slide-left';
-          html += `<div class="tf-option ${cls} ${dir}" style="animation-delay:${i*0.08}s">${label}</div>`;
-        });
-        html += `</div>`;
-        if (!isCorrect) {
-          const correctLabel = q.correct === 0 ? 'صح' : 'خطأ';
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.2s">
-            <strong>💡 الإجابة الصحيحة هي: ${correctLabel}</strong>
-            ${q.explanation ? `<br><br>${q.explanation}` : ''}
-          </div>`;
-        }
-      } else {
-        const answer = userAnswers[currentQuestionIndex];
-        const essayCorrect = q.keywords && q.keywords.some(kw => answer.toLowerCase().includes(kw.toLowerCase()));
-        html += `
-          <div class="slide-right" style="background:var(--surface2);border-radius:12px;padding:1.2rem;margin-bottom:1rem;border:1px solid var(--border)">
-            <p style="color:var(--text-dim);margin-bottom:6px;font-size:0.85rem;font-weight:700">إجابتك:</p>
-            <p>${answer}</p>
-          </div>
-          <div class="slide-left" style="font-size:1.1rem;font-weight:800;color:${essayCorrect ? 'var(--green)' : 'var(--red)'}">
-            ${essayCorrect ? '✅ إجابة صحيحة' : '❌ إجابة خاطئة'}
-          </div>`;
-        if (!essayCorrect && q.explanation) {
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.2s"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
-        }
-      }
-
-      const isLast = currentQuestionIndex === currentQuiz.questions.length - 1;
-      html += `<div class="slide-up-ex" style="text-align:center;margin-top:1.8rem;animation-delay:0.35s">
-        <button class="btn btn-primary" onclick="nextQuestion()" style="padding:13px 44px;font-size:1rem">
-          ${isLast ? 'عرض النتائج <i class="fas fa-chart-bar"></i>' : 'السؤال التالي <i class="fas fa-arrow-left"></i>'}
-        </button>
-      </div>`;
-
-      container.innerHTML = html;
-      document.getElementById('submit-btn').style.display = 'none';
-      document.querySelector('.quiz-actions button:first-child').style.display = 'none';
-    }
-
-    function nextQuestion() {
-      document.getElementById('submit-btn').style.display = '';
-      document.querySelector('.quiz-actions button:first-child').style.display = '';
-      currentQuestionIndex++;
-      if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
-      else showCurrentQuestion();
-    }
-
-    function skipQuestion() {
-      userAnswers[currentQuestionIndex] = null;
-      currentQuestionIndex++;
-      if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
-      else showCurrentQuestion();
-    }
-
-    async function exitQuiz() {
-      const ok = await showConfirm({
-        title: 'خروج من الامتحان',
-        msg: 'لو خرجت دلوقتي هتخسر تقدمك في الامتحان، هل أنت متأكد؟',
-        type: 'warning',
-        icon: 'fa-door-open',
-        okText: 'نعم، اخرج'
-      });
-      if (ok) showHome();
-    }
-
-    // ====================== RESULTS ======================
-    function showResults() {
-      showPage('results-page');
-      let correct = 0, wrong = 0, skipped = 0;
-      currentQuiz.questions.forEach((q, i) => {
-        const ans = userAnswers[i];
-        if (ans === null || ans === undefined) { skipped++; return; }
-        if (q.type === 'essay') {
-          if (q.keywords && q.keywords.some(kw => ans.toLowerCase().includes(kw.toLowerCase()))) correct++;
-          else wrong++;
-        } else {
-          if (ans === q.correct) correct++;
-          else wrong++;
-        }
-      });
-      const total = currentQuiz.questions.length;
-      const pct = Math.round((correct / total) * 100);
-
-      document.getElementById('correct-count').textContent = correct;
-      document.getElementById('wrong-count').textContent = wrong;
-      document.getElementById('skipped-count').textContent = skipped;
-      document.getElementById('accuracy').textContent = `${pct}%`;
-      document.getElementById('score').textContent = `${correct} من ${total}`;
-    }
-
-    function backToHome() { showHome(); }
-
-    // ====================== REVIEW MODAL ======================
-    let reviewFilter = 'all';
-
-    function showReviewModal() {
-      reviewFilter = 'all';
-      renderReviewList();
-      document.getElementById('review-modal').classList.remove('hidden');
-    }
-
-    function setReviewFilter(f) {
-      reviewFilter = f;
-      // update tab styles
-      ['all','wrong','correct','skipped'].forEach(tab => {
-        const btn = document.getElementById(`filter-${tab}`);
-        if (!btn) return;
-        if (tab === f) {
-          btn.style.background = 'var(--green)';
-          btn.style.color = '#000';
-          btn.style.borderColor = 'transparent';
-          btn.classList.remove('btn-ghost');
-        } else {
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.style.borderColor = '';
-          btn.classList.add('btn-ghost');
-        }
-      });
-      renderReviewList();
-    }
-
-    function getQuestionResult(q, i) {
-      const ans = userAnswers[i];
-      if (ans === null || ans === undefined) return 'skipped';
-      if (q.type === 'essay') {
-        return q.keywords && q.keywords.some(kw => ans.toLowerCase().includes(kw.toLowerCase())) ? 'correct' : 'wrong';
-      }
-      return ans === q.correct ? 'correct' : 'wrong';
-    }
-
-    function renderReviewList() {
-      const container = document.getElementById('review-list');
-      const questions = currentQuiz.questions;
-
-      const items = questions.map((q, i) => ({ q, i, result: getQuestionResult(q, i) }))
-        .filter(({ result }) => reviewFilter === 'all' || result === reviewFilter);
-
-      if (items.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-check-double"></i><p>لا توجد أسئلة في هذه الفئة</p></div>`;
-        return;
-      }
-
-      container.innerHTML = items.map(({ q, i, result }, idx) => {
-        const ans = userAnswers[i];
-        const badgeClass = result === 'correct' ? 'badge-correct' : result === 'wrong' ? 'badge-wrong' : 'badge-skipped';
-        const badgeText = result === 'correct' ? '✅ صح' : result === 'wrong' ? '❌ غلط' : '⏭ متخطي';
-        const cardClass = `review-${result}`;
-
-        let answersHtml = '';
-        if (q.type === 'mcq') {
-          if (result === 'wrong' && ans !== null && ans !== undefined) {
-            answersHtml += `<div class="review-answer-row user-wrong"><i class="fas fa-times-circle"></i> إجابتك: ${q.options[ans]}</div>`;
-          }
-          answersHtml += `<div class="review-answer-row correct-ans"><i class="fas fa-check-circle"></i> الصح: ${q.options[q.correct]}</div>`;
-        } else if (q.type === 'tf') {
-          const labels = ['صح', 'خطأ'];
-          if (result === 'wrong' && ans !== null && ans !== undefined) {
-            answersHtml += `<div class="review-answer-row user-wrong"><i class="fas fa-times-circle"></i> إجابتك: ${labels[ans]}</div>`;
-          }
-          answersHtml += `<div class="review-answer-row correct-ans"><i class="fas fa-check-circle"></i> الصح: ${labels[q.correct]}</div>`;
-        } else if (q.type === 'essay' && ans) {
-          answersHtml += `<div class="review-answer-row" style="background:var(--surface3)"><i class="fas fa-pen"></i> إجابتك: ${ans}</div>`;
-          if (result === 'wrong' && q.keywords?.length) {
-            answersHtml += `<div class="review-answer-row correct-ans"><i class="fas fa-key"></i> كلمات مفتاحية: ${q.keywords.join('، ')}</div>`;
-          }
-        }
-
-        const explanationHtml = q.explanation
-          ? `<div class="review-explanation"><strong>💡 الشرح:</strong> ${q.explanation}</div>`
-          : '';
-
-        return `
-          <div class="review-item ${cardClass}" style="animation-delay:${idx * 0.04}s">
-            <div class="review-item-header">
-              <span class="review-badge ${badgeClass}">${badgeText}</span>
-              <span style="font-size:0.8rem;color:var(--text-muted);font-weight:700">سؤال ${i + 1}</span>
-            </div>
-            <div class="review-q-text">${q.question}</div>
-            <div class="review-answers">${answersHtml}</div>
-            ${explanationHtml}
-          </div>`;
-      }).join('');
-    }
-
-    // ====================== PASSWORD MODAL ======================
-    function promptAdmin() {
-      document.getElementById('pwd-input').value = '';
-      document.getElementById('pwd-error').textContent = '';
-      document.getElementById('pwd-input').classList.remove('error');
-      updatePwdDots();
-      document.getElementById('pwd-modal').classList.remove('hidden');
-      setTimeout(() => document.getElementById('pwd-input').focus(), 300);
-    }
-
-    function onPwdInput() {
-      document.getElementById('pwd-error').textContent = '';
-      document.getElementById('pwd-input').classList.remove('error');
-      updatePwdDots();
     }
 
     function updatePwdDots() {
-      const val = document.getElementById('pwd-input').value;
+      const len = document.getElementById('pwd-input').value.length;
       const dots = document.querySelectorAll('.pwd-dot');
       dots.forEach((dot, i) => {
-        dot.classList.toggle('filled', i < val.length);
+        if (i < len) dot.classList.add('filled');
+        else dot.classList.remove('filled');
       });
     }
 
     function togglePwdVisibility() {
       const input = document.getElementById('pwd-input');
-      const icon = document.getElementById('pwd-eye-icon');
+      const toggle = document.querySelector('.pwd-toggle');
       if (input.type === 'password') {
         input.type = 'text';
-        input.style.letterSpacing = '1px';
-        icon.className = 'fas fa-eye-slash';
+        toggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
       } else {
         input.type = 'password';
-        input.style.letterSpacing = '3px';
-        icon.className = 'fas fa-eye';
+        toggle.innerHTML = '<i class="fas fa-eye"></i>';
       }
     }
 
-    async function submitPwd() {
-      const val    = document.getElementById('pwd-input').value;
-      const pwdBtn = document.querySelector('.pwd-btn');
-      const errEl  = document.getElementById('pwd-error');
+    // ========== THEME ==========
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
 
-      pwdBtn.disabled = true;
-      pwdBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
-      errEl.textContent = '';
+    // ========== NAV ==========
+    function goHome() {
+      currentPage = 'home';
+      render();
+    }
 
-      try {
-        // Fetch all active password hashes from admin_passwords table
-        const res = await api('admin_passwords?select=hash&active=eq.true');
-        if (!res.ok) throw new Error('network');
-        const rows = await res.json();
-        if (!rows || rows.length === 0) throw new Error('no_config');
-
-        // Hash what the user typed and compare against ALL active hashes
-        const hashHex = await sha256(val);
-        const matched = rows.some(r => r.hash === hashHex);
-
-        if (!matched) {
-          errEl.textContent = '❌ كلمة السر غلط، حاول تاني';
-          document.getElementById('pwd-input').classList.add('error');
-          document.getElementById('pwd-input').value = '';
-          updatePwdDots();
-          setTimeout(() => document.getElementById('pwd-input').focus(), 100);
-          return;
-        }
-
-        closeModal('pwd-modal');
-        showPage('admin-page');
-        switchAdminTab('quizzes');
-      } catch (err) {
-        if (err.message === 'no_config') {
-          errEl.textContent = '⚠️ مفيش باسوردات متاحة — راجع جدول admin_passwords في Supabase';
-        } else {
-          errEl.textContent = '⚠️ خطأ في الاتصال، حاول تاني';
-        }
-      } finally {
-        pwdBtn.disabled = false;
-        pwdBtn.innerHTML = '<i class="fas fa-unlock-alt"></i> دخول';
+    // ========== RENDER ==========
+    function render() {
+      const main = document.getElementById('main');
+      
+      if (currentPage === 'home') {
+        renderHome();
+      } else if (currentPage === 'quiz') {
+        renderQuiz();
+      } else if (currentPage === 'results') {
+        renderResults();
+      } else if (currentPage === 'admin') {
+        renderAdmin();
       }
     }
 
-    // SHA-256 helper (browser built-in, no external library needed)
-    async function sha256(message) {
-      const msgBuffer  = new TextEncoder().encode(message);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-      const hashArray  = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-
-    // ====================== ADMIN ======================
-    // ── helpers: populate subject <select> elements ──
-    function fillSubjectDropdowns(selectedValue) {
-      ['quiz-subject-input', 'summary-subject-input'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const cur = selectedValue !== undefined ? selectedValue : el.value;
-        el.innerHTML = '<option value="">-- اختر المادة --</option>' +
-          subjects.map(s => `<option value="${s.name}"${s.name === cur ? ' selected' : ''}>${s.name}</option>`).join('');
-      });
-    }
-
-    // ── subjects admin ──
-    function renderAdminSubjects() {
-      const container = document.getElementById('admin-subjects-list');
-      let html = `
-        <div class="animate-up" style="margin-bottom:1.2rem">
-          <div style="display:flex;gap:10px;align-items:center">
-            <input type="text" id="new-subject-input"
-              placeholder="اسم المادة الجديدة..."
-              style="flex:1;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;color:var(--text);font-family:'Cairo',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s"
-              onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
-              onkeydown="if(event.key==='Enter') addSubject()">
-            <button class="btn btn-primary" onclick="addSubject()">
-              <i class="fas fa-plus"></i> إضافة
-            </button>
-          </div>
-        </div>`;
-
-      if (subjects.length === 0) {
-        html += `<div class="empty"><i class="fas fa-layer-group"></i><p>لا توجد مواد بعد — أضف مادة من فوق</p></div>`;
-      } else {
-        html += subjects.map((s, idx) => `
-          <div class="admin-summary-card" style="animation-delay:${idx * 0.05}s">
-            <div style="flex:1;display:flex;align-items:center;gap:10px">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--green-glow);border:1px solid rgba(0,230,118,0.2);display:flex;align-items:center;justify-content:center;color:var(--green)">
-                <i class="fas fa-book"></i>
-              </div>
-              <span style="font-weight:800;font-size:1rem">${s.name}</span>
-            </div>
-            <div class="admin-actions">
-              <button class="btn btn-danger" onclick="removeSubject(${s.id}, '${s.name.replace(/'/g,"\'")}')">
-                <i class="fas fa-trash"></i> حذف
-              </button>
-            </div>
-          </div>`).join('');
-      }
-
-      container.innerHTML = html;
-    }
-
-    async function addSubject() {
-      const input = document.getElementById('new-subject-input');
-      const name = input.value.trim();
-      if (!name) return toast('اكتب اسم المادة!', 'error');
-      if (subjects.find(s => s.name === name)) return toast('المادة دي موجودة بالفعل!', 'error');
-      try {
-        const newS = await createSubject(name);
-        subjects.push(newS);
-        subjects.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
-        input.value = '';
-        renderAdminSubjects();
-        fillSubjectDropdowns();
-        toast(`تمت إضافة "${name}" ✅`);
-      } catch {
-        toast('خطأ في الإضافة!', 'error');
-      }
-    }
-
-    async function removeSubject(id, name) {
-      const ok = await showConfirm({
-        title: 'حذف المادة',
-        msg: `هيتم حذف مادة "${name}". الامتحانات والملخصات المرتبطة بيها مش هتتحذف، بس مش هتظهر في قائمة المواد.`,
-        type: 'danger', icon: 'fa-layer-group', okText: 'نعم، احذف'
-      });
-      if (!ok) return;
-      try {
-        await deleteSubjectFromDB(id);
-        subjects = subjects.filter(s => s.id !== id);
-        renderAdminSubjects();
-        fillSubjectDropdowns();
-        toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
-    }
-
-    function switchAdminTab(tab) {
-      adminTab = tab;
-      const qTab  = document.getElementById('admin-tab-quizzes');
-      const sTab  = document.getElementById('admin-tab-summaries');
-      const subTab = document.getElementById('admin-tab-subjects');
-      const addBtn = document.getElementById('admin-add-btn');
-      const qList  = document.getElementById('admin-quizzes-list');
-      const sList  = document.getElementById('admin-summaries-list');
-      const subList = document.getElementById('admin-subjects-list');
-
-      // reset all tabs
-      qTab.className = 'btn btn-ghost'; sTab.className = 'btn btn-ghost';
-      if (subTab) subTab.className = 'btn btn-ghost';
-      qList.classList.add('hidden'); sList.classList.add('hidden'); subList.classList.add('hidden');
-
-      if (tab === 'quizzes') {
-        qTab.className = 'btn btn-blue';
-        qList.classList.remove('hidden');
-        addBtn.style.display = '';
-        addBtn.innerHTML = '<i class="fas fa-plus"></i> امتحان جديد';
-        addBtn.onclick = () => showAddQuizModal();
-        renderAdminQuizzes();
-      } else if (tab === 'summaries') {
-        sTab.className = 'btn btn-blue';
-        sList.classList.remove('hidden');
-        addBtn.style.display = '';
-        addBtn.innerHTML = '<i class="fas fa-plus"></i> ملخص جديد';
-        addBtn.onclick = () => showAddSummaryModal();
-        renderAdminSummaries();
-      } else {
-        if (subTab) subTab.className = 'btn btn-blue';
-        subList.classList.remove('hidden');
-        addBtn.style.display = 'none';
-        renderAdminSubjects();
-      }
-    }
-
-    function renderAdminSummaries() {
-      const container = document.getElementById('admin-summaries-list');
-      if (summaries.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-file-alt"></i><p>لا توجد ملخصات — اضغط "ملخص جديد"</p></div>`;
-        return;
-      }
-      container.innerHTML = summaries.map((s, idx) => `
-        <div class="admin-summary-card" style="animation-delay:${idx * 0.05}s">
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-              <i class="fas fa-file-alt" style="color:var(--amber);font-size:0.9rem"></i>
-              <h4 style="font-size:1rem;font-weight:800">${s.title}</h4>
-            </div>
-            <p style="color:var(--text-dim);font-size:0.85rem;margin-right:20px">
-              📚 ${s.subject || 'عام'}
-              ${s.description ? ' &nbsp;•&nbsp; ' + s.description.substring(0,50) : ''}
-            </p>
-          </div>
-          <div class="admin-actions">
-            <a href="${s.url}" target="_blank" class="btn btn-ghost" title="معاينة">
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-            <button class="btn btn-blue" onclick="openEditSummary(${s.id})" title="تعديل">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-danger" onclick="confirmDeleteSummary(${s.id})" title="حذف">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function openEditSummary(id) {
-      editingSummaryId = id;
-      const s = summaries.find(s => s.id === id);
-      document.getElementById('summary-name-input').value = s.title;
-      document.getElementById('summary-url-input').value = s.url;
-      document.getElementById('summary-desc-input').value = s.description || '';
-      fillSubjectDropdowns(s.subject || '');
-      document.getElementById('summary-modal-title').innerHTML = '<i class="fas fa-edit" style="color:var(--green);margin-left:8px"></i> تعديل الملخص';
-      document.getElementById('summary-modal').classList.remove('hidden');
-    }
-
-    function renderAdminQuizzes() {
-      const container = document.getElementById('admin-quizzes-list');
-      if (quizzes.length === 0) {
-        container.innerHTML = `<div class="empty"><i class="fas fa-plus-circle"></i><p>لا توجد امتحانات — اضغط "امتحان جديد"</p></div>`;
-        updateBulkBar();
-        return;
-      }
-
-      const allPublished = quizzes.every(q => q.published);
-      const allChecked = quizzes.length > 0 && quizzes.every(q => selectedQuizIds.has(q.id));
-
-      let html = `
-        <div style="display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap;align-items:center" class="animate-up">
-          <button class="btn btn-blue" onclick="toggleSelectAll()" style="flex:1">
-            <i class="fas fa-${allPublished ? 'eye-slash' : 'eye'}"></i>
-            ${allPublished ? 'إخفاء الكل' : 'عرض الكل'}
-          </button>
-          <button class="btn btn-select-mode ${selectMode ? 'active' : ''}" onclick="toggleSelectMode()">
-            <i class="fas fa-${selectMode ? 'times' : 'check-square'}"></i>
-            ${selectMode ? 'إلغاء التحديد' : 'تحديد'}
-          </button>
-          ${selectMode ? `
-          <button class="btn btn-ghost" onclick="selectAllQuizzes()" style="font-size:0.85rem;padding:9px 12px">
-            <i class="fas fa-${allChecked ? 'square' : 'check-double'}"></i>
-            ${allChecked ? 'إلغاء الكل' : 'تحديد الكل'}
-          </button>` : ''}
-        </div>
+    function renderHome() {
+      const main = document.getElementById('main');
+      main.innerHTML = `
+        <h1 class="page-title">امتحانات <span>الدفعة</span></h1>
+        <p class="page-sub">كلية الطب - جامعة قنا الأهلية</p>
+        <div id="quizzes-list"></div>
       `;
-
-      html += quizzes.map((q, idx) => {
-        const isChecked = selectedQuizIds.has(q.id);
-        return `
-        <div class="admin-quiz-card ${isChecked ? 'selected-card' : ''}"
-          style="border-color:${isChecked ? 'var(--green)' : q.published ? 'rgba(0,230,118,0.3)' : 'var(--border)'};animation-delay:${idx * 0.05}s;cursor:${selectMode ? 'pointer' : 'default'}"
-          onclick="${selectMode ? `toggleQuizCheck(${q.id})` : 'void(0)'}">
-          ${selectMode ? `
-          <div class="quiz-checkbox ${isChecked ? 'checked' : ''}" onclick="event.stopPropagation();toggleQuizCheck(${q.id})"></div>
-          ` : ''}
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-              <span style="width:8px;height:8px;border-radius:50%;background:${q.published ? 'var(--green)' : 'var(--text-muted)'};display:inline-block;box-shadow:${q.published ? '0 0 6px var(--green)' : 'none'};flex-shrink:0"></span>
-              <h4>${q.title}</h4>
-            </div>
-            <p style="margin-right:16px">
-              ${(q.questions || []).length} سؤال &nbsp;•&nbsp;
-              ${q.subject ? `<span style="background:var(--surface3);padding:2px 10px;border-radius:20px;font-size:0.78rem;font-weight:700">📚 ${q.subject}</span> &nbsp;•&nbsp;` : ''}
-              <span style="color:${q.published ? 'var(--green)' : 'var(--text-dim)'}">
-                ${q.published ? '🟢 معروض للطلاب' : '⚫ مخفي'}
-              </span>
-            </p>
-          </div>
-          ${!selectMode ? `
-          <div class="admin-actions">
-            <button class="btn btn-ghost" onclick="openRenameQuizModal(${q.id})" title="تعديل الاسم والمادة" style="font-size:0.82rem;padding:9px 10px">
-              <i class="fas fa-tag"></i>
-            </button>
-            <button class="btn btn-blue" onclick="openEditQuiz(${q.id})" title="تعديل الأسئلة">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button onclick="togglePublish(${q.id})"
-              class="btn"
-              style="background:${q.published ? 'var(--surface3)' : 'var(--green)'};color:${q.published ? 'var(--text-dim)' : '#000'};border-color:transparent"
-              title="${q.published ? 'إخفاء' : 'عرض'}">
-              <i class="fas fa-${q.published ? 'eye-slash' : 'eye'}"></i>
-              ${q.published ? 'إخفاء' : 'عرض'}
-            </button>
-            <button class="btn btn-danger" onclick="confirmDeleteQuiz(${q.id})" title="حذف">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>` : ''}
-        </div>
-      `}).join('');
-
-      container.innerHTML = html;
-      updateBulkBar();
-    }
-
-    function toggleSelectMode() {
-      selectMode = !selectMode;
-      if (!selectMode) {
-        selectedQuizIds.clear();
-      }
-      renderAdminQuizzes();
-    }
-
-    function toggleQuizCheck(id) {
-      if (selectedQuizIds.has(id)) selectedQuizIds.delete(id);
-      else selectedQuizIds.add(id);
-      renderAdminQuizzes();
-    }
-
-    function selectAllQuizzes() {
-      const allChecked = quizzes.every(q => selectedQuizIds.has(q.id));
-      if (allChecked) selectedQuizIds.clear();
-      else quizzes.forEach(q => selectedQuizIds.add(q.id));
-      renderAdminQuizzes();
-    }
-
-    function clearSelection() {
-      selectedQuizIds.clear();
-      selectMode = false;
-      renderAdminQuizzes();
-    }
-
-    function updateBulkBar() {
-      const bar = document.getElementById('bulk-bar');
-      const count = selectedQuizIds.size;
-      document.getElementById('bulk-count').textContent = count;
-      const label = document.querySelector('#bulk-bar .bulk-label');
-      if (label) label.textContent = count === 1 ? 'امتحان محدد' : 'امتحانات محددة';
-      if (count > 0) bar.classList.add('visible');
-      else bar.classList.remove('visible');
-    }
-
-    async function deleteSelectedQuizzes() {
-      const count = selectedQuizIds.size;
-      if (count === 0) return;
-      const ok = await showConfirm({
-        title: `حذف ${count} امتحان${count > 1 ? 'ات' : ''}`,
-        msg: `هيتم حذف ${count} امتحان${count > 1 ? 'ات' : ''} نهائياً ومش هينفع ترجعهم تاني. هل أنت متأكد؟`,
-        type: 'danger',
-        icon: 'fa-trash-alt',
-        okText: 'نعم، احذف'
-      });
-      if (!ok) return;
-
-      const ids = [...selectedQuizIds];
-      try {
-        await Promise.all(ids.map(id => deleteQuizFromDB(id)));
-        quizzes = quizzes.filter(q => !ids.includes(q.id));
-        selectedQuizIds.clear();
-        selectMode = false;
-        renderAdminQuizzes();
-        toast(`✅ تم حذف ${count} امتحان${count > 1 ? 'ات' : ''}`);
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
-    }
-
-    async function togglePublish(id) {
-      const quiz = quizzes.find(q => q.id === id);
-      const newVal = !quiz.published;
-      try {
-        await updateQuiz(id, { published: newVal });
-        quiz.published = newVal;
-        renderAdminQuizzes();
-        toast(newVal ? '✅ تم عرض الامتحان للطلاب' : '🔒 تم إخفاء الامتحان', newVal ? 'success' : 'error');
-      } catch {
-        toast('خطأ في التحديث!', 'error');
-      }
-    }
-
-    async function toggleSelectAll() {
-      const allPublished = quizzes.every(q => q.published);
-      const newVal = !allPublished;
-      try {
-        await Promise.all(quizzes.map(q => updateQuiz(q.id, { published: newVal })));
-        quizzes.forEach(q => q.published = newVal);
-        renderAdminQuizzes();
-        toast(newVal ? '✅ تم عرض جميع الامتحانات' : '🔒 تم إخفاء جميع الامتحانات', newVal ? 'success' : 'error');
-      } catch {
-        toast('خطأ في التحديث!', 'error');
-      }
-    }
-
-    function openRenameQuizModal(id) {
-      editingQuizId = id;
-      const q = quizzes.find(q => q.id === id);
-      document.getElementById('modal-title').textContent = 'تعديل الامتحان';
-      document.getElementById('quiz-name-input').value = q.title;
-      fillSubjectDropdowns(q.subject || '');
-      document.getElementById('quiz-modal').classList.remove('hidden');
-    }
-
-    function showAddQuizModal() {
-      editingQuizId = null;
-      document.getElementById('modal-title').textContent = 'إضافة امتحان جديد';
-      document.getElementById('quiz-name-input').value = '';
-      fillSubjectDropdowns('');
-      document.getElementById('quiz-modal').classList.remove('hidden');
-    }
-
-    async function saveQuizModal() {
-      const title = document.getElementById('quiz-name-input').value.trim();
-      const subject = document.getElementById('quiz-subject-input').value.trim();
-      if (!title) return toast('اكتب اسم الامتحان!', 'error');
-      if (!subject) return toast('اختر المادة!', 'error');
-      try {
-        if (editingQuizId) {
-          await updateQuiz(editingQuizId, { title, subject });
-          const q = quizzes.find(q => q.id === editingQuizId);
-          if (q) { q.title = title; q.subject = subject; }
-          toast('تم تحديث الامتحان ✅');
-        } else {
-          const newQuiz = await createQuiz(title, subject);
-          quizzes.push(newQuiz);
-          toast('تم إضافة الامتحان ✅');
-        }
-        closeModal('quiz-modal');
-        renderAdminQuizzes();
-      } catch {
-        toast('خطأ في الحفظ!', 'error');
-      }
-    }
-
-    function showAddSummaryModal() {
-      editingSummaryId = null;
-      document.getElementById('summary-modal-title').innerHTML = '<i class="fas fa-file-alt" style="color:var(--green);margin-left:8px"></i> إضافة ملخص';
-      document.getElementById('summary-name-input').value = '';
-      document.getElementById('summary-url-input').value = '';
-      document.getElementById('summary-desc-input').value = '';
-      fillSubjectDropdowns('');
-      document.getElementById('summary-modal').classList.remove('hidden');
-    }
-
-    async function saveSummaryModal() {
-      const title = document.getElementById('summary-name-input').value.trim();
-      const subject = document.getElementById('summary-subject-input').value.trim();
-      const url = document.getElementById('summary-url-input').value.trim();
-      const description = document.getElementById('summary-desc-input').value.trim();
-      if (!title) return toast('اكتب اسم الملخص!', 'error');
-      if (!subject) return toast('اختر المادة!', 'error');
-      if (!url) return toast('أدخل رابط الملخص!', 'error');
-      try {
-        if (editingSummaryId) {
-          await updateSummary(editingSummaryId, { title, subject, url, description });
-          const s = summaries.find(s => s.id === editingSummaryId);
-          if (s) Object.assign(s, { title, subject, url, description });
-          toast('تم تحديث الملخص ✅');
-        } else {
-          const newS = await createSummary({ title, subject, url, description });
-          summaries.push(newS);
-          toast('تم إضافة الملخص ✅');
-        }
-        closeModal('summary-modal');
-        renderAdminSummaries();
-      } catch {
-        toast('خطأ في الحفظ!', 'error');
-      }
-    }
-
-    async function confirmDeleteSummary(id) {
-      const s = summaries.find(s => s.id === id);
-      const ok = await showConfirm({
-        title: 'حذف الملخص',
-        msg: `هيتم حذف "${s ? s.title : 'الملخص'}" نهائياً. هل أنت متأكد؟`,
-        type: 'danger', icon: 'fa-trash-alt', okText: 'نعم، احذف'
-      });
-      if (!ok) return;
-      try {
-        await deleteSummaryFromDB(id);
-        summaries = summaries.filter(s => s.id !== id);
-        renderAdminSummaries();
-        toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
-    }
-
-    async function confirmDeleteQuiz(id) {
-      const quiz = quizzes.find(q => q.id === id);
-      const ok = await showConfirm({
-        title: 'حذف الامتحان',
-        msg: `هيتم حذف "${quiz ? quiz.title : 'الامتحان'}" نهائياً مع كل أسئلته. مش هينفع ترجعه تاني!`,
-        type: 'danger',
-        icon: 'fa-trash-alt',
-        okText: 'نعم، احذف'
-      });
-      if (!ok) return;
-      try {
-        await deleteQuizFromDB(id);
-        quizzes = quizzes.filter(q => q.id !== id);
-        renderAdminQuizzes();
-        toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
-    }
-
-    // ─── EDIT QUIZ ───
-    function openEditQuiz(id) {
-      addingQuestionToQuizId = id;
-      const quiz = quizzes.find(q => q.id === id);
-      const container = document.getElementById('admin-quizzes-list');
-
-      let html = `
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem" class="animate-up">
-          <button class="btn btn-ghost" onclick="renderAdminQuizzes()">
-            <i class="fas fa-arrow-right"></i> رجوع
-          </button>
-          <h3 style="font-size:1.3rem;font-weight:900">${quiz.title}</h3>
-        </div>
-        <div style="display:flex;gap:10px;margin-bottom:1.2rem;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="openAddQuestionModal()">
-            <i class="fas fa-plus"></i> إضافة سؤال
-          </button>
-          <button class="btn btn-blue" onclick="openImportModal()">
-            <i class="fas fa-file-import"></i> استيراد من TXT
-          </button>
-        </div>
-        <div>
-      `;
-
-      (quiz.questions || []).forEach((q, i) => {
-        html += `
-          <div class="admin-quiz-card" style="animation-delay:${i * 0.05}s">
-            <div style="flex:1;margin-left:1rem">
-              <p style="font-weight:700;line-height:1.5">${i + 1}. ${q.question.substring(0, 80)}${q.question.length > 80 ? '...' : ''}</p>
-              <p style="margin-top:4px">
-                <span style="background:var(--surface3);padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700">
-                  ${q.type === 'mcq' ? 'اختياري' : q.type === 'tf' ? 'صح/خطأ' : 'مقالي'}
-                </span>
-              </p>
-            </div>
-            <button class="btn btn-blue" onclick="openEditQuestionModal(${id}, ${i})" style="margin-left:6px">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-danger" onclick="deleteQuestion(${id}, ${i})">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        `;
-      });
-
-      if ((quiz.questions || []).length === 0) {
-        html += `<div class="empty"><i class="fas fa-question-circle"></i><p>لا توجد أسئلة بعد</p></div>`;
-      }
-
-      html += `</div>`;
-      container.innerHTML = html;
-    }
-
-    function openEditQuestionModal(quizId, qIndex) {
-      addingQuestionToQuizId = quizId;
-      editingQuestionIndex = qIndex;
-      const quiz = quizzes.find(q => q.id === quizId);
-      const q = quiz.questions[qIndex];
-      document.getElementById('q-type').value = q.type;
-      document.getElementById('q-text').value = q.question;
-      document.getElementById('q-explanation').value = q.explanation || '';
-      if (q.type === 'mcq') {
-        q.options.forEach((opt, i) => document.getElementById(`opt-${i}`).value = opt);
-        document.getElementById('correct-mcq').value = q.correct;
-      } else if (q.type === 'tf') {
-        document.getElementById('correct-tf').value = q.correct;
-        document.getElementById('tf-reason').value = q.explanation || '';
-      } else {
-        document.getElementById('keywords').value = (q.keywords || []).join(', ');
-      }
-      updateQuestionForm();
-      document.getElementById('question-modal-title').textContent = 'تعديل السؤال';
-      document.getElementById('save-question-btn').textContent = 'حفظ التعديل';
-      document.getElementById('question-modal').classList.remove('hidden');
-    }
-
-    function openAddQuestionModal() {
-      editingQuestionIndex = null;
-      document.getElementById('question-modal-title').textContent = 'إضافة سؤال جديد';
-      document.getElementById('save-question-btn').textContent = 'إضافة السؤال';
-      document.getElementById('q-type').value = 'mcq';
-      document.getElementById('q-text').value = '';
-      ['opt-0','opt-1','opt-2','opt-3'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('correct-mcq').value = '0';
-      document.getElementById('correct-tf').value = '0';
-      document.getElementById('tf-reason').value = '';
-      document.getElementById('keywords').value = '';
-      document.getElementById('q-explanation').value = '';
-      updateQuestionForm();
-      document.getElementById('question-modal').classList.remove('hidden');
-    }
-
-    function updateQuestionForm() {
-      const type = document.getElementById('q-type').value;
-      document.getElementById('mcq-section').classList.toggle('hidden', type !== 'mcq');
-      document.getElementById('tf-section').classList.toggle('hidden', type !== 'tf');
-      document.getElementById('essay-section').classList.toggle('hidden', type !== 'essay');
-    }
-
-    async function saveQuestion() {
-      const type = document.getElementById('q-type').value;
-      const questionText = document.getElementById('q-text').value.trim();
-      if (!questionText) return toast('اكتب نص السؤال!', 'error');
-
-      let q = {
-        id: Date.now(), type, question: questionText,
-        explanation: document.getElementById('q-explanation').value.trim()
-      };
-
-      if (type === 'mcq') {
-        const opts = ['opt-0','opt-1','opt-2','opt-3'].map(id => document.getElementById(id).value.trim());
-        if (opts.some(o => !o)) return toast('اكتب جميع الخيارات!', 'error');
-        q.options = opts;
-        q.correct = parseInt(document.getElementById('correct-mcq').value);
-      } else if (type === 'tf') {
-        q.options = ['صح', 'خطأ'];
-        q.correct = parseInt(document.getElementById('correct-tf').value);
-        q.explanation = document.getElementById('tf-reason').value.trim() || document.getElementById('q-explanation').value.trim();
-      } else {
-        const kw = document.getElementById('keywords').value.trim();
-        q.keywords = kw ? kw.split(',').map(k => k.trim()) : [];
-      }
-
-      const quiz = quizzes.find(q => q.id === addingQuestionToQuizId);
-      quiz.questions = quiz.questions || [];
-
-      let oldQ = null;
-      if (editingQuestionIndex !== null) {
-        oldQ = quiz.questions[editingQuestionIndex];
-        quiz.questions[editingQuestionIndex] = { ...oldQ, ...q };
-      } else {
-        quiz.questions.push(q);
-      }
-
-      try {
-        await updateQuiz(quiz.id, { questions: quiz.questions });
-        toast(editingQuestionIndex !== null ? 'تم تعديل السؤال ✅' : 'تم إضافة السؤال ✅');
-        closeModal('question-modal');
-        openEditQuiz(quiz.id);
-      } catch {
-        if (editingQuestionIndex !== null) quiz.questions[editingQuestionIndex] = oldQ;
-        else quiz.questions.pop();
-        toast('خطأ في الحفظ!', 'error');
-      }
-    }
-
-    async function deleteQuestion(quizId, index) {
-      const ok = await showConfirm({
-        title: 'حذف السؤال',
-        msg: 'هيتم حذف السؤال ده نهائياً من الامتحان. هل أنت متأكد؟',
-        type: 'danger',
-        icon: 'fa-minus-circle',
-        okText: 'نعم، احذف'
-      });
-      if (!ok) return;
-      const quiz = quizzes.find(q => q.id === quizId);
-      const removed = quiz.questions.splice(index, 1);
-      try {
-        await updateQuiz(quiz.id, { questions: quiz.questions });
-        toast('تم الحذف ✅');
-        openEditQuiz(quizId);
-      } catch {
-        quiz.questions.splice(index, 0, removed[0]);
-        toast('خطأ في الحذف!', 'error');
-      }
-    }
-
-    // ====================== IMPORT FROM TXT ======================
-    let parsedImportQuestions = [];
-
-    function openImportModal() {
-      parsedImportQuestions = [];
-      document.getElementById('import-file-input').value = '';
-      document.getElementById('import-preview').style.display = 'none';
-      document.getElementById('import-error').style.display = 'none';
-      document.getElementById('import-confirm-btn').disabled = true;
-      document.getElementById('import-confirm-btn').style.opacity = '0.5';
-      document.getElementById('import-modal').classList.remove('hidden');
-    }
-
-    function previewImport(input) {
-      const file = input.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const text = e.target.result;
-        try {
-          parsedImportQuestions = parseTxtQuestions(text);
-          showImportPreview(parsedImportQuestions);
-        } catch (err) {
-          showImportError(err.message);
-        }
-      };
-      reader.readAsText(file, 'UTF-8');
-    }
-
-    function parseTxtQuestions(text) {
-      const blocks = text.split(/\n{2,}/).map(b => b.trim()).filter(b => b.length > 0);
-      if (blocks.length === 0) throw new Error('الملف فاضي أو مش فيه أسئلة.');
-      const questions = [];
-      const errors = [];
-
-      blocks.forEach((block, idx) => {
-        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-        if (lines.length < 2) return;
-        const type = lines[0].toUpperCase();
-
-        try {
-          if (type === 'MCQ') {
-            if (lines.length < 6) throw new Error(`سؤال ${idx+1} (MCQ): محتاج على الأقل 6 سطور (النوع، السؤال، 4 خيارات، رقم الإجابة)`);
-            const question = lines[1];
-            const options = [lines[2], lines[3], lines[4], lines[5]];
-            const correctLine = lines[6];
-            if (!correctLine) throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
-            const correct = parseInt(correctLine) - 1;
-            if (isNaN(correct) || correct < 0 || correct > 3) throw new Error(`سؤال ${idx+1}: رقم الإجابة لازم يكون من 1 لـ 4`);
-            const explanation = lines[7] || '';
-            questions.push({ id: Date.now() + idx, type: 'mcq', question, options, correct, explanation });
-
-          } else if (type === 'TF') {
-            if (lines.length < 3) throw new Error(`سؤال ${idx+1} (TF): محتاج 3 سطور على الأقل (النوع، السؤال، الإجابة)`);
-            const question = lines[1];
-            const correctRaw = lines[2].trim();
-            if (correctRaw !== '0' && correctRaw !== '1') throw new Error(`سؤال ${idx+1}: الإجابة لازم تكون 1 (صح) أو 0 (خطأ)`);
-            const correct = parseInt(correctRaw);
-            const explanation = lines[3] || '';
-            questions.push({ id: Date.now() + idx, type: 'tf', question, options: ['صح', 'خطأ'], correct, explanation });
-
-          } else if (type === 'ESSAY') {
-            if (lines.length < 2) throw new Error(`سؤال ${idx+1} (ESSAY): محتاج سطرين على الأقل`);
-            const question = lines[1];
-            const keywordsRaw = lines[2] || '';
-            const keywords = keywordsRaw ? keywordsRaw.split(',').map(k => k.trim()).filter(Boolean) : [];
-            questions.push({ id: Date.now() + idx, type: 'essay', question, keywords, explanation: '' });
-
-          } else {
-            errors.push(`بلوك ${idx+1}: نوع مش معروف "${lines[0]}" - المفروض يكون MCQ أو TF أو ESSAY`);
-          }
-        } catch(err) {
-          errors.push(err.message);
-        }
-      });
-
-      if (errors.length > 0) throw new Error(errors.join('\n'));
-      if (questions.length === 0) throw new Error('مفيش أسئلة صالحة في الملف. تأكد من الصيغة.');
-      return questions;
-    }
-
-    function showImportPreview(questions) {
-      document.getElementById('import-error').style.display = 'none';
-      document.getElementById('import-count').textContent = `${questions.length} سؤال`;
-      const listEl = document.getElementById('import-preview-list');
-      const typeLabel = { mcq: 'اختياري', tf: 'صح/خطأ', essay: 'مقالي' };
-      const typeColor = { mcq: 'var(--green)', tf: 'var(--amber)', essay: '#6aa6ff' };
-      listEl.innerHTML = questions.map((q, i) => `
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:10px">
-          <span style="background:${typeColor[q.type]};color:#000;padding:2px 10px;border-radius:20px;font-size:0.75rem;font-weight:900;flex-shrink:0">${typeLabel[q.type]}</span>
-          <span style="font-size:0.88rem;font-weight:600;flex:1">${i+1}. ${q.question.substring(0,70)}${q.question.length>70?'...':''}</span>
-        </div>
-      `).join('');
-      document.getElementById('import-preview').style.display = 'block';
-      document.getElementById('import-confirm-btn').disabled = false;
-      document.getElementById('import-confirm-btn').style.opacity = '1';
-    }
-
-    function showImportError(msg) {
-      parsedImportQuestions = [];
-      document.getElementById('import-preview').style.display = 'none';
-      const errEl = document.getElementById('import-error');
-      errEl.style.display = 'block';
-      errEl.innerHTML = `<i class="fas fa-exclamation-triangle" style="margin-left:6px"></i><strong>خطأ في الملف:</strong><br><pre style="margin-top:6px;white-space:pre-wrap;font-family:'Cairo',sans-serif;font-size:0.85rem">${msg}</pre>`;
-      document.getElementById('import-confirm-btn').disabled = true;
-      document.getElementById('import-confirm-btn').style.opacity = '0.5';
-    }
-
-    async function confirmImport() {
-      if (parsedImportQuestions.length === 0) return;
-      const quiz = quizzes.find(q => q.id === addingQuestionToQuizId);
-      if (!quiz) return;
-      quiz.questions = quiz.questions || [];
-      // re-stamp IDs to avoid collisions
-      const stamped = parsedImportQuestions.map((q, i) => ({ ...q, id: Date.now() + i }));
-      quiz.questions = [...quiz.questions, ...stamped];
-      try {
-        await updateQuiz(quiz.id, { questions: quiz.questions });
-        closeModal('import-modal');
-        toast(`تم استيراد ${stamped.length} سؤال بنجاح ✅`);
-        openEditQuiz(quiz.id);
-      } catch {
-        quiz.questions.splice(-stamped.length, stamped.length);
-        toast('خطأ في الحفظ!', 'error');
-      }
-    }
-
-    // ====================== HELPERS ======================
-    function showPage(id) {
-      document.querySelectorAll('#main > div').forEach(d => d.classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
-    }
-
-    function showHome() {
-      selectedQuizIds.clear();
-      selectMode = false;
-      currentSubject = null;
-      showPage('home-page');
-      document.getElementById('home-loading').classList.remove('hidden');
-      document.getElementById('home-content').classList.add('hidden');
+      
       loadQuizzes();
     }
 
-    function openAbout() {
-      document.getElementById('about-modal').classList.remove('hidden');
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    // Close modal on overlay click
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === this) {
-          const modals = ['pwd-modal', 'quiz-modal', 'question-modal', 'about-modal', 'review-modal', 'import-modal', 'summary-modal'];
-          modals.forEach(m => {
-            if (this.id === m) closeModal(m);
-          });
+    function loadQuizzes() {
+      // Placeholder data
+      quizzes = [
+        {
+          id: 1,
+          name: 'Anatomy Quiz',
+          questions: 10,
+          type: 'multiple',
+          icon: '🧬'
+        },
+        {
+          id: 2,
+          name: 'Physiology',
+          questions: 8,
+          type: 'trueFalse',
+          icon: '💗'
+        },
+        {
+          id: 3,
+          name: 'Pharmacology',
+          questions: 12,
+          type: 'essay',
+          icon: '💊'
         }
-      });
+      ];
+
+      const list = document.getElementById('quizzes-list');
+      list.innerHTML = quizzes.map(quiz => `
+        <div class="quiz-card" onclick="startQuiz(${quiz.id})">
+          <div class="q-icon">${quiz.icon}</div>
+          <h3>${quiz.name}</h3>
+          <p>${quiz.questions} أسئلة</p>
+          <div class="arrow">
+            <span>ابدأ الآن</span>
+            <i class="fas fa-arrow-left"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function startQuiz(id) {
+      currentQuizId = id;
+      currentPage = 'quiz';
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      render();
+    }
+
+    function renderQuiz() {
+      const quiz = quizzes.find(q => q.id === currentQuizId);
+      if (!quiz) return;
+
+      const main = document.getElementById('main');
+      const progress = ((currentQuestionIndex + 1) / 10) * 100;
+
+      main.innerHTML = `
+        <div class="quiz-header">
+          <h2 class="quiz-header-title">${quiz.name}</h2>
+          <div class="progress-pill">${currentQuestionIndex + 1} / 10</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width: ${progress}%"></div>
+        </div>
+        <div class="question-card">
+          <div class="question-num">Question ${currentQuestionIndex + 1}</div>
+          <div class="question-text">What is the correct answer?</div>
+          <div class="options-grid">
+            <div class="option" onclick="selectAnswer('a')">
+              <div class="option-letter">A</div>
+              <div>Option A</div>
+            </div>
+            <div class="option" onclick="selectAnswer('b')">
+              <div class="option-letter">B</div>
+              <div>Option B</div>
+            </div>
+            <div class="option" onclick="selectAnswer('c')">
+              <div class="option-letter">C</div>
+              <div>Option C</div>
+            </div>
+            <div class="option" onclick="selectAnswer('d')">
+              <div class="option-letter">D</div>
+              <div>Option D</div>
+            </div>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn btn-ghost" onclick="goHome()">Back</button>
+            <button class="btn btn-primary" onclick="nextQuestion()">Next</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectAnswer(answer) {
+      userAnswers[currentQuestionIndex] = answer;
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < 9) {
+        currentQuestionIndex++;
+        renderQuiz();
+      } else {
+        currentPage = 'results';
+        render();
+      }
+    }
+
+    function renderResults() {
+      const correctCount = Object.keys(userAnswers).length;
+      const percentage = Math.round((correctCount / 10) * 100);
+
+      const main = document.getElementById('main');
+      main.innerHTML = `
+        <h1 class="results-title">تم <span>الانتهاء</span></h1>
+        <p class="results-sub">تحقق من نتائجك</p>
+        
+        <div class="score-display">
+          <div class="score-pct">${percentage}%</div>
+          <div class="score-frac">${correctCount} / 10</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">${correctCount}</div>
+            <div class="stat-label">Correct</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">${10 - correctCount}</div>
+            <div class="stat-label">Wrong</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">${percentage}%</div>
+            <div class="stat-label">Score</div>
+          </div>
+        </div>
+
+        <div class="results-actions">
+          <button class="btn btn-ghost" onclick="goHome()">Home</button>
+          <button class="btn btn-primary" onclick="startQuiz(${currentQuizId})">Retry</button>
+        </div>
+      `;
+    }
+
+    function showAdminPanel() {
+      currentPage = 'admin';
+      render();
+    }
+
+    function renderAdmin() {
+      const main = document.getElementById('main');
+      main.innerHTML = `
+        <div class="admin-header">
+          <h1 class="page-title">Admin <span>Panel</span></h1>
+          <button class="btn btn-danger" onclick="logoutAdmin()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+        
+        <div class="admin-quiz-card">
+          <div>
+            <h4>Manage Quizzes</h4>
+            <p>Edit, delete, or create new quizzes</p>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-primary">Edit</button>
+          </div>
+        </div>
+
+        <div class="admin-quiz-card">
+          <div>
+            <h4>View Results</h4>
+            <p>Check student scores and analytics</p>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-primary">View</button>
+          </div>
+        </div>
+
+        <div class="admin-quiz-card">
+          <div>
+            <h4>Settings</h4>
+            <p>Configure application settings</p>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-primary">Configure</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function logoutAdmin() {
+      localStorage.removeItem(ADMIN_KEY);
+      isAdmin = false;
+      goHome();
+    }
+
+    // ========== CONFIRM ==========
+    function showConfirm(title, msg, onYes) {
+      document.getElementById('confirm-title').textContent = title;
+      document.getElementById('confirm-msg').textContent = msg;
+      document.getElementById('confirm-overlay').classList.add('open');
+      window.confirmCallback = onYes;
+    }
+
+    function acceptConfirm() {
+      if (window.confirmCallback) window.confirmCallback();
+      cancelConfirm();
+    }
+
+    function cancelConfirm() {
+      document.getElementById('confirm-overlay').classList.remove('open');
+    }
+
+    // ========== INIT ==========
+    document.addEventListener('DOMContentLoaded', () => {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      render();
     });
 
-    // ====================== START ======================
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden' && currentQuiz) saveQuizState();
+    // Press Enter to submit password
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !document.getElementById('password-modal').classList.contains('hidden')) {
+        checkPassword();
+      }
     });
-
-    loadQuizzes().then(() => restoreQuizState());
   </script>
 </body>
 </html>
