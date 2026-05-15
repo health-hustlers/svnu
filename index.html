@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4امتحانات الدفعة - كلية الطب البشري قنا الأهلية</title>
+  <title>5امتحانات الدفعة - كلية الطب البشري قنا الأهلية</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -2022,16 +2022,18 @@ ESSAY
 const SUPABASE_URL = 'https://jctsfrlgqvfivkjmrptp.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjdHNmcmxncXZmaXZram1ycHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3OTcyMzMsImV4cCI6MjA5NDM3MzIzM30.Dpn3Id5Ja1MpDPw51VkYyTGhnS0RRT8KICWiawmRZQk';
 
-    const api = (path, options = {}) => fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=representation',
-        ...options.headers
-      },
-      ...options
-    });
+   const api = (path, options = {}) => {
+  const { headers: extraHeaders, ...restOptions } = options;
+  return fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+    ...restOptions,
+    headers: Object.assign({
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    }, extraHeaders || {})
+  });
+};
 
     // ====================== STATE ======================
     let quizzes = [];
