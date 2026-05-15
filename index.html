@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>امتحانات الدفعة - كلية نظم ومعلومات</title>
+  <title>امتحانات الدفعة - كلية الطب البشري قنا الأهلية</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -2020,7 +2020,8 @@ ESSAY
   <script>
     // ====================== SUPABASE ======================
     const SUPABASE_URL = 'https://jctsfrlgqvfivkjmrptp.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjdHNmcmxncXZmaXZram1ycHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3OTcyMzMsImV4cCI6MjA5NDM3MzIzM30.Dpn3Id5Ja1MpDPw51VkYyTGhnS0RRT8KICWiawmRZQk';
+    const SUPABASE_KEY = 'sb_publishable_h4ntg2eMDi0VpVwV7wlZiQ_WgpE94_s';
+
     const api = (path, options = {}) => fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
       headers: {
         'apikey': SUPABASE_KEY,
@@ -2716,7 +2717,9 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
       try {
         // Fetch all active password hashes from admin_passwords table
-        const res = await api('admin_passwords?select=hash&active=eq.true');
+        const res = await api('admin_passwords?select=hash&active=eq.true', {
+          headers: { 'Accept': 'application/json' }
+        });
         if (!res.ok) throw new Error('network');
         const rows = await res.json();
         if (!rows || rows.length === 0) throw new Error('no_config');
