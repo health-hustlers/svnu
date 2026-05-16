@@ -50,7 +50,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -63,7 +62,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── ANIMATED BG GRID ─── */
     body::before {
       content: '';
       position: fixed;
@@ -84,7 +82,6 @@
         linear-gradient(90deg, rgba(0,166,81,0.04) 1px, transparent 1px);
     }
 
-    /* ─── NAVBAR ─── */
     nav {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -122,13 +119,9 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .nav-brand:hover .logo-icon {
-      transform: rotate(-8deg) scale(1.05);
-    }
-
+    .nav-brand:hover .logo-icon { transform: rotate(-8deg) scale(1.05); }
     .nav-actions { display: flex; gap: 8px; align-items: center; }
 
-    /* ─── THEME TOGGLE ─── */
     .theme-toggle {
       width: 44px; height: 44px;
       border-radius: 12px;
@@ -143,11 +136,7 @@
       overflow: hidden;
     }
 
-    .theme-toggle:hover {
-      border-color: var(--green);
-      color: var(--green);
-      background: var(--green-glow);
-    }
+    .theme-toggle:hover { border-color: var(--green); color: var(--green); background: var(--green-glow); }
 
     .theme-toggle .icon-sun,
     .theme-toggle .icon-moon {
@@ -160,7 +149,6 @@
     [data-theme="dark"]  .theme-toggle .icon-sun  { transform: translateY(-30px) rotate(-90deg); opacity: 0; }
     [data-theme="dark"]  .theme-toggle .icon-moon { transform: translateY(0) rotate(0); opacity: 1; }
 
-    /* ─── BTNS ─── */
     .btn {
       padding: 9px 18px;
       border-radius: var(--radius-sm);
@@ -173,36 +161,19 @@
       display: inline-flex; align-items: center; gap: 6px;
     }
 
-    .btn-ghost {
-      background: var(--surface2);
-      color: var(--text-dim);
-      border-color: var(--border);
-    }
+    .btn-ghost { background: var(--surface2); color: var(--text-dim); border-color: var(--border); }
     .btn-ghost:hover { background: var(--surface3); color: var(--text); border-color: var(--border-hover); }
 
-    .btn-primary {
-      background: var(--green);
-      color: #000;
-      font-weight: 900;
-    }
+    .btn-primary { background: var(--green); color: #000; font-weight: 900; }
     .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px var(--green-glow); }
     .btn-primary:active { transform: translateY(0); }
 
-    .btn-danger {
-      background: rgba(255,82,82,0.1);
-      color: var(--red);
-      border-color: rgba(255,82,82,0.2);
-    }
+    .btn-danger { background: rgba(255,82,82,0.1); color: var(--red); border-color: rgba(255,82,82,0.2); }
     .btn-danger:hover { background: rgba(255,82,82,0.2); border-color: var(--red); }
 
-    .btn-blue {
-      background: rgba(41,121,255,0.1);
-      color: #6aa6ff;
-      border-color: rgba(41,121,255,0.2);
-    }
+    .btn-blue { background: rgba(41,121,255,0.1); color: #6aa6ff; border-color: rgba(41,121,255,0.2); }
     .btn-blue:hover { background: rgba(41,121,255,0.2); border-color: #2979ff; }
 
-    /* ─── MAIN ─── */
     #main {
       max-width: 860px;
       margin: 0 auto;
@@ -211,17 +182,11 @@
       z-index: 1;
     }
 
-    /* ─── FADE IN ANIMATION ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes scaleIn {
       from { opacity: 0; transform: scale(0.92); }
       to   { opacity: 1; transform: scale(1); }
@@ -231,7 +196,6 @@
     .animate-in  { animation: fadeIn 0.35s ease both; }
     .animate-scale { animation: scaleIn 0.35s cubic-bezier(0.22,1,0.36,1) both; }
 
-    /* ─── HOME PAGE ─── */
     .page-title {
       text-align: center;
       font-size: 2.4rem;
@@ -239,7 +203,6 @@
       margin-bottom: 0.4rem;
       animation: fadeUp 0.5s ease both;
     }
-
     .page-title span { color: var(--green); }
 
     .page-sub {
@@ -277,12 +240,7 @@
       transition: opacity 0.3s;
     }
 
-    .quiz-card:hover {
-      border-color: var(--green);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow), var(--shadow-green);
-    }
-
+    .quiz-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: var(--shadow), var(--shadow-green); }
     .quiz-card:hover::before { opacity: 1; }
 
     .quiz-card .q-icon {
@@ -298,14 +256,7 @@
     }
 
     .quiz-card:hover .q-icon { transform: scale(1.1) rotate(-5deg); }
-
-    .quiz-card h3 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-      line-height: 1.4;
-    }
-
+    .quiz-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; line-height: 1.4; }
     .quiz-card p { color: var(--text-dim); font-size: 0.88rem; }
 
     .quiz-card .arrow {
@@ -316,15 +267,9 @@
       display: flex; align-items: center; gap: 6px;
       transition: gap 0.2s;
     }
-
     .quiz-card:hover .arrow { gap: 10px; }
 
-    /* ─── LOADING ─── */
-    .loading {
-      text-align: center;
-      padding: 5rem;
-      color: var(--text-dim);
-    }
+    .loading { text-align: center; padding: 5rem; color: var(--text-dim); }
 
     .spinner {
       width: 44px; height: 44px;
@@ -334,7 +279,6 @@
       animation: spin 0.8s linear infinite;
       margin: 0 auto 1rem;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ─── QUIZ PAGE ─── */
@@ -346,11 +290,7 @@
       animation: fadeUp 0.4s ease both;
     }
 
-    .quiz-header-title {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--green);
-    }
+    .quiz-header-title { font-size: 1rem; font-weight: 800; color: var(--green); }
 
     .progress-bar-wrap {
       background: var(--surface);
@@ -418,33 +358,23 @@
       font-size: 0.97rem;
       font-weight: 600;
       animation: fadeUp 0.35s ease both;
+      user-select: none;
     }
 
     .option:nth-child(1) { animation-delay: 0.05s; }
     .option:nth-child(2) { animation-delay: 0.1s; }
     .option:nth-child(3) { animation-delay: 0.15s; }
     .option:nth-child(4) { animation-delay: 0.2s; }
+    .option:nth-child(5) { animation-delay: 0.25s; }
 
-    .option:hover {
-      border-color: var(--green);
-      background: var(--green-glow);
-      transform: translateX(-4px);
-    }
+    .option:hover { border-color: var(--green); background: var(--green-glow); transform: translateX(-4px); }
+    .option.selected { border-color: var(--green); background: var(--green-glow); }
+    .option.correct { border-color: var(--green) !important; background: rgba(0,230,118,0.12) !important; }
+    .option.wrong { border-color: var(--red) !important; background: rgba(255,82,82,0.12) !important; }
 
-    .option.selected {
-      border-color: var(--green);
-      background: var(--green-glow);
-    }
-
-    .option.correct {
-      border-color: var(--green) !important;
-      background: rgba(0,230,118,0.12) !important;
-    }
-
-    .option.wrong {
-      border-color: var(--red) !important;
-      background: rgba(255,82,82,0.12) !important;
-    }
+    /* Disabled state after answering */
+    .option.disabled { cursor: default; }
+    .option.disabled:hover { transform: none; }
 
     .option-letter {
       width: 34px; height: 34px;
@@ -473,12 +403,15 @@
       font-weight: 900;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
+      user-select: none;
     }
 
     .tf-option:hover { border-color: var(--green); background: var(--green-glow); transform: scale(1.03); }
     .tf-option.selected { border-color: var(--green); background: var(--green-glow); }
     .tf-option.correct  { border-color: var(--green) !important; background: rgba(0,230,118,0.12) !important; }
     .tf-option.wrong    { border-color: var(--red)   !important; background: rgba(255,82,82,0.12) !important; }
+    .tf-option.disabled { cursor: default; }
+    .tf-option.disabled:hover { transform: none; }
 
     textarea {
       width: 100%;
@@ -493,7 +426,6 @@
       transition: border-color 0.2s;
       outline: none;
     }
-
     textarea:focus { border-color: var(--green); }
 
     .explanation {
@@ -507,7 +439,6 @@
       line-height: 1.7;
       animation: fadeUp 0.4s ease both;
     }
-
     .explanation strong { color: var(--green); }
 
     .quiz-actions {
@@ -516,23 +447,12 @@
       align-items: center;
       margin-top: 1.5rem;
       animation: fadeUp 0.4s 0.2s ease both;
+      gap: 8px;
     }
 
     /* ─── RESULTS ─── */
-    .results-title {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 0.4rem;
-      animation: fadeUp 0.5s ease both;
-    }
-
-    .results-sub {
-      text-align: center;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.5s 0.1s ease both;
-    }
+    .results-title { text-align: center; font-size: 2.2rem; font-weight: 900; margin-bottom: 0.4rem; animation: fadeUp 0.5s ease both; }
+    .results-sub { text-align: center; color: var(--text-dim); margin-bottom: 2rem; animation: fadeUp 0.5s 0.1s ease both; }
 
     .stats-grid {
       display: grid;
@@ -550,9 +470,7 @@
       transition: transform 0.25s;
       animation: fadeUp 0.5s ease both;
     }
-
     .stat-card:hover { transform: translateY(-3px); }
-
     .stat-num { font-size: 3rem; font-weight: 900; }
     .stat-label { color: var(--text-dim); font-size: 0.88rem; margin-top: 4px; }
 
@@ -567,7 +485,6 @@
       overflow: hidden;
       animation: scaleIn 0.5s 0.2s ease both;
     }
-
     .score-display::after {
       content: '';
       position: absolute;
@@ -575,7 +492,6 @@
       background: radial-gradient(circle at 50% 100%, var(--green-glow), transparent 70%);
       pointer-events: none;
     }
-
     .score-pct { font-size: 5rem; font-weight: 900; }
     .score-frac { font-size: 1.4rem; color: var(--text-dim); margin-top: 6px; }
 
@@ -587,13 +503,7 @@
     }
 
     /* ─── ADMIN ─── */
-    .admin-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.4s ease both;
-    }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; animation: fadeUp 0.4s ease both; }
 
     .admin-quiz-card {
       background: var(--surface);
@@ -607,22 +517,13 @@
       transition: all 0.25s;
       animation: fadeUp 0.4s ease both;
     }
-
-    .admin-quiz-card:hover {
-      border-color: var(--border-hover);
-      transform: translateX(-3px);
-    }
-
+    .admin-quiz-card:hover { border-color: var(--border-hover); transform: translateX(-3px); }
     .admin-quiz-card h4 { font-size: 1rem; font-weight: 800; }
     .admin-quiz-card p  { color: var(--text-dim); font-size: 0.85rem; margin-top: 4px; }
 
     .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
-    /* ─── SELECTION MODE ─── */
-    .admin-quiz-card.selected-card {
-      border-color: var(--green) !important;
-      background: var(--green-glow) !important;
-    }
+    .admin-quiz-card.selected-card { border-color: var(--green) !important; background: var(--green-glow) !important; }
 
     .quiz-checkbox {
       width: 22px; height: 22px;
@@ -635,14 +536,7 @@
       transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
       margin-left: 4px;
     }
-
-    .quiz-checkbox.checked {
-      background: var(--green);
-      border-color: var(--green);
-      box-shadow: 0 0 10px var(--green-glow);
-      transform: scale(1.1);
-    }
-
+    .quiz-checkbox.checked { background: var(--green); border-color: var(--green); box-shadow: 0 0 10px var(--green-glow); transform: scale(1.1); }
     .quiz-checkbox.checked::after {
       content: '';
       width: 6px; height: 10px;
@@ -652,7 +546,6 @@
       display: block;
     }
 
-    /* ─── BULK ACTION BAR ─── */
     #bulk-bar {
       position: fixed;
       bottom: 2rem;
@@ -671,41 +564,14 @@
       white-space: nowrap;
       backdrop-filter: blur(12px);
     }
+    #bulk-bar.visible { transform: translateX(-50%) translateY(0); box-shadow: var(--shadow), 0 0 40px rgba(255,82,82,0.15); }
 
-    #bulk-bar.visible {
-      transform: translateX(-50%) translateY(0);
-      box-shadow: var(--shadow), 0 0 40px rgba(255,82,82,0.15);
-    }
+    .bulk-count { background: var(--green); color: #000; font-weight: 900; font-size: 0.88rem; padding: 4px 12px; border-radius: 20px; min-width: 28px; text-align: center; }
+    .bulk-label { font-size: 0.9rem; font-weight: 700; color: var(--text-dim); }
 
-    .bulk-count {
-      background: var(--green);
-      color: #000;
-      font-weight: 900;
-      font-size: 0.88rem;
-      padding: 4px 12px;
-      border-radius: 20px;
-      min-width: 28px;
-      text-align: center;
-    }
+    .btn-select-mode { background: var(--surface2); color: var(--text-dim); border-color: var(--border); }
+    .btn-select-mode.active { background: rgba(0,230,118,0.1); color: var(--green); border-color: rgba(0,230,118,0.3); }
 
-    .bulk-label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-dim);
-    }
-
-    .btn-select-mode {
-      background: var(--surface2);
-      color: var(--text-dim);
-      border-color: var(--border);
-    }
-    .btn-select-mode.active {
-      background: rgba(0,230,118,0.1);
-      color: var(--green);
-      border-color: rgba(0,230,118,0.3);
-    }
-
-    /* ─── PASSWORD MODAL ─── */
     .modal-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.7);
@@ -731,11 +597,7 @@
       position: relative;
     }
 
-    /* Password Modal Specific */
-    .pwd-modal {
-      max-width: 380px;
-      text-align: center;
-    }
+    .pwd-modal { max-width: 380px; text-align: center; }
 
     .pwd-icon-wrap {
       width: 72px; height: 72px;
@@ -749,25 +611,10 @@
       animation: fadeUp 0.4s 0.1s ease both;
     }
 
-    .pwd-title {
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: 0.4rem;
-      animation: fadeUp 0.4s 0.15s ease both;
-    }
+    .pwd-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.4rem; animation: fadeUp 0.4s 0.15s ease both; }
+    .pwd-sub { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 2rem; animation: fadeUp 0.4s 0.2s ease both; }
 
-    .pwd-sub {
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.4s 0.2s ease both;
-    }
-
-    .pwd-input-wrap {
-      position: relative;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.4s 0.25s ease both;
-    }
+    .pwd-input-wrap { position: relative; margin-bottom: 1.2rem; animation: fadeUp 0.4s 0.25s ease both; }
 
     .pwd-input {
       width: 100%;
@@ -784,17 +631,9 @@
       outline: none;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
+    .pwd-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-glow); }
 
-    .pwd-input:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px var(--green-glow);
-    }
-
-    .pwd-input.error {
-      border-color: var(--red) !important;
-      box-shadow: 0 0 0 3px rgba(255,82,82,0.15) !important;
-      animation: shake 0.4s ease;
-    }
+    .pwd-input.error { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(255,82,82,0.15) !important; animation: shake 0.4s ease; }
 
     @keyframes shake {
       0%,100% { transform: translateX(0); }
@@ -804,27 +643,10 @@
       80% { transform: translateX(5px); }
     }
 
-    .pwd-toggle {
-      position: absolute;
-      left: 14px; top: 50%;
-      transform: translateY(-50%);
-      background: none; border: none; cursor: pointer;
-      color: var(--text-dim);
-      font-size: 1.1rem;
-      padding: 4px;
-      transition: color 0.2s;
-    }
-
+    .pwd-toggle { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-dim); font-size: 1.1rem; padding: 4px; transition: color 0.2s; }
     .pwd-toggle:hover { color: var(--green); }
 
-    .pwd-error {
-      font-size: 0.85rem;
-      color: var(--red);
-      margin-bottom: 1rem;
-      height: 18px;
-      transition: opacity 0.2s;
-      animation: fadeUp 0.3s ease both;
-    }
+    .pwd-error { font-size: 0.85rem; color: var(--red); margin-bottom: 1rem; height: 18px; transition: opacity 0.2s; animation: fadeUp 0.3s ease both; }
 
     .pwd-btn {
       width: 100%;
@@ -841,55 +663,19 @@
       display: flex; align-items: center; justify-content: center; gap: 8px;
       animation: fadeUp 0.4s 0.3s ease both;
     }
-
     .pwd-btn:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 24px var(--green-glow); }
     .pwd-btn:active { transform: translateY(0); }
 
-    .pwd-dots {
-      display: flex; gap: 8px; justify-content: center;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.4s 0.22s ease both;
-    }
+    .pwd-dots { display: flex; gap: 8px; justify-content: center; margin-bottom: 1.5rem; animation: fadeUp 0.4s 0.22s ease both; }
+    .pwd-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); border: 1.5px solid var(--text-muted); transition: all 0.2s; }
+    .pwd-dot.filled { background: var(--green); border-color: var(--green); box-shadow: 0 0 8px var(--green-glow); transform: scale(1.15); }
 
-    .pwd-dot {
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--border);
-      border: 1.5px solid var(--text-muted);
-      transition: all 0.2s;
-    }
-
-    .pwd-dot.filled {
-      background: var(--green);
-      border-color: var(--green);
-      box-shadow: 0 0 8px var(--green-glow);
-      transform: scale(1.15);
-    }
-
-    /* ─── REGULAR MODAL ─── */
-    .modal-lg {
-      max-width: 600px;
-    }
-
-    .modal h3 {
-      font-size: 1.3rem;
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-    }
+    .modal-lg { max-width: 600px; }
+    .modal h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 1.5rem; }
 
     .form-group { margin-bottom: 1.1rem; }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group label { display: block; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 6px; font-weight: 700; }
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       background: var(--surface2);
       border: 1.5px solid var(--border);
@@ -901,22 +687,13 @@
       outline: none;
       transition: border-color 0.2s;
     }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--green); }
-
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
     .form-group select option { background: var(--surface2); color: var(--text); }
 
-    .modal-actions {
-      display: flex; gap: 10px;
-      justify-content: flex-end;
-      margin-top: 1.5rem;
-    }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 1.5rem; }
 
     .hidden { display: none !important; }
 
-    /* ─── CUSTOM CONFIRM DIALOG ─── */
     #confirm-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.75);
@@ -929,11 +706,7 @@
       pointer-events: none;
       transition: opacity 0.25s ease;
     }
-
-    #confirm-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
+    #confirm-overlay.open { opacity: 1; pointer-events: all; }
 
     #confirm-box {
       background: var(--surface);
@@ -948,92 +721,30 @@
       transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
       position: relative;
     }
+    #confirm-overlay.open #confirm-box { transform: scale(1) translateY(0); }
 
-    #confirm-overlay.open #confirm-box {
-      transform: scale(1) translateY(0);
-    }
+    .confirm-icon-wrap { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.3rem; font-size: 1.8rem; }
+    .confirm-icon-wrap.danger { background: rgba(255,82,82,0.12); border: 1px solid rgba(255,82,82,0.2); color: var(--red); }
+    .confirm-icon-wrap.warning { background: rgba(255,171,64,0.12); border: 1px solid rgba(255,171,64,0.2); color: var(--amber); }
 
-    .confirm-icon-wrap {
-      width: 64px; height: 64px;
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.3rem;
-      font-size: 1.8rem;
-    }
+    #confirm-title { font-size: 1.15rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.4; }
+    #confirm-msg { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.8rem; }
 
-    .confirm-icon-wrap.danger {
-      background: rgba(255,82,82,0.12);
-      border: 1px solid rgba(255,82,82,0.2);
-      color: var(--red);
-    }
+    .confirm-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .confirm-btns button { padding: 12px; border-radius: 12px; border: 1px solid transparent; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 800; font-size: 0.95rem; transition: all 0.2s; }
 
-    .confirm-icon-wrap.warning {
-      background: rgba(255,171,64,0.12);
-      border: 1px solid rgba(255,171,64,0.2);
-      color: var(--amber);
-    }
-
-    #confirm-title {
-      font-size: 1.15rem;
-      font-weight: 900;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    #confirm-msg {
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      line-height: 1.6;
-      margin-bottom: 1.8rem;
-    }
-
-    .confirm-btns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .confirm-btns button {
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
-
-    .confirm-cancel-btn {
-      background: var(--surface2);
-      color: var(--text-dim);
-      border-color: var(--border) !important;
-    }
+    .confirm-cancel-btn { background: var(--surface2); color: var(--text-dim); border-color: var(--border) !important; }
     .confirm-cancel-btn:hover { background: var(--surface3); color: var(--text); }
 
-    .confirm-ok-btn.danger {
-      background: var(--red);
-      color: #fff;
-    }
+    .confirm-ok-btn.danger { background: var(--red); color: #fff; }
     .confirm-ok-btn.danger:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,82,82,0.3); }
-
-    .confirm-ok-btn.warning {
-      background: var(--amber);
-      color: #000;
-    }
+    .confirm-ok-btn.warning { background: var(--amber); color: #000; }
     .confirm-ok-btn.warning:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
-    /* ─── EMPTY STATE ─── */
-    .empty {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--text-dim);
-    }
-
+    .empty { text-align: center; padding: 4rem 2rem; color: var(--text-dim); }
     .empty i { font-size: 2.8rem; margin-bottom: 1rem; opacity: 0.3; }
     .empty p { font-size: 1rem; }
 
-    /* ─── TOAST ─── */
     #toast {
       position: fixed;
       bottom: 2rem;
@@ -1050,16 +761,11 @@
       backdrop-filter: blur(10px);
       white-space: nowrap;
     }
-
     #toast.show { transform: translateX(-50%) translateY(0); }
     #toast.success { border-color: rgba(0,230,118,0.4); color: var(--green); }
     #toast.error   { border-color: rgba(255,82,82,0.4); color: var(--red); }
 
-    /* ─── ABOUT MODAL ─── */
-    .about-modal {
-      max-width: 360px;
-      text-align: center;
-    }
+    .about-modal { max-width: 360px; text-align: center; }
 
     .about-avatar {
       width: 90px; height: 90px;
@@ -1074,424 +780,127 @@
       overflow: hidden;
       position: relative;
     }
+    .about-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+    .about-name { font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; animation: fadeUp 0.4s 0.15s ease both; }
+    .about-role { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1.8rem; animation: fadeUp 0.4s 0.18s ease both; }
 
-    .about-avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .about-name {
-      font-size: 1.3rem;
-      font-weight: 900;
-      margin-bottom: 4px;
-      animation: fadeUp 0.4s 0.15s ease both;
-    }
-
-    .about-role {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 1.8rem;
-      animation: fadeUp 0.4s 0.18s ease both;
-    }
-
-    .about-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      animation: fadeUp 0.4s 0.22s ease both;
-    }
+    .about-links { display: flex; flex-direction: column; gap: 12px; animation: fadeUp 0.4s 0.22s ease both; }
 
     .about-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px; border-radius: 14px;
+      text-decoration: none; font-family: 'Cairo', sans-serif;
+      font-weight: 700; font-size: 0.95rem;
       transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
       border: 1.5px solid transparent;
       color: var(--text);
     }
 
-    .about-link.whatsapp-personal {
-      background: rgba(37,211,102,0.08);
-      border-color: rgba(37,211,102,0.2);
-    }
+    .about-link.whatsapp-personal { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.2); }
+    .about-link.whatsapp-personal:hover { background: rgba(37,211,102,0.16); border-color: rgba(37,211,102,0.5); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.15); }
+    .about-link.whatsapp-group { background: rgba(0,166,255,0.08); border-color: rgba(0,166,255,0.2); }
+    .about-link.whatsapp-group:hover { background: rgba(0,166,255,0.16); border-color: rgba(0,166,255,0.5); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,166,255,0.15); }
 
-    .about-link.whatsapp-personal:hover {
-      background: rgba(37,211,102,0.16);
-      border-color: rgba(37,211,102,0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,211,102,0.15);
-    }
-
-    .about-link.whatsapp-group {
-      background: rgba(0,166,255,0.08);
-      border-color: rgba(0,166,255,0.2);
-    }
-
-    .about-link.whatsapp-group:hover {
-      background: rgba(0,166,255,0.16);
-      border-color: rgba(0,166,255,0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,166,255,0.15);
-    }
-
-    .about-link-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      transition: transform 0.25s;
-    }
-
-    .whatsapp-personal .about-link-icon {
-      background: #25d366;
-      color: #fff;
-    }
-
-    .whatsapp-group .about-link-icon {
-      background: linear-gradient(135deg, #00aaff, #0077cc);
-      color: #fff;
-    }
-
+    .about-link-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; transition: transform 0.25s; }
+    .whatsapp-personal .about-link-icon { background: #25d366; color: #fff; }
+    .whatsapp-group .about-link-icon { background: linear-gradient(135deg, #00aaff, #0077cc); color: #fff; }
     .about-link:hover .about-link-icon { transform: scale(1.1) rotate(-5deg); }
 
     .about-link-text { text-align: right; flex: 1; }
     .about-link-label { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 2px; }
     .about-link-value { font-weight: 800; font-size: 0.95rem; }
-
-    .about-link-arrow {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .about-link:hover .about-link-arrow {
-      transform: translateX(-4px);
-      color: var(--text);
-    }
+    .about-link-arrow { color: var(--text-muted); font-size: 0.8rem; transition: transform 0.2s, color 0.2s; }
+    .about-link:hover .about-link-arrow { transform: translateX(-4px); color: var(--text); }
 
     /* ─── LIVE SCORE BAR ─── */
-    .live-score-bar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.4s ease both;
-    }
+    .live-score-bar { display: flex; gap: 10px; margin-bottom: 1rem; animation: fadeUp 0.4s ease both; }
 
     .live-score-pill {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 1rem;
-      border: 1.5px solid transparent;
-      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 16px; border-radius: 12px; font-weight: 800; font-size: 1rem;
+      border: 1.5px solid transparent; transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
     }
+    .live-score-pill.correct-pill { background: rgba(0,230,118,0.08); border-color: rgba(0,230,118,0.2); color: var(--green); }
+    .live-score-pill.wrong-pill { background: rgba(255,82,82,0.08); border-color: rgba(255,82,82,0.2); color: var(--red); }
+    .live-score-pill .pill-num { font-size: 1.4rem; font-weight: 900; min-width: 24px; text-align: center; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .live-score-pill .pill-num.bump { transform: scale(1.4); }
 
-    .live-score-pill.correct-pill {
-      background: rgba(0,230,118,0.08);
-      border-color: rgba(0,230,118,0.2);
-      color: var(--green);
-    }
-
-    .live-score-pill.wrong-pill {
-      background: rgba(255,82,82,0.08);
-      border-color: rgba(255,82,82,0.2);
-      color: var(--red);
-    }
-
-    .live-score-pill .pill-num {
-      font-size: 1.4rem;
-      font-weight: 900;
-      min-width: 24px;
-      text-align: center;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    .live-score-pill .pill-num.bump {
-      transform: scale(1.4);
-    }
-
-    /* ─── OPTION SLIDE ANIMATIONS ─── */
-    @keyframes slideFromRight {
-      from { opacity: 0; transform: translateX(60px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideFromLeft {
-      from { opacity: 0; transform: translateX(-60px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideFromBottom {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes slideFromRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideFromLeft  { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideFromBottom{ from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
     .slide-right { animation: slideFromRight 0.7s cubic-bezier(0.22,1,0.36,1) both; }
     .slide-left  { animation: slideFromLeft  0.7s cubic-bezier(0.22,1,0.36,1) both; }
     .slide-up-ex { animation: slideFromBottom 1.5s cubic-bezier(0.22,1,0.36,1) both; }
 
     /* ─── REVIEW MODAL ─── */
-    .review-modal {
-      max-width: 700px;
-      max-height: 85vh;
-    }
+    .review-modal { max-width: 700px; max-height: 85vh; }
 
-    .review-item {
-      background: var(--surface2);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1.3rem 1.5rem;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.35s ease both;
-    }
-
+    .review-item { background: var(--surface2); border: 1.5px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem; margin-bottom: 1rem; animation: fadeUp 0.35s ease both; }
     .review-item.review-wrong  { border-color: rgba(255,82,82,0.35); }
     .review-item.review-correct{ border-color: rgba(0,230,118,0.25); }
     .review-item.review-skipped{ border-color: rgba(255,171,64,0.3); }
 
-    .review-item-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 0.8rem;
-    }
+    .review-item-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; }
 
-    .review-badge {
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
+    .review-badge { padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; flex-shrink: 0; }
     .badge-wrong   { background: rgba(255,82,82,0.15);  color: var(--red); }
     .badge-correct { background: rgba(0,230,118,0.12); color: var(--green); }
     .badge-skipped { background: rgba(255,171,64,0.15); color: var(--amber); }
 
-    .review-q-text {
-      font-size: 0.97rem;
-      font-weight: 700;
-      line-height: 1.6;
-    }
+    .review-q-text { font-size: 0.97rem; font-weight: 700; line-height: 1.6; }
+    .review-answers { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; }
 
-    .review-answers {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.88rem;
-    }
+    .review-answer-row { display: flex; align-items: flex-start; gap: 8px; padding: 7px 12px; border-radius: 9px; }
+    .review-answer-row.user-wrong { background: rgba(255,82,82,0.08); color: var(--red); }
+    .review-answer-row.correct-ans { background: rgba(0,230,118,0.08); color: var(--green); }
 
-    .review-answer-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 9px;
-    }
-
-    .review-answer-row.user-wrong {
-      background: rgba(255,82,82,0.08);
-      color: var(--red);
-    }
-
-    .review-answer-row.correct-ans {
-      background: rgba(0,230,118,0.08);
-      color: var(--green);
-    }
-
-    .review-explanation {
-      margin-top: 0.8rem;
-      background: rgba(0,230,118,0.05);
-      border: 1px solid rgba(0,230,118,0.15);
-      border-radius: 9px;
-      padding: 0.8rem 1rem;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.65;
-    }
-
+    .review-explanation { margin-top: 0.8rem; background: rgba(0,230,118,0.05); border: 1px solid rgba(0,230,118,0.15); border-radius: 9px; padding: 0.8rem 1rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.65; }
     .review-explanation strong { color: var(--green); }
 
-    /* about btn in nav */
-    .btn-about {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--text-dim);
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.05rem;
-      transition: all 0.25s;
-      padding: 0;
-    }
+    .btn-about { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text-dim); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; transition: all 0.25s; padding: 0; }
+    .btn-about:hover { border-color: #25d366; color: #25d366; background: rgba(37,211,102,0.08); }
 
-    .btn-about:hover {
-      border-color: #25d366;
-      color: #25d366;
-      background: rgba(37,211,102,0.08);
-    }
+    footer { text-align: center; padding: 2rem; color: var(--text-muted); font-family: 'Cairo', sans-serif; border-top: 1px solid var(--border); margin-top: 4rem; position: relative; z-index: 1; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-family: 'Cairo', sans-serif;
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ─── SUBJECT CARDS ─── */
-    #subjects-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
+    #subjects-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
 
     .subject-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
-      position: relative;
-      overflow: hidden;
-      animation: fadeUp 0.5s ease both;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.8rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+      position: relative; overflow: hidden; animation: fadeUp 0.5s ease both;
     }
-
-    .subject-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--green-glow), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .subject-card:hover {
-      border-color: var(--green);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow), var(--shadow-green);
-    }
-
+    .subject-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--green-glow), transparent 60%); opacity: 0; transition: opacity 0.3s; }
+    .subject-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: var(--shadow), var(--shadow-green); }
     .subject-card:hover::before { opacity: 1; }
 
-    .subject-card .s-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      background: var(--green-glow);
-      border: 1px solid rgba(0,230,118,0.2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green);
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-      transition: transform 0.3s;
-    }
-
+    .subject-card .s-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--green-glow); border: 1px solid rgba(0,230,118,0.2); display: flex; align-items: center; justify-content: center; color: var(--green); font-size: 1.4rem; margin-bottom: 1.2rem; transition: transform 0.3s; }
     .subject-card:hover .s-icon { transform: scale(1.1) rotate(-5deg); }
-
     .subject-card h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 8px; }
 
     .subject-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .subject-meta-pill { display: flex; align-items: center; gap: 5px; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 12px; font-size: 0.78rem; font-weight: 700; color: var(--text-dim); }
 
-    .subject-meta-pill {
-      display: flex; align-items: center; gap: 5px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-dim);
-    }
-
-    /* ─── SUMMARY CARDS ─── */
     .summary-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.6rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.9rem;
-      transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-      animation: fadeUp 0.4s ease both;
-      text-decoration: none;
-      color: var(--text);
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 0.9rem;
+      transition: all 0.25s cubic-bezier(0.22,1,0.36,1); animation: fadeUp 0.4s ease both;
+      text-decoration: none; color: var(--text);
     }
-
-    .summary-card:hover {
-      border-color: var(--green);
-      transform: translateX(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .summary-card .sum-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
-      background: rgba(255,171,64,0.12);
-      border: 1px solid rgba(255,171,64,0.25);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--amber);
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      transition: transform 0.25s;
-    }
-
+    .summary-card:hover { border-color: var(--green); transform: translateX(-4px); box-shadow: var(--shadow); }
+    .summary-card .sum-icon { width: 46px; height: 46px; border-radius: 12px; background: rgba(255,171,64,0.12); border: 1px solid rgba(255,171,64,0.25); display: flex; align-items: center; justify-content: center; color: var(--amber); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s; }
     .summary-card:hover .sum-icon { transform: scale(1.1) rotate(-5deg); }
-
     .summary-card .sum-info { flex: 1; }
     .summary-card .sum-info h4 { font-size: 1rem; font-weight: 800; margin-bottom: 3px; }
     .summary-card .sum-info p  { color: var(--text-dim); font-size: 0.85rem; }
-
-    .sum-download {
-      display: flex; align-items: center; gap: 6px;
-      background: var(--green);
-      color: #000;
-      font-weight: 900;
-      font-size: 0.82rem;
-      padding: 7px 14px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      transition: filter 0.2s, transform 0.2s;
-    }
-
+    .sum-download { display: flex; align-items: center; gap: 6px; background: var(--green); color: #000; font-weight: 900; font-size: 0.82rem; padding: 7px 14px; border-radius: 10px; flex-shrink: 0; transition: filter 0.2s, transform 0.2s; }
     .summary-card:hover .sum-download { filter: brightness(1.1); transform: scale(1.04); }
 
-    /* admin summaries table */
     .admin-summary-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      transition: all 0.25s;
-      animation: fadeUp 0.4s ease both;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.8rem; transition: all 0.25s; animation: fadeUp 0.4s ease both;
     }
-
     .admin-summary-card:hover { border-color: var(--border-hover); transform: translateX(-3px); }
 
     @media (max-width: 600px) {
@@ -1501,6 +910,7 @@
       nav { padding: 0 1rem; }
       #main { padding: 1.5rem 0.75rem; }
       .question-card { padding: 1.5rem; }
+      .quiz-actions { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -1538,13 +948,11 @@
         <p>جاري تحميل البيانات...</p>
       </div>
       <div id="home-content" class="hidden">
-        <!-- SUBJECTS VIEW -->
         <div id="subjects-view">
           <h2 class="page-title">👋 Welcome to the Exams Web<span></span></h2>
           <p class="page-sub">اختر المادة</p>
           <div id="subjects-list"></div>
         </div>
-        <!-- SUBJECT DETAIL VIEW -->
         <div id="subject-detail-view" class="hidden">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem" class="animate-up">
             <button class="btn btn-ghost" onclick="showSubjectsView()">
@@ -1552,7 +960,6 @@
             </button>
             <h2 style="font-size:1.5rem;font-weight:900" id="subject-detail-title"></h2>
           </div>
-          <!-- tabs -->
           <div style="display:flex;gap:8px;margin-bottom:1.5rem">
             <button class="btn btn-primary" id="tab-quizzes-btn" onclick="switchSubjectTab('quizzes')">
               <i class="fas fa-clipboard-list"></i> الامتحانات
@@ -1581,7 +988,6 @@
       <div class="progress-bar-wrap">
         <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
       </div>
-      <!-- LIVE SCORE BAR -->
       <div class="live-score-bar">
         <div class="live-score-pill correct-pill">
           <i class="fas fa-check-circle"></i>
@@ -1595,11 +1001,17 @@
         </div>
       </div>
       <div class="question-card" id="question-card"></div>
+      <!-- Quiz actions: prev + skip on left, submit on right -->
       <div class="quiz-actions">
-        <button class="btn btn-ghost" onclick="skipQuestion()">
-          <i class="fas fa-forward"></i> تخطي السؤال
-        </button>
-        <button class="btn btn-primary" id="submit-btn" onclick="submitAnswer()">
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost" id="prev-btn" onclick="goToPrevQuestion()">
+            <i class="fas fa-arrow-right"></i> السابق
+          </button>
+          <button class="btn btn-ghost" id="skip-btn" onclick="skipQuestion()">
+            <i class="fas fa-forward"></i> تخطي
+          </button>
+        </div>
+        <button class="btn btn-primary hidden" id="submit-btn" onclick="submitEssay()">
           تقديم الإجابة <i class="fas fa-check"></i>
         </button>
       </div>
@@ -1701,6 +1113,16 @@
 1
 الإسكندرية هي ثاني أكبر مدينة
 
+MCQ (5 خيارات - الخامس اختياري)
+ما هو عاصمة فرنسا؟
+باريس
+برلين
+مدريد
+روما
+لندن
+1
+باريس هي عاصمة فرنسا
+
 TF
 الأرض كروية الشكل؟
 1
@@ -1710,7 +1132,7 @@ ESSAY
 اشرح مفهوم التضخم الاقتصادي؟
 تضخم,اقتصاد,أسعار</div>
         <div style="margin-top:10px;color:var(--text-dim)">
-          <strong style="color:var(--amber)">MCQ:</strong> النوع → نص السؤال → 4 خيارات → رقم الإجابة الصحيحة (1-4) → شرح اختياري<br>
+          <strong style="color:var(--amber)">MCQ:</strong> النوع → نص السؤال → 4 أو 5 خيارات → رقم الإجابة الصحيحة → شرح اختياري<br>
           <strong style="color:var(--amber)">TF:</strong> النوع → نص السؤال → الإجابة (1=صح / 0=خطأ) → شرح اختياري<br>
           <strong style="color:var(--amber)">ESSAY:</strong> النوع → نص السؤال → كلمات مفتاحية مفصولة بفاصلة (اختياري)<br>
           <strong style="color:var(--green)">سطر فاضي</strong> يفصل بين الأسئلة
@@ -1719,18 +1141,7 @@ ESSAY
 
       <div class="form-group">
         <label>اختر ملف TXT</label>
-        <input type="file" id="import-file-input" accept=".txt" style="
-          width:100%;
-          background:var(--surface2);
-          border:1.5px dashed var(--border);
-          border-radius:var(--radius-sm);
-          padding:14px;
-          color:var(--text);
-          font-family:'Cairo',sans-serif;
-          font-size:0.93rem;
-          cursor:pointer;
-          transition:border-color 0.2s;
-        " onchange="previewImport(this)">
+        <input type="file" id="import-file-input" accept=".txt" style="width:100%;background:var(--surface2);border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:14px;color:var(--text);font-family:'Cairo',sans-serif;font-size:0.93rem;cursor:pointer;transition:border-color 0.2s;" onchange="previewImport(this)">
       </div>
 
       <div id="import-preview" style="display:none;margin-bottom:1rem">
@@ -1755,53 +1166,22 @@ ESSAY
   <!-- PASSWORD MODAL -->
   <div id="pwd-modal" class="modal-overlay hidden">
     <div class="modal pwd-modal">
-      <div class="pwd-icon-wrap">
-        <i class="fas fa-lock"></i>
-      </div>
+      <div class="pwd-icon-wrap"><i class="fas fa-lock"></i></div>
       <h3 class="pwd-title">وضع الإدارة</h3>
       <p class="pwd-sub">ادخل كلمة السر للوصول للوحة التحكم</p>
-
       <div class="pwd-dots" id="pwd-dots">
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
-        <div class="pwd-dot"></div>
+        <div class="pwd-dot"></div><div class="pwd-dot"></div><div class="pwd-dot"></div><div class="pwd-dot"></div>
+        <div class="pwd-dot"></div><div class="pwd-dot"></div><div class="pwd-dot"></div><div class="pwd-dot"></div>
       </div>
-
       <div class="pwd-input-wrap">
-        <input
-          type="password"
-          class="pwd-input"
-          id="pwd-input"
-          placeholder="● ● ● ● ● ● ● ●"
-          maxlength="20"
-          oninput="onPwdInput()"
-          onkeydown="if(event.key==='Enter') submitPwd()"
-          autocomplete="off"
-        >
+        <input type="password" class="pwd-input" id="pwd-input" placeholder="● ● ● ● ● ● ● ●" maxlength="20" oninput="onPwdInput()" onkeydown="if(event.key==='Enter') submitPwd()" autocomplete="off">
         <button class="pwd-toggle" onclick="togglePwdVisibility()" id="pwd-eye">
           <i class="fas fa-eye" id="pwd-eye-icon"></i>
         </button>
       </div>
-
       <div class="pwd-error" id="pwd-error"></div>
-
-      <button class="pwd-btn" onclick="submitPwd()">
-        <i class="fas fa-unlock-alt"></i>
-        دخول
-      </button>
-
-      <button
-        class="btn btn-ghost"
-        onclick="closeModal('pwd-modal')"
-        style="width:100%;margin-top:10px;justify-content:center"
-      >
-        إلغاء
-      </button>
+      <button class="pwd-btn" onclick="submitPwd()"><i class="fas fa-unlock-alt"></i> دخول</button>
+      <button class="btn btn-ghost" onclick="closeModal('pwd-modal')" style="width:100%;margin-top:10px;justify-content:center">إلغاء</button>
     </div>
   </div>
 
@@ -1830,7 +1210,7 @@ ESSAY
       <h3 id="summary-modal-title"><i class="fas fa-file-alt" style="color:var(--green);margin-left:8px"></i> إضافة ملخص</h3>
       <div class="form-group">
         <label>اسم الملخص</label>
-        <input type="text" id="summary-name-input" placeholder="مثال: ملخص الفصل الأول - قواعد البيانات">
+        <input type="text" id="summary-name-input" placeholder="مثال: ملخص الفصل الأول">
       </div>
       <div class="form-group">
         <label>المادة</label>
@@ -1855,7 +1235,6 @@ ESSAY
   <div id="question-modal" class="modal-overlay hidden">
     <div class="modal modal-lg">
       <h3 id="question-modal-title">إضافة سؤال جديد</h3>
-
       <div class="form-group">
         <label>نوع السؤال</label>
         <select id="q-type" onchange="updateQuestionForm()">
@@ -1864,28 +1243,19 @@ ESSAY
           <option value="essay">مقالي</option>
         </select>
       </div>
-
       <div class="form-group">
         <label>نص السؤال</label>
         <textarea id="q-text" rows="3" placeholder="اكتب السؤال هنا..."></textarea>
       </div>
-
       <div id="mcq-section">
+        <div class="form-group"><label>الخيار A</label><input type="text" id="opt-0" placeholder="الخيار الأول"></div>
+        <div class="form-group"><label>الخيار B</label><input type="text" id="opt-1" placeholder="الخيار الثاني"></div>
+        <div class="form-group"><label>الخيار C</label><input type="text" id="opt-2" placeholder="الخيار الثالث"></div>
+        <div class="form-group"><label>الخيار D</label><input type="text" id="opt-3" placeholder="الخيار الرابع"></div>
+        <!-- الخيار E اختياري -->
         <div class="form-group">
-          <label>الخيار A</label>
-          <input type="text" id="opt-0" placeholder="الخيار الأول">
-        </div>
-        <div class="form-group">
-          <label>الخيار B</label>
-          <input type="text" id="opt-1" placeholder="الخيار الثاني">
-        </div>
-        <div class="form-group">
-          <label>الخيار C</label>
-          <input type="text" id="opt-2" placeholder="الخيار الثالث">
-        </div>
-        <div class="form-group">
-          <label>الخيار D</label>
-          <input type="text" id="opt-3" placeholder="الخيار الرابع">
+          <label>الخيار E <span style="color:var(--text-muted);font-size:0.8rem">(اختياري)</span></label>
+          <input type="text" id="opt-4" placeholder="الخيار الخامس (اختياري)">
         </div>
         <div class="form-group">
           <label>الإجابة الصحيحة</label>
@@ -1894,10 +1264,10 @@ ESSAY
             <option value="1">B</option>
             <option value="2">C</option>
             <option value="3">D</option>
+            <option value="4">E</option>
           </select>
         </div>
       </div>
-
       <div id="tf-section" class="hidden">
         <div class="form-group">
           <label>الإجابة الصحيحة</label>
@@ -1911,19 +1281,16 @@ ESSAY
           <textarea id="tf-reason" rows="2" placeholder="مثال: الجملة خاطئة لأن..."></textarea>
         </div>
       </div>
-
       <div id="essay-section" class="hidden">
         <div class="form-group">
           <label>كلمات مفتاحية (افصل بينها بفاصلة)</label>
           <input type="text" id="keywords" placeholder="مثال: تضخم, أسعار, نقود">
         </div>
       </div>
-
       <div class="form-group">
         <label>شرح الإجابة (اختياري)</label>
         <textarea id="q-explanation" rows="2" placeholder="اكتب شرحاً للإجابة..."></textarea>
       </div>
-
       <div class="modal-actions">
         <button class="btn btn-ghost" onclick="closeModal('question-modal')">إلغاء</button>
         <button class="btn btn-primary" id="save-question-btn" onclick="saveQuestion()">إضافة السؤال</button>
@@ -1949,46 +1316,28 @@ ESSAY
   <!-- ABOUT MODAL -->
   <div id="about-modal" class="modal-overlay hidden">
     <div class="modal about-modal">
-      <div class="about-avatar"><img src="data:image/jpeg;base64,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" alt="STAR BOY"></div>
+      <div class="about-avatar"><img src="data:image/jpeg;base64,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" alt="STAR BOY"></div>
       <div class="about-name">mohamed abdelnaaiem</div>
       <div class="about-role">مؤسس هيلث هاستلرز</div>
-
       <div class="about-links">
-
-        <a class="about-link whatsapp-personal"
-           href="https://wa.me/+201121561644"
-           target="_blank" rel="noopener">
-          <div class="about-link-icon">
-            <i class="fab fa-whatsapp"></i>
-          </div>
+        <a class="about-link whatsapp-personal" href="https://wa.me/+201121561644" target="_blank" rel="noopener">
+          <div class="about-link-icon"><i class="fab fa-whatsapp"></i></div>
           <div class="about-link-text">
             <div class="about-link-label">تواصل مباشر</div>
             <div class="about-link-value">WhatsApp شخصي</div>
           </div>
           <i class="fas fa-arrow-left about-link-arrow"></i>
         </a>
-
-        <a class="about-link telegram-group"
-           href="https://t.me/c/1839276445/22214"
-           target="_blank" rel="noopener">
-          <div class="about-link-icon">
-            <i class="fas fa-users"></i>
-          </div>
+        <a class="about-link telegram-group" href="https://t.me/c/1839276445/22214" target="_blank" rel="noopener">
+          <div class="about-link-icon"><i class="fas fa-users"></i></div>
           <div class="about-link-text">
             <div class="about-link-label">انضم للمجموعة</div>
             <div class="about-link-value">جروب التليجرام</div>
           </div>
           <i class="fas fa-arrow-left about-link-arrow"></i>
         </a>
-
       </div>
-
-      <button
-        class="btn btn-ghost"
-        onclick="closeModal('about-modal')"
-        style="width:100%;margin-top:1.2rem;justify-content:center">
-        إغلاق
-      </button>
+      <button class="btn btn-ghost" onclick="closeModal('about-modal')" style="width:100%;margin-top:1.2rem;justify-content:center">إغلاق</button>
     </div>
   </div>
 
@@ -2001,7 +1350,6 @@ ESSAY
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <!-- filter tabs -->
       <div style="display:flex;gap:8px;margin-bottom:1.2rem;flex-wrap:wrap">
         <button class="btn" id="filter-all"    onclick="setReviewFilter('all')"     style="font-size:0.82rem;padding:7px 14px;background:var(--green);color:#000;border-color:transparent">الكل</button>
         <button class="btn btn-ghost" id="filter-wrong"  onclick="setReviewFilter('wrong')"   style="font-size:0.82rem;padding:7px 14px">❌ الخاطئة</button>
@@ -2019,26 +1367,26 @@ ESSAY
 
   <script>
     // ====================== SUPABASE ======================
-const SUPABASE_URL = 'https://jctsfrlgqvfivkjmrptp.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjdHNmcmxncXZmaXZram1ycHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3OTcyMzMsImV4cCI6MjA5NDM3MzIzM30.Dpn3Id5Ja1MpDPw51VkYyTGhnS0RRT8KICWiawmRZQk';
+    const SUPABASE_URL = 'https://jctsfrlgqvfivkjmrptp.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjdHNmcmxncXZmaXZram1ycHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3OTcyMzMsImV4cCI6MjA5NDM3MzIzM30.Dpn3Id5Ja1MpDPw51VkYyTGhnS0RRT8KICWiawmRZQk';
 
-   const api = (path, options = {}) => {
-  const { headers: extraHeaders, ...restOptions } = options;
-  return fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-    ...restOptions,
-    headers: Object.assign({
-      'apikey': SUPABASE_KEY,
-      'Authorization': 'Bearer ' + SUPABASE_KEY,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=representation'
-    }, extraHeaders || {})
-  });
-};
+    const api = (path, options = {}) => {
+      const { headers: extraHeaders, ...restOptions } = options;
+      return fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+        ...restOptions,
+        headers: Object.assign({
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        }, extraHeaders || {})
+      });
+    };
 
     // ====================== STATE ======================
     let quizzes = [];
     let summaries = [];
-    let subjects = [];   // list of {id, name}
+    let subjects = [];
     let currentSubject = null;
     let currentSubjectTab = 'quizzes';
     let adminTab = 'quizzes';
@@ -2052,7 +1400,8 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     let editingQuestionIndex = null;
     let selectedQuizIds = new Set();
     let selectMode = false;
-    // ADMIN_PASSWORD is no longer stored here — it is verified via Supabase app_config table
+    // Track if current question has been answered (for auto-submit flow)
+    let questionAnswered = false;
 
     // ====================== THEME ======================
     function toggleTheme() {
@@ -2062,8 +1411,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       body.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     }
-
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.setAttribute('data-theme', savedTheme);
 
@@ -2089,11 +1436,9 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       if (_confirmResolve) { _confirmResolve(val); _confirmResolve = null; }
     }
 
-    // Close on overlay click
     document.getElementById('confirm-overlay').addEventListener('click', function(e) {
       if (e.target === this) confirmResolve(false);
     });
-
 
     function toast(msg, type = 'success') {
       const el = document.getElementById('toast');
@@ -2112,40 +1457,30 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         ]);
         if (!qRes.ok) throw new Error();
         quizzes   = await qRes.json();
-        summaries = sRes.ok    ? (await sRes.json())    : [];
-        subjects  = subRes.ok  ? (await subRes.json())  : [];
+        summaries = sRes.ok   ? (await sRes.json())   : [];
+        subjects  = subRes.ok ? (await subRes.json()) : [];
         renderHome();
       } catch {
         toast('خطأ في تحميل البيانات', 'error');
-        quizzes = [];
-        summaries = [];
+        quizzes = []; summaries = [];
         renderHome();
       }
     }
 
     async function createQuiz(title, subject) {
-      const res = await api('quizzes', {
-        method: 'POST',
-        body: JSON.stringify({ title, subject: subject || '', questions: [], published: false })
-      });
+      const res = await api('quizzes', { method: 'POST', body: JSON.stringify({ title, subject: subject || '', questions: [], published: false }) });
       if (!res.ok) throw new Error();
       return (await res.json())[0];
     }
 
     async function createSummary(data) {
-      const res = await api('summaries', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      });
+      const res = await api('summaries', { method: 'POST', body: JSON.stringify(data) });
       if (!res.ok) throw new Error();
       return (await res.json())[0];
     }
 
     async function updateSummary(id, data) {
-      const res = await api(`summaries?id=eq.${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(data)
-      });
+      const res = await api(`summaries?id=eq.${id}`, { method: 'PATCH', body: JSON.stringify(data) });
       if (!res.ok) throw new Error();
     }
 
@@ -2155,10 +1490,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     async function createSubject(name) {
-      const res = await api('subjects', {
-        method: 'POST',
-        body: JSON.stringify({ name })
-      });
+      const res = await api('subjects', { method: 'POST', body: JSON.stringify({ name }) });
       if (!res.ok) throw new Error();
       return (await res.json())[0];
     }
@@ -2169,10 +1501,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     async function updateQuiz(id, data) {
-      const res = await api(`quizzes?id=eq.${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(data)
-      });
+      const res = await api(`quizzes?id=eq.${id}`, { method: 'PATCH', body: JSON.stringify(data) });
       if (!res.ok) throw new Error();
     }
 
@@ -2184,9 +1513,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     // ====================== HOME ======================
     const SUBJECT_ICONS = ['fa-database','fa-network-wired','fa-code','fa-calculator','fa-brain','fa-flask','fa-microchip','fa-laptop-code','fa-project-diagram','fa-chart-bar','fa-book','fa-graduation-cap'];
 
-    function getSubjectIcon(name, idx) {
-      return SUBJECT_ICONS[idx % SUBJECT_ICONS.length];
-    }
+    function getSubjectIcon(name, idx) { return SUBJECT_ICONS[idx % SUBJECT_ICONS.length]; }
 
     function renderHome() {
       document.getElementById('home-loading').classList.add('hidden');
@@ -2200,7 +1527,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       currentSubject = null;
 
       const published = quizzes.filter(q => q.published);
-      // gather all subjects from quizzes + summaries
       const subjectMap = {};
       published.forEach(q => {
         const s = (q.subject || 'عام').trim();
@@ -2213,18 +1539,18 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         subjectMap[sub].summaryCount++;
       });
 
-      const subjects = Object.keys(subjectMap);
+      const subjectsList = Object.keys(subjectMap);
       const container = document.getElementById('subjects-list');
 
-      if (subjects.length === 0) {
+      if (subjectsList.length === 0) {
         container.innerHTML = `<div class="empty"><i class="fas fa-book-open"></i><p>لا يوجد محتوى متاح حالياً</p></div>`;
         return;
       }
 
-      container.innerHTML = subjects.map((name, idx) => {
+      container.innerHTML = subjectsList.map((name, idx) => {
         const info = subjectMap[name];
         return `
-          <div class="subject-card" onclick="openSubject('${name.replace(/'/g,"\'")}', ${idx})" style="animation-delay:${idx * 0.07}s">
+          <div class="subject-card" onclick="openSubject('${name.replace(/'/g,"\\'")}', ${idx})" style="animation-delay:${idx * 0.07}s">
             <div class="s-icon"><i class="fas ${getSubjectIcon(name, idx)}"></i></div>
             <h3>${name}</h3>
             <div class="subject-meta">
@@ -2251,16 +1577,12 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       const sList = document.getElementById('subject-summaries-list');
 
       if (tab === 'quizzes') {
-        qBtn.className = 'btn btn-primary';
-        sBtn.className = 'btn btn-ghost';
-        qList.classList.remove('hidden');
-        sList.classList.add('hidden');
+        qBtn.className = 'btn btn-primary'; sBtn.className = 'btn btn-ghost';
+        qList.classList.remove('hidden'); sList.classList.add('hidden');
         renderSubjectQuizzes();
       } else {
-        sBtn.className = 'btn btn-primary';
-        qBtn.className = 'btn btn-ghost';
-        sList.classList.remove('hidden');
-        qList.classList.add('hidden');
+        sBtn.className = 'btn btn-primary'; qBtn.className = 'btn btn-ghost';
+        sList.classList.remove('hidden'); qList.classList.add('hidden');
         renderSubjectSummaries();
       }
     }
@@ -2302,40 +1624,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     // ====================== QUIZ ======================
-    function saveQuizState() {
-      if (!currentQuiz) return;
-      sessionStorage.setItem('quizState', JSON.stringify({
-        quizId: currentQuiz.id,
-        currentQuestionIndex,
-        userAnswers,
-        selectedIndex
-      }));
-    }
-
-    function restoreQuizState() {
-      const saved = sessionStorage.getItem('quizState');
-      if (!saved || quizzes.length === 0) return;
-      const state = JSON.parse(saved);
-      const quiz = quizzes.find(q => q.id === state.quizId);
-      if (!quiz) return;
-      currentQuiz = quiz;
-      currentQuestionIndex = state.currentQuestionIndex;
-      userAnswers = state.userAnswers;
-      selectedIndex = state.selectedIndex;
-      showPage('quiz-page');
-      document.getElementById('quiz-title').textContent = currentQuiz.title;
-      showCurrentQuestion();
-      updateLiveScore();
-      if (selectedIndex !== null) {
-        setTimeout(() => {
-          const el = document.getElementById(`opt-${selectedIndex}`);
-          if (el) el.classList.add('selected');
-        }, 50);
-      }
-      sessionStorage.removeItem('quizState');
-      toast('تم استعادة الامتحان ✅');
-    }
-
     function startQuiz(id) {
       sessionStorage.removeItem('quizState');
       currentQuiz = quizzes.find(q => q.id === id);
@@ -2345,6 +1633,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       currentQuestionIndex = 0;
       userAnswers = {};
       selectedIndex = null;
+      questionAnswered = false;
       updateLiveScore();
       showPage('quiz-page');
       document.getElementById('quiz-title').textContent = currentQuiz.title;
@@ -2382,27 +1671,51 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       document.getElementById('progress-bar').style.width = pct + '%';
     }
 
+    function updateNavButtons() {
+      const prevBtn = document.getElementById('prev-btn');
+      const skipBtn = document.getElementById('skip-btn');
+      const submitBtn = document.getElementById('submit-btn');
+      const q = currentQuiz.questions[currentQuestionIndex];
+
+      // Prev button: visible only if not first question
+      if (prevBtn) prevBtn.style.display = currentQuestionIndex > 0 ? '' : 'none';
+
+      // For essay: show submit button, hide skip
+      if (q.type === 'essay') {
+        if (submitBtn) submitBtn.classList.remove('hidden');
+        if (skipBtn) skipBtn.style.display = '';
+      } else {
+        // MCQ / TF: submit hidden (auto on click), only skip shown
+        if (submitBtn) submitBtn.classList.add('hidden');
+        if (skipBtn) skipBtn.style.display = '';
+      }
+
+      // If question already answered, hide skip/submit, show next inline
+      if (questionAnswered) {
+        if (skipBtn) skipBtn.style.display = 'none';
+        if (submitBtn) submitBtn.classList.add('hidden');
+      }
+    }
+
     function showCurrentQuestion() {
       selectedIndex = null;
+      questionAnswered = false;
       const q = currentQuiz.questions[currentQuestionIndex];
       const total = currentQuiz.questions.length;
       document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${total}`;
       updateProgressBar();
-
-      const isLast = currentQuestionIndex === total - 1;
-      document.getElementById('submit-btn').innerHTML = isLast
-        ? 'إنهاء الامتحان <i class="fas fa-flag-checkered"></i>'
-        : 'تقديم الإجابة <i class="fas fa-check"></i>';
+      updateNavButtons();
 
       let html = `
         <div class="question-num">السؤال ${currentQuestionIndex + 1} من ${total}</div>
         <div class="question-text">${q.question}</div>
       `;
 
+      const optCount = q.options ? q.options.length : 0;
+
       if (q.type === 'mcq') {
-        // A,C من اليمين — B,D من اليسار
-        const dirs = ['slide-right','slide-left','slide-right','slide-left'];
-        const delays = [0.1, 0.25, 0.4, 0.55];
+        const dirs = ['slide-right','slide-left','slide-right','slide-left','slide-right'];
+        const delays = [0.1, 0.25, 0.4, 0.55, 0.7];
         html += `<div class="options-grid">`;
         q.options.forEach((opt, i) => {
           html += `
@@ -2424,29 +1737,27 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
       document.getElementById('question-card').innerHTML = html;
       document.getElementById('question-card').style.animation = 'none';
-      requestAnimationFrame(() => {
-        document.getElementById('question-card').style.animation = '';
-      });
+      requestAnimationFrame(() => { document.getElementById('question-card').style.animation = ''; });
     }
 
+    // ── AUTO-SUBMIT on option click ──
     function selectOption(i) {
+      if (questionAnswered) return; // Prevent re-clicking after answer shown
       selectedIndex = i;
-      document.querySelectorAll('.option, .tf-option').forEach(el => el.classList.remove('selected'));
-      const el = document.getElementById(`opt-${i}`);
-      if (el) el.classList.add('selected');
-      saveQuizState();
+      // Record answer and show feedback immediately
+      userAnswers[currentQuestionIndex] = i;
+      questionAnswered = true;
+      updateLiveScore();
+      showFeedback();
     }
 
-    function submitAnswer() {
-      const q = currentQuiz.questions[currentQuestionIndex];
-      if (q.type === 'mcq' || q.type === 'tf') {
-        if (selectedIndex === null) return toast('اختر إجابة أولاً!', 'error');
-        userAnswers[currentQuestionIndex] = selectedIndex;
-      } else {
-        const val = document.getElementById('essay-input').value.trim();
-        if (!val) return toast('اكتب إجابة!', 'error');
-        userAnswers[currentQuestionIndex] = val;
-      }
+    // Essay submit button handler
+    function submitEssay() {
+      const val = document.getElementById('essay-input') ? document.getElementById('essay-input').value.trim() : '';
+      if (!val) return toast('اكتب إجابة!', 'error');
+      userAnswers[currentQuestionIndex] = val;
+      questionAnswered = true;
+      updateLiveScore();
       showFeedback();
     }
 
@@ -2454,21 +1765,21 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       const q = currentQuiz.questions[currentQuestionIndex];
       const container = document.getElementById('question-card');
       const userChoice = userAnswers[currentQuestionIndex];
-      const isCorrect = (q.type === 'mcq' || q.type === 'tf') ? userChoice === q.correct : false;
+      const isLast = currentQuestionIndex === currentQuiz.questions.length - 1;
 
-      // update live score after answer
-      updateLiveScore();
+      // Hide skip button, hide essay submit
+      updateNavButtons();
 
       let html = `<div class="question-text">${q.question}</div>`;
 
       if (q.type === 'mcq') {
-        const dirs = ['slide-right','slide-left','slide-right','slide-left'];
-        const delays = [0.03, 0.08, 0.13, 0.18];
+        const dirs = ['slide-right','slide-left','slide-right','slide-left','slide-right'];
+        const delays = [0.03, 0.08, 0.13, 0.18, 0.23];
         html += `<div class="options-grid">`;
         q.options.forEach((opt, i) => {
-          let cls = '';
-          if (i === q.correct) cls = 'correct';
-          else if (i === userChoice) cls = 'wrong';
+          let cls = 'disabled';
+          if (i === q.correct) cls += ' correct';
+          else if (i === userChoice) cls += ' wrong';
           html += `
             <div class="option ${cls} ${dirs[i]}" style="animation-delay:${delays[i]}s">
               <span class="option-letter">${String.fromCharCode(65 + i)}</span>
@@ -2478,18 +1789,20 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
             </div>`;
         });
         html += `</div>`;
+        const isCorrect = userChoice === q.correct;
         if (!isCorrect && q.explanation) {
           html += `<div class="explanation slide-up-ex" style="animation-delay:0.25s"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
         }
       } else if (q.type === 'tf') {
         html += `<div class="tf-grid">`;
         ['✅ صح', '❌ خطأ'].forEach((label, i) => {
-          let cls = i === q.correct ? 'correct' : i === userChoice ? 'wrong' : '';
+          let cls = 'disabled ';
+          cls += i === q.correct ? 'correct' : i === userChoice ? 'wrong' : '';
           const dir = i === 0 ? 'slide-right' : 'slide-left';
           html += `<div class="tf-option ${cls} ${dir}" style="animation-delay:${i*0.08}s">${label}</div>`;
         });
         html += `</div>`;
-        if (!isCorrect) {
+        if (userChoice !== q.correct) {
           const correctLabel = q.correct === 0 ? 'صح' : 'خطأ';
           html += `<div class="explanation slide-up-ex" style="animation-delay:0.2s">
             <strong>💡 الإجابة الصحيحة هي: ${correctLabel}</strong>
@@ -2512,7 +1825,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         }
       }
 
-      const isLast = currentQuestionIndex === currentQuiz.questions.length - 1;
+      // Next / Finish button
       html += `<div class="slide-up-ex" style="text-align:center;margin-top:1.8rem;animation-delay:0.35s">
         <button class="btn btn-primary" onclick="nextQuestion()" style="padding:13px 44px;font-size:1rem">
           ${isLast ? 'عرض النتائج <i class="fas fa-chart-bar"></i>' : 'السؤال التالي <i class="fas fa-arrow-left"></i>'}
@@ -2520,13 +1833,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       </div>`;
 
       container.innerHTML = html;
-      document.getElementById('submit-btn').style.display = 'none';
-      document.querySelector('.quiz-actions button:first-child').style.display = 'none';
+      updateNavButtons();
     }
 
     function nextQuestion() {
-      document.getElementById('submit-btn').style.display = '';
-      document.querySelector('.quiz-actions button:first-child').style.display = '';
+      questionAnswered = false;
       currentQuestionIndex++;
       if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
       else showCurrentQuestion();
@@ -2534,18 +1845,37 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
     function skipQuestion() {
       userAnswers[currentQuestionIndex] = null;
+      questionAnswered = false;
       currentQuestionIndex++;
       if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
       else showCurrentQuestion();
+    }
+
+    // ── PREVIOUS QUESTION ──
+    function goToPrevQuestion() {
+      if (currentQuestionIndex <= 0) return;
+      questionAnswered = false;
+      currentQuestionIndex--;
+      const prevAnswer = userAnswers[currentQuestionIndex];
+      // If previous question was answered, show its feedback
+      if (prevAnswer !== null && prevAnswer !== undefined) {
+        questionAnswered = true;
+        showCurrentQuestion(); // render question first
+        // Then immediately show feedback
+        setTimeout(() => {
+          selectedIndex = prevAnswer;
+          showFeedback();
+        }, 50);
+      } else {
+        showCurrentQuestion();
+      }
     }
 
     async function exitQuiz() {
       const ok = await showConfirm({
         title: 'خروج من الامتحان',
         msg: 'لو خرجت دلوقتي هتخسر تقدمك في الامتحان، هل أنت متأكد؟',
-        type: 'warning',
-        icon: 'fa-door-open',
-        okText: 'نعم، اخرج'
+        type: 'warning', icon: 'fa-door-open', okText: 'نعم، اخرج'
       });
       if (ok) showHome();
     }
@@ -2561,13 +1891,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
           if (q.keywords && q.keywords.some(kw => ans.toLowerCase().includes(kw.toLowerCase()))) correct++;
           else wrong++;
         } else {
-          if (ans === q.correct) correct++;
-          else wrong++;
+          if (ans === q.correct) correct++; else wrong++;
         }
       });
       const total = currentQuiz.questions.length;
       const pct = Math.round((correct / total) * 100);
-
       document.getElementById('correct-count').textContent = correct;
       document.getElementById('wrong-count').textContent = wrong;
       document.getElementById('skipped-count').textContent = skipped;
@@ -2588,19 +1916,14 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
     function setReviewFilter(f) {
       reviewFilter = f;
-      // update tab styles
       ['all','wrong','correct','skipped'].forEach(tab => {
         const btn = document.getElementById(`filter-${tab}`);
         if (!btn) return;
         if (tab === f) {
-          btn.style.background = 'var(--green)';
-          btn.style.color = '#000';
-          btn.style.borderColor = 'transparent';
+          btn.style.background = 'var(--green)'; btn.style.color = '#000'; btn.style.borderColor = 'transparent';
           btn.classList.remove('btn-ghost');
         } else {
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.style.borderColor = '';
+          btn.style.background = ''; btn.style.color = ''; btn.style.borderColor = '';
           btn.classList.add('btn-ghost');
         }
       });
@@ -2619,7 +1942,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     function renderReviewList() {
       const container = document.getElementById('review-list');
       const questions = currentQuiz.questions;
-
       const items = questions.map((q, i) => ({ q, i, result: getQuestionResult(q, i) }))
         .filter(({ result }) => reviewFilter === 'all' || result === reviewFilter);
 
@@ -2654,8 +1976,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         }
 
         const explanationHtml = q.explanation
-          ? `<div class="review-explanation"><strong>💡 الشرح:</strong> ${q.explanation}</div>`
-          : '';
+          ? `<div class="review-explanation"><strong>💡 الشرح:</strong> ${q.explanation}</div>` : '';
 
         return `
           <div class="review-item ${cardClass}" style="animation-delay:${idx * 0.04}s">
@@ -2689,22 +2010,16 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     function updatePwdDots() {
       const val = document.getElementById('pwd-input').value;
       const dots = document.querySelectorAll('.pwd-dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('filled', i < val.length);
-      });
+      dots.forEach((dot, i) => { dot.classList.toggle('filled', i < val.length); });
     }
 
     function togglePwdVisibility() {
       const input = document.getElementById('pwd-input');
       const icon = document.getElementById('pwd-eye-icon');
       if (input.type === 'password') {
-        input.type = 'text';
-        input.style.letterSpacing = '1px';
-        icon.className = 'fas fa-eye-slash';
+        input.type = 'text'; input.style.letterSpacing = '1px'; icon.className = 'fas fa-eye-slash';
       } else {
-        input.type = 'password';
-        input.style.letterSpacing = '3px';
-        icon.className = 'fas fa-eye';
+        input.type = 'password'; input.style.letterSpacing = '3px'; icon.className = 'fas fa-eye';
       }
     }
 
@@ -2718,15 +2033,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       errEl.textContent = '';
 
       try {
-        // Fetch all active password hashes from admin_passwords table
-        const res = await api('admin_passwords?select=hash&active=eq.true', {
-          headers: { 'Accept': 'application/json' }
-        });
+        const res = await api('admin_passwords?select=hash&active=eq.true', { headers: { 'Accept': 'application/json' } });
         if (!res.ok) throw new Error('network');
         const rows = await res.json();
         if (!rows || rows.length === 0) throw new Error('no_config');
 
-        // Hash what the user typed and compare against ALL active hashes
         const hashHex = await sha256(val);
         const matched = rows.some(r => r.hash === hashHex);
 
@@ -2754,7 +2065,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       }
     }
 
-    // SHA-256 helper (browser built-in, no external library needed)
     async function sha256(message) {
       const msgBuffer  = new TextEncoder().encode(message);
       const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -2763,7 +2073,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     // ====================== ADMIN ======================
-    // ── helpers: populate subject <select> elements ──
     function fillSubjectDropdowns(selectedValue) {
       ['quiz-subject-input', 'summary-subject-input'].forEach(id => {
         const el = document.getElementById(id);
@@ -2774,20 +2083,16 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       });
     }
 
-    // ── subjects admin ──
     function renderAdminSubjects() {
       const container = document.getElementById('admin-subjects-list');
       let html = `
         <div class="animate-up" style="margin-bottom:1.2rem">
           <div style="display:flex;gap:10px;align-items:center">
-            <input type="text" id="new-subject-input"
-              placeholder="اسم المادة الجديدة..."
+            <input type="text" id="new-subject-input" placeholder="اسم المادة الجديدة..."
               style="flex:1;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;color:var(--text);font-family:'Cairo',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s"
               onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
               onkeydown="if(event.key==='Enter') addSubject()">
-            <button class="btn btn-primary" onclick="addSubject()">
-              <i class="fas fa-plus"></i> إضافة
-            </button>
+            <button class="btn btn-primary" onclick="addSubject()"><i class="fas fa-plus"></i> إضافة</button>
           </div>
         </div>`;
 
@@ -2803,13 +2108,12 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
               <span style="font-weight:800;font-size:1rem">${s.name}</span>
             </div>
             <div class="admin-actions">
-              <button class="btn btn-danger" onclick="removeSubject(${s.id}, '${s.name.replace(/'/g,"\'")}')">
+              <button class="btn btn-danger" onclick="removeSubject(${s.id}, '${s.name.replace(/'/g,"\\'")}')">
                 <i class="fas fa-trash"></i> حذف
               </button>
             </div>
           </div>`).join('');
       }
-
       container.innerHTML = html;
     }
 
@@ -2826,17 +2130,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         renderAdminSubjects();
         fillSubjectDropdowns();
         toast(`تمت إضافة "${name}" ✅`);
-      } catch {
-        toast('خطأ في الإضافة!', 'error');
-      }
+      } catch { toast('خطأ في الإضافة!', 'error'); }
     }
 
     async function removeSubject(id, name) {
-      const ok = await showConfirm({
-        title: 'حذف المادة',
-        msg: `هيتم حذف مادة "${name}". الامتحانات والملخصات المرتبطة بيها مش هتتحذف، بس مش هتظهر في قائمة المواد.`,
-        type: 'danger', icon: 'fa-layer-group', okText: 'نعم، احذف'
-      });
+      const ok = await showConfirm({ title: 'حذف المادة', msg: `هيتم حذف مادة "${name}". الامتحانات والملخصات المرتبطة بيها مش هتتحذف، بس مش هتظهر في قائمة المواد.`, type: 'danger', icon: 'fa-layer-group', okText: 'نعم، احذف' });
       if (!ok) return;
       try {
         await deleteSubjectFromDB(id);
@@ -2844,9 +2142,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         renderAdminSubjects();
         fillSubjectDropdowns();
         toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
+      } catch { toast('خطأ في الحذف!', 'error'); }
     }
 
     function switchAdminTab(tab) {
@@ -2859,7 +2155,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       const sList  = document.getElementById('admin-summaries-list');
       const subList = document.getElementById('admin-subjects-list');
 
-      // reset all tabs
       qTab.className = 'btn btn-ghost'; sTab.className = 'btn btn-ghost';
       if (subTab) subTab.className = 'btn btn-ghost';
       qList.classList.add('hidden'); sList.classList.add('hidden'); subList.classList.add('hidden');
@@ -2905,15 +2200,9 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
             </p>
           </div>
           <div class="admin-actions">
-            <a href="${s.url}" target="_blank" class="btn btn-ghost" title="معاينة">
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-            <button class="btn btn-blue" onclick="openEditSummary(${s.id})" title="تعديل">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-danger" onclick="confirmDeleteSummary(${s.id})" title="حذف">
-              <i class="fas fa-trash"></i>
-            </button>
+            <a href="${s.url}" target="_blank" class="btn btn-ghost" title="معاينة"><i class="fas fa-external-link-alt"></i></a>
+            <button class="btn btn-blue" onclick="openEditSummary(${s.id})" title="تعديل"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-danger" onclick="confirmDeleteSummary(${s.id})" title="حذف"><i class="fas fa-trash"></i></button>
           </div>
         </div>
       `).join('');
@@ -2956,8 +2245,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
             <i class="fas fa-${allChecked ? 'square' : 'check-double'}"></i>
             ${allChecked ? 'إلغاء الكل' : 'تحديد الكل'}
           </button>` : ''}
-        </div>
-      `;
+        </div>`;
 
       html += quizzes.map((q, idx) => {
         const isChecked = selectedQuizIds.has(q.id);
@@ -2965,9 +2253,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         <div class="admin-quiz-card ${isChecked ? 'selected-card' : ''}"
           style="border-color:${isChecked ? 'var(--green)' : q.published ? 'rgba(0,230,118,0.3)' : 'var(--border)'};animation-delay:${idx * 0.05}s;cursor:${selectMode ? 'pointer' : 'default'}"
           onclick="${selectMode ? `toggleQuizCheck(${q.id})` : 'void(0)'}">
-          ${selectMode ? `
-          <div class="quiz-checkbox ${isChecked ? 'checked' : ''}" onclick="event.stopPropagation();toggleQuizCheck(${q.id})"></div>
-          ` : ''}
+          ${selectMode ? `<div class="quiz-checkbox ${isChecked ? 'checked' : ''}" onclick="event.stopPropagation();toggleQuizCheck(${q.id})"></div>` : ''}
           <div style="flex:1">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
               <span style="width:8px;height:8px;border-radius:50%;background:${q.published ? 'var(--green)' : 'var(--text-muted)'};display:inline-block;box-shadow:${q.published ? '0 0 6px var(--green)' : 'none'};flex-shrink:0"></span>
@@ -2983,12 +2269,8 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
           </div>
           ${!selectMode ? `
           <div class="admin-actions">
-            <button class="btn btn-ghost" onclick="openRenameQuizModal(${q.id})" title="تعديل الاسم والمادة" style="font-size:0.82rem;padding:9px 10px">
-              <i class="fas fa-tag"></i>
-            </button>
-            <button class="btn btn-blue" onclick="openEditQuiz(${q.id})" title="تعديل الأسئلة">
-              <i class="fas fa-edit"></i>
-            </button>
+            <button class="btn btn-ghost" onclick="openRenameQuizModal(${q.id})" title="تعديل الاسم والمادة" style="font-size:0.82rem;padding:9px 10px"><i class="fas fa-tag"></i></button>
+            <button class="btn btn-blue" onclick="openEditQuiz(${q.id})" title="تعديل الأسئلة"><i class="fas fa-edit"></i></button>
             <button onclick="togglePublish(${q.id})"
               class="btn"
               style="background:${q.published ? 'var(--surface3)' : 'var(--green)'};color:${q.published ? 'var(--text-dim)' : '#000'};border-color:transparent"
@@ -2996,12 +2278,10 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
               <i class="fas fa-${q.published ? 'eye-slash' : 'eye'}"></i>
               ${q.published ? 'إخفاء' : 'عرض'}
             </button>
-            <button class="btn btn-danger" onclick="confirmDeleteQuiz(${q.id})" title="حذف">
-              <i class="fas fa-trash"></i>
-            </button>
+            <button class="btn btn-danger" onclick="confirmDeleteQuiz(${q.id})" title="حذف"><i class="fas fa-trash"></i></button>
           </div>` : ''}
-        </div>
-      `}).join('');
+        </div>`;
+      }).join('');
 
       container.innerHTML = html;
       updateBulkBar();
@@ -3009,9 +2289,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
     function toggleSelectMode() {
       selectMode = !selectMode;
-      if (!selectMode) {
-        selectedQuizIds.clear();
-      }
+      if (!selectMode) selectedQuizIds.clear();
       renderAdminQuizzes();
     }
 
@@ -3040,33 +2318,22 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       document.getElementById('bulk-count').textContent = count;
       const label = document.querySelector('#bulk-bar .bulk-label');
       if (label) label.textContent = count === 1 ? 'امتحان محدد' : 'امتحانات محددة';
-      if (count > 0) bar.classList.add('visible');
-      else bar.classList.remove('visible');
+      if (count > 0) bar.classList.add('visible'); else bar.classList.remove('visible');
     }
 
     async function deleteSelectedQuizzes() {
       const count = selectedQuizIds.size;
       if (count === 0) return;
-      const ok = await showConfirm({
-        title: `حذف ${count} امتحان${count > 1 ? 'ات' : ''}`,
-        msg: `هيتم حذف ${count} امتحان${count > 1 ? 'ات' : ''} نهائياً ومش هينفع ترجعهم تاني. هل أنت متأكد؟`,
-        type: 'danger',
-        icon: 'fa-trash-alt',
-        okText: 'نعم، احذف'
-      });
+      const ok = await showConfirm({ title: `حذف ${count} امتحان${count > 1 ? 'ات' : ''}`, msg: `هيتم حذف ${count} امتحان${count > 1 ? 'ات' : ''} نهائياً. هل أنت متأكد؟`, type: 'danger', icon: 'fa-trash-alt', okText: 'نعم، احذف' });
       if (!ok) return;
-
       const ids = [...selectedQuizIds];
       try {
         await Promise.all(ids.map(id => deleteQuizFromDB(id)));
         quizzes = quizzes.filter(q => !ids.includes(q.id));
-        selectedQuizIds.clear();
-        selectMode = false;
+        selectedQuizIds.clear(); selectMode = false;
         renderAdminQuizzes();
         toast(`✅ تم حذف ${count} امتحان${count > 1 ? 'ات' : ''}`);
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
+      } catch { toast('خطأ في الحذف!', 'error'); }
     }
 
     async function togglePublish(id) {
@@ -3077,9 +2344,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         quiz.published = newVal;
         renderAdminQuizzes();
         toast(newVal ? '✅ تم عرض الامتحان للطلاب' : '🔒 تم إخفاء الامتحان', newVal ? 'success' : 'error');
-      } catch {
-        toast('خطأ في التحديث!', 'error');
-      }
+      } catch { toast('خطأ في التحديث!', 'error'); }
     }
 
     async function toggleSelectAll() {
@@ -3090,9 +2355,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         quizzes.forEach(q => q.published = newVal);
         renderAdminQuizzes();
         toast(newVal ? '✅ تم عرض جميع الامتحانات' : '🔒 تم إخفاء جميع الامتحانات', newVal ? 'success' : 'error');
-      } catch {
-        toast('خطأ في التحديث!', 'error');
-      }
+      } catch { toast('خطأ في التحديث!', 'error'); }
     }
 
     function openRenameQuizModal(id) {
@@ -3130,9 +2393,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         }
         closeModal('quiz-modal');
         renderAdminQuizzes();
-      } catch {
-        toast('خطأ في الحفظ!', 'error');
-      }
+      } catch { toast('خطأ في الحفظ!', 'error'); }
     }
 
     function showAddSummaryModal() {
@@ -3166,47 +2427,31 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         }
         closeModal('summary-modal');
         renderAdminSummaries();
-      } catch {
-        toast('خطأ في الحفظ!', 'error');
-      }
+      } catch { toast('خطأ في الحفظ!', 'error'); }
     }
 
     async function confirmDeleteSummary(id) {
       const s = summaries.find(s => s.id === id);
-      const ok = await showConfirm({
-        title: 'حذف الملخص',
-        msg: `هيتم حذف "${s ? s.title : 'الملخص'}" نهائياً. هل أنت متأكد؟`,
-        type: 'danger', icon: 'fa-trash-alt', okText: 'نعم، احذف'
-      });
+      const ok = await showConfirm({ title: 'حذف الملخص', msg: `هيتم حذف "${s ? s.title : 'الملخص'}" نهائياً. هل أنت متأكد؟`, type: 'danger', icon: 'fa-trash-alt', okText: 'نعم، احذف' });
       if (!ok) return;
       try {
         await deleteSummaryFromDB(id);
         summaries = summaries.filter(s => s.id !== id);
         renderAdminSummaries();
         toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
+      } catch { toast('خطأ في الحذف!', 'error'); }
     }
 
     async function confirmDeleteQuiz(id) {
       const quiz = quizzes.find(q => q.id === id);
-      const ok = await showConfirm({
-        title: 'حذف الامتحان',
-        msg: `هيتم حذف "${quiz ? quiz.title : 'الامتحان'}" نهائياً مع كل أسئلته. مش هينفع ترجعه تاني!`,
-        type: 'danger',
-        icon: 'fa-trash-alt',
-        okText: 'نعم، احذف'
-      });
+      const ok = await showConfirm({ title: 'حذف الامتحان', msg: `هيتم حذف "${quiz ? quiz.title : 'الامتحان'}" نهائياً مع كل أسئلته.`, type: 'danger', icon: 'fa-trash-alt', okText: 'نعم، احذف' });
       if (!ok) return;
       try {
         await deleteQuizFromDB(id);
         quizzes = quizzes.filter(q => q.id !== id);
         renderAdminQuizzes();
         toast('تم الحذف ✅');
-      } catch {
-        toast('خطأ في الحذف!', 'error');
-      }
+      } catch { toast('خطأ في الحذف!', 'error'); }
     }
 
     // ─── EDIT QUIZ ───
@@ -3217,21 +2462,14 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
       let html = `
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem" class="animate-up">
-          <button class="btn btn-ghost" onclick="renderAdminQuizzes()">
-            <i class="fas fa-arrow-right"></i> رجوع
-          </button>
+          <button class="btn btn-ghost" onclick="renderAdminQuizzes()"><i class="fas fa-arrow-right"></i> رجوع</button>
           <h3 style="font-size:1.3rem;font-weight:900">${quiz.title}</h3>
         </div>
         <div style="display:flex;gap:10px;margin-bottom:1.2rem;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="openAddQuestionModal()">
-            <i class="fas fa-plus"></i> إضافة سؤال
-          </button>
-          <button class="btn btn-blue" onclick="openImportModal()">
-            <i class="fas fa-file-import"></i> استيراد من TXT
-          </button>
+          <button class="btn btn-primary" onclick="openAddQuestionModal()"><i class="fas fa-plus"></i> إضافة سؤال</button>
+          <button class="btn btn-blue" onclick="openImportModal()"><i class="fas fa-file-import"></i> استيراد من TXT</button>
         </div>
-        <div>
-      `;
+        <div>`;
 
       (quiz.questions || []).forEach((q, i) => {
         html += `
@@ -3242,16 +2480,12 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
                 <span style="background:var(--surface3);padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700">
                   ${q.type === 'mcq' ? 'اختياري' : q.type === 'tf' ? 'صح/خطأ' : 'مقالي'}
                 </span>
+                ${q.options && q.options.length === 5 ? '<span style="background:rgba(0,230,118,0.1);color:var(--green);padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:700;margin-right:6px">5 خيارات</span>' : ''}
               </p>
             </div>
-            <button class="btn btn-blue" onclick="openEditQuestionModal(${id}, ${i})" style="margin-left:6px">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-danger" onclick="deleteQuestion(${id}, ${i})">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        `;
+            <button class="btn btn-blue" onclick="openEditQuestionModal(${id}, ${i})" style="margin-left:6px"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-danger" onclick="deleteQuestion(${id}, ${i})"><i class="fas fa-trash"></i></button>
+          </div>`;
       });
 
       if ((quiz.questions || []).length === 0) {
@@ -3271,7 +2505,13 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       document.getElementById('q-text').value = q.question;
       document.getElementById('q-explanation').value = q.explanation || '';
       if (q.type === 'mcq') {
-        q.options.forEach((opt, i) => document.getElementById(`opt-${i}`).value = opt);
+        q.options.forEach((opt, i) => {
+          const el = document.getElementById(`opt-${i}`);
+          if (el) el.value = opt;
+        });
+        // Clear opt-4 if only 4 options
+        const opt4 = document.getElementById('opt-4');
+        if (opt4) opt4.value = q.options[4] || '';
         document.getElementById('correct-mcq').value = q.correct;
       } else if (q.type === 'tf') {
         document.getElementById('correct-tf').value = q.correct;
@@ -3291,7 +2531,10 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       document.getElementById('save-question-btn').textContent = 'إضافة السؤال';
       document.getElementById('q-type').value = 'mcq';
       document.getElementById('q-text').value = '';
-      ['opt-0','opt-1','opt-2','opt-3'].forEach(id => document.getElementById(id).value = '');
+      ['opt-0','opt-1','opt-2','opt-3','opt-4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
       document.getElementById('correct-mcq').value = '0';
       document.getElementById('correct-tf').value = '0';
       document.getElementById('tf-reason').value = '';
@@ -3320,9 +2563,16 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
       if (type === 'mcq') {
         const opts = ['opt-0','opt-1','opt-2','opt-3'].map(id => document.getElementById(id).value.trim());
-        if (opts.some(o => !o)) return toast('اكتب جميع الخيارات!', 'error');
+        if (opts.some(o => !o)) return toast('اكتب الخيارات من A لـ D على الأقل!', 'error');
+        // Opt-4 (E) is optional
+        const opt4 = document.getElementById('opt-4').value.trim();
+        if (opt4) opts.push(opt4);
         q.options = opts;
         q.correct = parseInt(document.getElementById('correct-mcq').value);
+        // Validate: if E selected but E not entered
+        if (q.correct === 4 && !opt4) return toast('أدخل نص الخيار E أو اختر إجابة مختلفة!', 'error');
+        // If E not entered but correct is 4, reset to 0
+        if (q.correct >= opts.length) q.correct = 0;
       } else if (type === 'tf') {
         q.options = ['صح', 'خطأ'];
         q.correct = parseInt(document.getElementById('correct-tf').value);
@@ -3356,13 +2606,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     async function deleteQuestion(quizId, index) {
-      const ok = await showConfirm({
-        title: 'حذف السؤال',
-        msg: 'هيتم حذف السؤال ده نهائياً من الامتحان. هل أنت متأكد؟',
-        type: 'danger',
-        icon: 'fa-minus-circle',
-        okText: 'نعم، احذف'
-      });
+      const ok = await showConfirm({ title: 'حذف السؤال', msg: 'هيتم حذف السؤال ده نهائياً من الامتحان. هل أنت متأكد؟', type: 'danger', icon: 'fa-minus-circle', okText: 'نعم، احذف' });
       if (!ok) return;
       const quiz = quizzes.find(q => q.id === quizId);
       const removed = quiz.questions.splice(index, 1);
@@ -3398,9 +2642,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
         try {
           parsedImportQuestions = parseTxtQuestions(text);
           showImportPreview(parsedImportQuestions);
-        } catch (err) {
-          showImportError(err.message);
-        }
+        } catch (err) { showImportError(err.message); }
       };
       reader.readAsText(file, 'UTF-8');
     }
@@ -3418,18 +2660,27 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
         try {
           if (type === 'MCQ') {
-            if (lines.length < 6) throw new Error(`سؤال ${idx+1} (MCQ): محتاج على الأقل 6 سطور (النوع، السؤال، 4 خيارات، رقم الإجابة)`);
+            if (lines.length < 6) throw new Error(`سؤال ${idx+1} (MCQ): محتاج على الأقل 6 سطور`);
             const question = lines[1];
             const options = [lines[2], lines[3], lines[4], lines[5]];
-            const correctLine = lines[6];
+            // Check if there's a 5th option (line[6] is not a number 1-4 and not empty)
+            let correctLineIdx = 6;
+            if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && lines[7] && /^[1-5]$/.test(lines[7].trim())) {
+              options.push(lines[6]);
+              correctLineIdx = 7;
+            } else if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && !lines[7]) {
+              // 5th option with no correct specified?
+              throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
+            }
+            const correctLine = lines[correctLineIdx];
             if (!correctLine) throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
             const correct = parseInt(correctLine) - 1;
-            if (isNaN(correct) || correct < 0 || correct > 3) throw new Error(`سؤال ${idx+1}: رقم الإجابة لازم يكون من 1 لـ 4`);
-            const explanation = lines[7] || '';
+            if (isNaN(correct) || correct < 0 || correct >= options.length) throw new Error(`سؤال ${idx+1}: رقم الإجابة غير صحيح`);
+            const explanation = lines[correctLineIdx + 1] || '';
             questions.push({ id: Date.now() + idx, type: 'mcq', question, options, correct, explanation });
 
           } else if (type === 'TF') {
-            if (lines.length < 3) throw new Error(`سؤال ${idx+1} (TF): محتاج 3 سطور على الأقل (النوع، السؤال، الإجابة)`);
+            if (lines.length < 3) throw new Error(`سؤال ${idx+1} (TF): محتاج 3 سطور على الأقل`);
             const question = lines[1];
             const correctRaw = lines[2].trim();
             if (correctRaw !== '0' && correctRaw !== '1') throw new Error(`سؤال ${idx+1}: الإجابة لازم تكون 1 (صح) أو 0 (خطأ)`);
@@ -3445,15 +2696,13 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
             questions.push({ id: Date.now() + idx, type: 'essay', question, keywords, explanation: '' });
 
           } else {
-            errors.push(`بلوك ${idx+1}: نوع مش معروف "${lines[0]}" - المفروض يكون MCQ أو TF أو ESSAY`);
+            errors.push(`بلوك ${idx+1}: نوع مش معروف "${lines[0]}"`);
           }
-        } catch(err) {
-          errors.push(err.message);
-        }
+        } catch(err) { errors.push(err.message); }
       });
 
       if (errors.length > 0) throw new Error(errors.join('\n'));
-      if (questions.length === 0) throw new Error('مفيش أسئلة صالحة في الملف. تأكد من الصيغة.');
+      if (questions.length === 0) throw new Error('مفيش أسئلة صالحة في الملف.');
       return questions;
     }
 
@@ -3466,6 +2715,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       listEl.innerHTML = questions.map((q, i) => `
         <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:10px">
           <span style="background:${typeColor[q.type]};color:#000;padding:2px 10px;border-radius:20px;font-size:0.75rem;font-weight:900;flex-shrink:0">${typeLabel[q.type]}</span>
+          ${q.options && q.options.length === 5 ? '<span style="background:rgba(0,230,118,0.1);color:var(--green);padding:2px 8px;border-radius:20px;font-size:0.7rem;font-weight:900;flex-shrink:0">E</span>' : ''}
           <span style="font-size:0.88rem;font-weight:600;flex:1">${i+1}. ${q.question.substring(0,70)}${q.question.length>70?'...':''}</span>
         </div>
       `).join('');
@@ -3489,7 +2739,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
       const quiz = quizzes.find(q => q.id === addingQuestionToQuizId);
       if (!quiz) return;
       quiz.questions = quiz.questions || [];
-      // re-stamp IDs to avoid collisions
       const stamped = parsedImportQuestions.map((q, i) => ({ ...q, id: Date.now() + i }));
       quiz.questions = [...quiz.questions, ...stamped];
       try {
@@ -3510,41 +2759,27 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
     }
 
     function showHome() {
-      selectedQuizIds.clear();
-      selectMode = false;
-      currentSubject = null;
+      selectedQuizIds.clear(); selectMode = false; currentSubject = null;
       showPage('home-page');
       document.getElementById('home-loading').classList.remove('hidden');
       document.getElementById('home-content').classList.add('hidden');
       loadQuizzes();
     }
 
-    function openAbout() {
-      document.getElementById('about-modal').classList.remove('hidden');
-    }
+    function openAbout() { document.getElementById('about-modal').classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    // Close modal on overlay click
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
       overlay.addEventListener('click', function(e) {
         if (e.target === this) {
           const modals = ['pwd-modal', 'quiz-modal', 'question-modal', 'about-modal', 'review-modal', 'import-modal', 'summary-modal'];
-          modals.forEach(m => {
-            if (this.id === m) closeModal(m);
-          });
+          modals.forEach(m => { if (this.id === m) closeModal(m); });
         }
       });
     });
 
     // ====================== START ======================
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden' && currentQuiz) saveQuizState();
-    });
-
-    loadQuizzes().then(() => restoreQuizState());
+    loadQuizzes();
   </script>
 </body>
 </html>
