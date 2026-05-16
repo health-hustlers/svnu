@@ -2647,109 +2647,58 @@ ESSAY
       reader.readAsText(file, 'UTF-8');
     }
 
-function parseTxtQuestions(text) {
-      // Split into blocks separated by one or more blank lines
-      const blocks = text.split(/\n{2,}/).map(b => b.trim()).filter(b => b.length > 0);
+    function parseTxtQuestions(text) {
+      const blocks = text.replace(/\r\n/g, '\n').split(/\n{2,}/).map(b => b.trim()).filter(b => b.length > 0);
       if (blocks.length === 0) throw new Error('الملف فاضي أو مش فيه أسئلة.');
-
       const questions = [];
       const errors = [];
-
-      // Strips leading letter-prefix from answer options:
-      // Handles: "A. text", "A) text", "A- text", "a. text", "a) text", "(A) text"
-      function stripOptionPrefix(line) {
-        return line.replace(/^\s*\(?[A-Ea-e]\)?[\.\)\-]\s*/, '').trim();
-      }
-
-      // Returns true if a line looks like an answer-option line
-      function isOptionLine(line) {
-        return /^\s*\(?[A-Ea-e]\)?[\.\)\-]\s+\S/.test(line);
-      }
-
-      // Returns true if a line is purely a correct-answer number (1-5)
-      function isCorrectLine(line) {
-        return /^\s*[1-5]\s*$/.test(line);
-      }
 
       blocks.forEach((block, idx) => {
         const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         if (lines.length < 2) return;
-
-        const type = lines[0].toUpperCase().trim();
+        const type = lines[0].toUpperCase();
 
         try {
           if (type === 'MCQ') {
-            // Line 1 = question text
+            if (lines.length < 6) throw new Error(`سؤال ${idx+1} (MCQ): محتاج على الأقل 6 سطور`);
             const question = lines[1];
-
-            // Collect option lines (lines that look like A. / B) / etc.)
-            const options = [];
-            let correctLineIdx = -1;
-            let explanation = '';
-
-            for (let i = 2; i < lines.length; i++) {
-              if (isOptionLine(lines[i])) {
-                options.push(stripOptionPrefix(lines[i]));
-              } else if (isCorrectLine(lines[i]) && correctLineIdx === -1) {
-                correctLineIdx = i;
-              } else if (correctLineIdx !== -1) {
-                // Anything after the correct number = explanation
-                explanation += (explanation ? ' ' : '') + lines[i];
-              }
+            const options = [lines[2], lines[3], lines[4], lines[5]];
+            // Check if there's a 5th option (line[6] is not a number 1-4 and not empty)
+            let correctLineIdx = 6;
+            if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && lines[7] && /^[1-5]$/.test(lines[7].trim())) {
+              options.push(lines[6]);
+              correctLineIdx = 7;
+            } else if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && !lines[7]) {
+              // 5th option with no correct specified?
+              throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
             }
-
-            // Fallback: if no option-prefix lines found, try positional (lines 2..N-1 are options, last is number)
-            if (options.length === 0) {
-              for (let i = 2; i < lines.length; i++) {
-                if (isCorrectLine(lines[i])) {
-                  correctLineIdx = i;
-                  explanation = lines.slice(i + 1).join(' ');
-                  break;
-                }
-                options.push(lines[i]);
-              }
-            }
-
-            if (options.length < 2) throw new Error(`سؤال ${idx + 1} (MCQ): مفيش خيارات كافية`);
-            if (correctLineIdx === -1) throw new Error(`سؤال ${idx + 1} (MCQ): مفيش رقم إجابة صحيحة (1-${options.length})`);
-
-            const correct = parseInt(lines[correctLineIdx]) - 1;
-            if (isNaN(correct) || correct < 0 || correct >= options.length) {
-              throw new Error(`سؤال ${idx + 1}: رقم الإجابة "${lines[correctLineIdx]}" مش صح — لازم يكون بين 1 و ${options.length}`);
-            }
-
+            const correctLine = lines[correctLineIdx];
+            if (!correctLine) throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
+            const correct = parseInt(correctLine) - 1;
+            if (isNaN(correct) || correct < 0 || correct >= options.length) throw new Error(`سؤال ${idx+1}: رقم الإجابة غير صحيح`);
+            const explanation = lines[correctLineIdx + 1] || '';
             questions.push({ id: Date.now() + idx, type: 'mcq', question, options, correct, explanation });
 
           } else if (type === 'TF') {
+            if (lines.length < 3) throw new Error(`سؤال ${idx+1} (TF): محتاج 3 سطور على الأقل`);
             const question = lines[1];
-            // Find the correct line (0 or 1)
-            let correctRaw = '';
-            let explanation = '';
-            for (let i = 2; i < lines.length; i++) {
-              if (/^\s*[01]\s*$/.test(lines[i]) && !correctRaw) {
-                correctRaw = lines[i].trim();
-              } else if (correctRaw) {
-                explanation += (explanation ? ' ' : '') + lines[i];
-              }
-            }
-            if (correctRaw !== '0' && correctRaw !== '1') {
-              throw new Error(`سؤال ${idx + 1} (TF): الإجابة لازم تكون 1 (صح) أو 0 (خطأ)`);
-            }
+            const correctRaw = lines[2].trim();
+            if (correctRaw !== '0' && correctRaw !== '1') throw new Error(`سؤال ${idx+1}: الإجابة لازم تكون 1 (صح) أو 0 (خطأ)`);
             const correct = parseInt(correctRaw);
+            const explanation = lines[3] || '';
             questions.push({ id: Date.now() + idx, type: 'tf', question, options: ['صح', 'خطأ'], correct, explanation });
 
           } else if (type === 'ESSAY') {
+            if (lines.length < 2) throw new Error(`سؤال ${idx+1} (ESSAY): محتاج سطرين على الأقل`);
             const question = lines[1];
             const keywordsRaw = lines[2] || '';
             const keywords = keywordsRaw ? keywordsRaw.split(',').map(k => k.trim()).filter(Boolean) : [];
             questions.push({ id: Date.now() + idx, type: 'essay', question, keywords, explanation: '' });
 
           } else {
-            errors.push(`بلوك ${idx + 1}: نوع مش معروف "${lines[0]}"`);
+            errors.push(`بلوك ${idx+1}: نوع مش معروف "${lines[0]}"`);
           }
-        } catch (err) {
-          errors.push(err.message);
-        }
+        } catch(err) { errors.push(err.message); }
       });
 
       if (errors.length > 0) throw new Error(errors.join('\n'));
@@ -2757,7 +2706,7 @@ function parseTxtQuestions(text) {
       return questions;
     }
 
-        function showImportPreview(questions) {
+    function showImportPreview(questions) {
       document.getElementById('import-error').style.display = 'none';
       document.getElementById('import-count').textContent = `${questions.length} سؤال`;
       const listEl = document.getElementById('import-preview-list');
@@ -5483,7 +5432,7 @@ ESSAY
     }
 
     function parseTxtQuestions(text) {
-      const blocks = text.split(/\n{2,}/).map(b => b.trim()).filter(b => b.length > 0);
+      const blocks = text.replace(/\r\n/g, '\n').split(/\n{2,}/).map(b => b.trim()).filter(b => b.length > 0);
       if (blocks.length === 0) throw new Error('الملف فاضي أو مش فيه أسئلة.');
       const questions = [];
       const errors = [];
