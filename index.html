@@ -1281,6 +1281,7 @@ ESSAY
       <div id="tf-section" class="hidden">
         <div class="form-group">
           <label>الإجابة الصحيحة</label>
+          <!-- ✅ FIX: value="0" = صح (index 0 في array ['صح','خطأ'])، value="1" = خطأ (index 1) -->
           <select id="correct-tf">
             <option value="0">صح</option>
             <option value="1">خطأ</option>
@@ -1326,7 +1327,7 @@ ESSAY
   <!-- ABOUT MODAL -->
   <div id="about-modal" class="modal-overlay hidden">
     <div class="modal about-modal">
-      <div class="about-avatar"><img src="data:image/jpeg;base64,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" alt="STAR BOY"></div>
+      <div class="about-avatar"><img src="data:image/jpeg;base64,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" alt="STAR BOY"></div>
       <div class="about-name">mohamed abdelnaaiem</div>
       <div class="about-role">مؤسس هيلث هاستلرز</div>
       <div class="about-links">
@@ -1410,7 +1411,6 @@ ESSAY
     let editingQuestionIndex = null;
     let selectedQuizIds = new Set();
     let selectMode = false;
-    // Track if current question has been answered (for auto-submit flow)
     let questionAnswered = false;
 
     // ====================== THEME ======================
@@ -1597,50 +1597,49 @@ ESSAY
       }
     }
 
-  function renderSubjectQuizzes() {
-  const list = quizzes.filter(q => q.published && (q.subject || 'عام').trim() === currentSubject);
-  const container = document.getElementById('subject-quizzes-list');
-  if (list.length === 0) {
-    container.innerHTML = `<div class="empty"><i class="fas fa-clipboard-list"></i><p>لا توجد امتحانات في هذه المادة</p></div>`;
-    return;
-  }
-  container.innerHTML = list.map((q, idx) => `
-    <div class="quiz-card" onclick="startQuiz(${q.id})" style="animation-delay:${idx * 0.07}s">
-      <div class="q-icon"><i class="fas fa-file-alt"></i></div>
-      <h3>${q.title}</h3>
-      <p>
-        <i class="fas fa-question-circle" style="color:var(--green);margin-left:4px"></i>
-        ${(q.questions || []).length} سؤال
-      </p>
-      <div class="arrow"><i class="fas fa-play-circle"></i> ابدأ التدريب</div>
-    </div>
-  `).join('');
-}
+    function renderSubjectQuizzes() {
+      const list = quizzes.filter(q => q.published && (q.subject || 'عام').trim() === currentSubject);
+      const container = document.getElementById('subject-quizzes-list');
+      if (list.length === 0) {
+        container.innerHTML = `<div class="empty"><i class="fas fa-clipboard-list"></i><p>لا توجد امتحانات في هذه المادة</p></div>`;
+        return;
+      }
+      container.innerHTML = list.map((q, idx) => `
+        <div class="quiz-card" onclick="startQuiz(${q.id})" style="animation-delay:${idx * 0.07}s">
+          <div class="q-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>${q.title}</h3>
+          <p>
+            <i class="fas fa-question-circle" style="color:var(--green);margin-left:4px"></i>
+            ${(q.questions || []).length} سؤال
+          </p>
+          <div class="arrow"><i class="fas fa-play-circle"></i> ابدأ التدريب</div>
+        </div>
+      `).join('');
+    }
 
     function renderSubjectSummaries() {
-  const list = summaries.filter(s => (s.subject || 'عام').trim() === currentSubject);
-  const container = document.getElementById('subject-summaries-list');
-  if (list.length === 0) {
-    container.innerHTML = `<div class="empty"><i class="fas fa-file-alt"></i><p>لا توجد ملخصات في هذه المادة</p></div>`;
-    return;
-  }
-  container.innerHTML = `
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;color:var(--text-dim);font-size:0.9rem;font-weight:700">
-      <i class="fas fa-file-alt" style="color:var(--amber)"></i>
-      ${list.length} ملخص متاح
-    </div>
-  ` + list.map((s, idx) => `
-    <a class="summary-card" href="${s.url}" target="_blank" rel="noopener" style="animation-delay:${idx * 0.06}s">
-      <div class="sum-icon"><i class="fas fa-file-alt"></i></div>
-      <div class="sum-info">
-        <h4>${s.title}</h4>
-        ${s.description ? `<p>${s.description}</p>` : ''}
-      </div>
-      <div class="sum-download"><i class="fas fa-download"></i> تحميل</div>
-    </a>
-  `).join('');
-}
-    
+      const list = summaries.filter(s => (s.subject || 'عام').trim() === currentSubject);
+      const container = document.getElementById('subject-summaries-list');
+      if (list.length === 0) {
+        container.innerHTML = `<div class="empty"><i class="fas fa-file-alt"></i><p>لا توجد ملخصات في هذه المادة</p></div>`;
+        return;
+      }
+      container.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;color:var(--text-dim);font-size:0.9rem;font-weight:700">
+          <i class="fas fa-file-alt" style="color:var(--amber)"></i>
+          ${list.length} ملخص متاح
+        </div>
+      ` + list.map((s, idx) => `
+        <a class="summary-card" href="${s.url}" target="_blank" rel="noopener" style="animation-delay:${idx * 0.06}s">
+          <div class="sum-icon"><i class="fas fa-file-alt"></i></div>
+          <div class="sum-info">
+            <h4>${s.title}</h4>
+            ${s.description ? `<p>${s.description}</p>` : ''}
+          </div>
+          <div class="sum-download"><i class="fas fa-download"></i> تحميل</div>
+        </a>
+      `).join('');
+    }
 
     // ====================== QUIZ ======================
     function startQuiz(id) {
@@ -1696,20 +1695,16 @@ ESSAY
       const submitBtn = document.getElementById('submit-btn');
       const q = currentQuiz.questions[currentQuestionIndex];
 
-      // Prev button: visible only if not first question
       if (prevBtn) prevBtn.style.display = currentQuestionIndex > 0 ? '' : 'none';
 
-      // For essay: show submit button, hide skip
       if (q.type === 'essay') {
         if (submitBtn) submitBtn.classList.remove('hidden');
         if (skipBtn) skipBtn.style.display = '';
       } else {
-        // MCQ / TF: submit hidden (auto on click), only skip shown
         if (submitBtn) submitBtn.classList.add('hidden');
         if (skipBtn) skipBtn.style.display = '';
       }
 
-      // If question already answered, hide skip/submit, show next inline
       if (questionAnswered) {
         if (skipBtn) skipBtn.style.display = 'none';
         if (submitBtn) submitBtn.classList.add('hidden');
@@ -1729,8 +1724,6 @@ ESSAY
         <div class="question-num">السؤال ${currentQuestionIndex + 1} من ${total}</div>
         <div class="question-text">${q.question}</div>
       `;
-
-      const optCount = q.options ? q.options.length : 0;
 
       if (q.type === 'mcq') {
         const dirs = ['slide-right','slide-left','slide-right','slide-left','slide-right'];
@@ -1759,18 +1752,15 @@ ESSAY
       requestAnimationFrame(() => { document.getElementById('question-card').style.animation = ''; });
     }
 
-    // ── AUTO-SUBMIT on option click ──
     function selectOption(i) {
-      if (questionAnswered) return; // Prevent re-clicking after answer shown
+      if (questionAnswered) return;
       selectedIndex = i;
-      // Record answer and show feedback immediately
       userAnswers[currentQuestionIndex] = i;
       questionAnswered = true;
       updateLiveScore();
       showFeedback();
     }
 
-    // Essay submit button handler
     function submitEssay() {
       const val = document.getElementById('essay-input') ? document.getElementById('essay-input').value.trim() : '';
       if (!val) return toast('اكتب إجابة!', 'error');
@@ -1786,7 +1776,6 @@ ESSAY
       const userChoice = userAnswers[currentQuestionIndex];
       const isLast = currentQuestionIndex === currentQuiz.questions.length - 1;
 
-      // Hide skip button, hide essay submit
       updateNavButtons();
 
       let html = `<div class="question-text">${q.question}</div>`;
@@ -1844,7 +1833,6 @@ ESSAY
         }
       }
 
-      // Next / Finish button
       html += `<div class="slide-up-ex" style="text-align:center;margin-top:1.8rem;animation-delay:0.35s">
         <button class="btn btn-primary" onclick="nextQuestion()" style="padding:13px 44px;font-size:1rem">
           ${isLast ? 'عرض النتائج <i class="fas fa-chart-bar"></i>' : 'السؤال التالي <i class="fas fa-arrow-left"></i>'}
@@ -1870,17 +1858,14 @@ ESSAY
       else showCurrentQuestion();
     }
 
-    // ── PREVIOUS QUESTION ──
     function goToPrevQuestion() {
       if (currentQuestionIndex <= 0) return;
       questionAnswered = false;
       currentQuestionIndex--;
       const prevAnswer = userAnswers[currentQuestionIndex];
-      // If previous question was answered, show its feedback
       if (prevAnswer !== null && prevAnswer !== undefined) {
         questionAnswered = true;
-        showCurrentQuestion(); // render question first
-        // Then immediately show feedback
+        showCurrentQuestion();
         setTimeout(() => {
           selectedIndex = prevAnswer;
           showFeedback();
@@ -2528,11 +2513,11 @@ ESSAY
           const el = document.getElementById(`opt-${i}`);
           if (el) el.value = opt;
         });
-        // Clear opt-4 if only 4 options
         const opt4 = document.getElementById('opt-4');
         if (opt4) opt4.value = q.options[4] || '';
         document.getElementById('correct-mcq').value = q.correct;
       } else if (q.type === 'tf') {
+        // ✅ FIX: q.correct is already the array index (0=صح, 1=خطأ), set it directly
         document.getElementById('correct-tf').value = q.correct;
         document.getElementById('tf-reason').value = q.explanation || '';
       } else {
@@ -2583,17 +2568,15 @@ ESSAY
       if (type === 'mcq') {
         const opts = ['opt-0','opt-1','opt-2','opt-3'].map(id => document.getElementById(id).value.trim());
         if (opts.some(o => !o)) return toast('اكتب الخيارات من A لـ D على الأقل!', 'error');
-        // Opt-4 (E) is optional
         const opt4 = document.getElementById('opt-4').value.trim();
         if (opt4) opts.push(opt4);
         q.options = opts;
         q.correct = parseInt(document.getElementById('correct-mcq').value);
-        // Validate: if E selected but E not entered
         if (q.correct === 4 && !opt4) return toast('أدخل نص الخيار E أو اختر إجابة مختلفة!', 'error');
-        // If E not entered but correct is 4, reset to 0
         if (q.correct >= opts.length) q.correct = 0;
       } else if (type === 'tf') {
         q.options = ['صح', 'خطأ'];
+        // ✅ FIX: value from select is already array index (0=صح, 1=خطأ)
         q.correct = parseInt(document.getElementById('correct-tf').value);
         q.explanation = document.getElementById('tf-reason').value.trim() || document.getElementById('q-explanation').value.trim();
       } else {
@@ -2682,13 +2665,11 @@ ESSAY
             if (lines.length < 6) throw new Error(`سؤال ${idx+1} (MCQ): محتاج على الأقل 6 سطور`);
             const question = lines[1];
             const options = [lines[2], lines[3], lines[4], lines[5]];
-            // Check if there's a 5th option (line[6] is not a number 1-4 and not empty)
             let correctLineIdx = 6;
             if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && lines[7] && /^[1-5]$/.test(lines[7].trim())) {
               options.push(lines[6]);
               correctLineIdx = 7;
             } else if (lines[6] && !/^[1-5]$/.test(lines[6].trim()) && !lines[7]) {
-              // 5th option with no correct specified?
               throw new Error(`سؤال ${idx+1}: مفيش رقم إجابة صحيحة`);
             }
             const correctLine = lines[correctLineIdx];
@@ -2703,7 +2684,9 @@ ESSAY
             const question = lines[1];
             const correctRaw = lines[2].trim();
             if (correctRaw !== '0' && correctRaw !== '1') throw new Error(`سؤال ${idx+1}: الإجابة لازم تكون 1 (صح) أو 0 (خطأ)`);
-            const correct = parseInt(correctRaw);
+            // ✅ FIX: في الملف 1=صح و0=خطأ، لكن في الـ array صح=index 0 وخطأ=index 1
+            // فبنعمل تحويل: 1 في الملف → 0 (index صح)، 0 في الملف → 1 (index خطأ)
+            const correct = correctRaw === '1' ? 0 : 1;
             const explanation = lines[3] || '';
             questions.push({ id: Date.now() + idx, type: 'tf', question, options: ['صح', 'خطأ'], correct, explanation });
 
@@ -2801,3 +2784,4 @@ ESSAY
     loadQuizzes();
   </script>
 </body>
+</html>
