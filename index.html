@@ -989,40 +989,25 @@
       <div class="quiz-header">
         <div class="quiz-header-title" id="quiz-title"></div>
         <div style="display:flex;gap:10px;align-items:center">
-          <span class="progress-pill" id="progress"></span>
+          <div class="live-score-pill correct-pill" style="padding:6px 12px">
+            <i class="fas fa-check-circle"></i>
+            <span>صح</span>
+            <span class="pill-num" id="live-correct">0</span>
+          </div>
+          <div class="live-score-pill wrong-pill" style="padding:6px 12px">
+            <i class="fas fa-times-circle"></i>
+            <span>غلط</span>
+            <span class="pill-num" id="live-wrong">0</span>
+          </div>
           <button class="btn btn-danger" onclick="exitQuiz()">
             <i class="fas fa-times"></i> خروج
           </button>
         </div>
       </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
-      </div>
-      <div class="live-score-bar">
-        <div class="live-score-pill correct-pill">
-          <i class="fas fa-check-circle"></i>
-          <span>صح</span>
-          <span class="pill-num" id="live-correct">0</span>
-        </div>
-        <div class="live-score-pill wrong-pill">
-          <i class="fas fa-times-circle"></i>
-          <span>غلط</span>
-          <span class="pill-num" id="live-wrong">0</span>
-        </div>
-      </div>
-      <div class="question-card" id="question-card"></div>
-      <!-- Quiz actions: prev + skip on left, submit on right -->
-      <div class="quiz-actions">
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" id="prev-btn" onclick="goToPrevQuestion()">
-            <i class="fas fa-arrow-right"></i> السابق
-          </button>
-          <button class="btn btn-ghost" id="skip-btn" onclick="skipQuestion()">
-            <i class="fas fa-forward"></i> تخطي
-          </button>
-        </div>
-        <button class="btn btn-primary hidden" id="submit-btn" onclick="submitEssay()">
-          تقديم الإجابة <i class="fas fa-check"></i>
+      <div id="all-questions-container"></div>
+      <div style="text-align:center;margin-top:2rem;padding-bottom:2rem" id="finish-btn-wrap" class="hidden">
+        <button class="btn btn-primary" onclick="showResults()" style="padding:14px 48px;font-size:1.1rem">
+          عرض النتائج <i class="fas fa-chart-bar"></i>
         </button>
       </div>
     </div>
@@ -1403,15 +1388,12 @@ ESSAY
     let adminTab = 'quizzes';
     let editingSummaryId = null;
     let currentQuiz = null;
-    let currentQuestionIndex = 0;
     let userAnswers = {};
-    let selectedIndex = null;
     let editingQuizId = null;
     let addingQuestionToQuizId = null;
     let editingQuestionIndex = null;
     let selectedQuizIds = new Set();
     let selectMode = false;
-    let questionAnswered = false;
 
     // ====================== THEME ======================
     function toggleTheme() {
@@ -1648,18 +1630,132 @@ ESSAY
       if (!currentQuiz.questions || currentQuiz.questions.length === 0) {
         return toast('هذا الامتحان لا يحتوي على أسئلة بعد!', 'error');
       }
-      currentQuestionIndex = 0;
       userAnswers = {};
-      selectedIndex = null;
-      questionAnswered = false;
       updateLiveScore();
       showPage('quiz-page');
       document.getElementById('quiz-title').textContent = currentQuiz.title;
-      showCurrentQuestion();
+      document.getElementById('finish-btn-wrap').classList.add('hidden');
+      renderAllQuestions();
+    }
+
+    function renderAllQuestions() {
+      const container = document.getElementById('all-questions-container');
+      const total = currentQuiz.questions.length;
+      container.innerHTML = currentQuiz.questions.map((q, idx) => {
+        let optionsHtml = '';
+        if (q.type === 'mcq') {
+          optionsHtml = `<div class="options-grid">` +
+            q.options.map((opt, i) => `
+              <div class="option" id="q${idx}-opt${i}" onclick="selectOptionAll(${idx}, ${i})">
+                <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                <span>${opt}</span>
+              </div>`).join('') +
+            `</div>`;
+        } else if (q.type === 'tf') {
+          optionsHtml = `<div class="tf-grid">
+            <div class="tf-option" id="q${idx}-opt0" onclick="selectOptionAll(${idx}, 0)">✅ صح</div>
+            <div class="tf-option" id="q${idx}-opt1" onclick="selectOptionAll(${idx}, 1)">❌ خطأ</div>
+          </div>`;
+        } else {
+          optionsHtml = `
+            <textarea id="essay-input-${idx}" rows="5" placeholder="اكتب إجابتك هنا..."></textarea>
+            <div style="text-align:left;margin-top:8px">
+              <button class="btn btn-primary" onclick="submitEssayAll(${idx})" id="essay-btn-${idx}">
+                تقديم الإجابة <i class="fas fa-check"></i>
+              </button>
+            </div>`;
+        }
+        return `
+          <div class="question-card" id="qcard-${idx}" style="margin-bottom:1.5rem;animation-delay:${idx*0.04}s">
+            <div class="question-num">السؤال ${idx + 1} من ${total}</div>
+            <div class="question-text">${q.question}</div>
+            ${optionsHtml}
+            <div id="feedback-${idx}"></div>
+          </div>`;
+      }).join('');
+    }
+
+    function selectOptionAll(qIdx, optIdx) {
+      if (userAnswers[qIdx] !== undefined) return; // already answered
+      userAnswers[qIdx] = optIdx;
+      const q = currentQuiz.questions[qIdx];
+      updateLiveScore();
+      showFeedbackAll(qIdx);
+      checkAllAnswered();
+    }
+
+    function submitEssayAll(qIdx) {
+      if (userAnswers[qIdx] !== undefined) return;
+      const val = document.getElementById(`essay-input-${qIdx}`)?.value.trim();
+      if (!val) return toast('اكتب إجابة!', 'error');
+      userAnswers[qIdx] = val;
+      updateLiveScore();
+      showFeedbackAll(qIdx);
+      // Disable textarea and button
+      const ta = document.getElementById(`essay-input-${qIdx}`);
+      const btn = document.getElementById(`essay-btn-${qIdx}`);
+      if (ta) ta.disabled = true;
+      if (btn) btn.disabled = true;
+      checkAllAnswered();
+    }
+
+    function showFeedbackAll(qIdx) {
+      const q = currentQuiz.questions[qIdx];
+      const userChoice = userAnswers[qIdx];
+      const feedbackEl = document.getElementById(`feedback-${qIdx}`);
+
+      if (q.type === 'mcq') {
+        q.options.forEach((_, i) => {
+          const el = document.getElementById(`q${qIdx}-opt${i}`);
+          if (!el) return;
+          el.classList.add('disabled');
+          el.onclick = null;
+          if (i === q.correct) {
+            el.classList.add('correct');
+            el.innerHTML = el.innerHTML + ' <i class="fas fa-check" style="margin-right:auto;color:var(--green)"></i>';
+          } else if (i === userChoice) {
+            el.classList.add('wrong');
+            el.innerHTML = el.innerHTML + ' <i class="fas fa-times" style="margin-right:auto;color:var(--red)"></i>';
+          }
+        });
+        if (userChoice !== q.correct && q.explanation) {
+          feedbackEl.innerHTML = `<div class="explanation" style="margin-top:1rem"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
+        }
+      } else if (q.type === 'tf') {
+        [0, 1].forEach(i => {
+          const el = document.getElementById(`q${qIdx}-opt${i}`);
+          if (!el) return;
+          el.classList.add('disabled');
+          el.onclick = null;
+          if (i === q.correct) el.classList.add('correct');
+          else if (i === userChoice) el.classList.add('wrong');
+        });
+        if (userChoice !== q.correct) {
+          const correctLabel = q.correct === 0 ? 'صح' : 'خطأ';
+          feedbackEl.innerHTML = `<div class="explanation" style="margin-top:1rem"><strong>💡 الإجابة الصحيحة هي: ${correctLabel}</strong>${q.explanation ? `<br><br>${q.explanation}` : ''}</div>`;
+        }
+      } else {
+        const essayCorrect = q.keywords && q.keywords.some(kw => userChoice.toLowerCase().includes(kw.toLowerCase()));
+        feedbackEl.innerHTML = `
+          <div style="font-size:1rem;font-weight:800;color:${essayCorrect ? 'var(--green)' : 'var(--red)'};margin-top:0.8rem">
+            ${essayCorrect ? '✅ إجابة صحيحة' : '❌ إجابة خاطئة'}
+          </div>
+          ${!essayCorrect && q.explanation ? `<div class="explanation" style="margin-top:0.8rem"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>` : ''}`;
+      }
+    }
+
+    function checkAllAnswered() {
+      const total = currentQuiz.questions.length;
+      const answered = Object.keys(userAnswers).length;
+      if (answered >= total) {
+        document.getElementById('finish-btn-wrap').classList.remove('hidden');
+        document.getElementById('finish-btn-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
 
     function updateLiveScore() {
       let correct = 0, wrong = 0;
+      if (!currentQuiz) return;
       currentQuiz.questions.forEach((q, i) => {
         const ans = userAnswers[i];
         if (ans === null || ans === undefined) return;
@@ -1681,198 +1777,6 @@ ESSAY
 
       if (correct > prevC) { cEl.classList.add('bump'); setTimeout(() => cEl.classList.remove('bump'), 400); }
       if (wrong  > prevW) { wEl.classList.add('bump'); setTimeout(() => wEl.classList.remove('bump'), 400); }
-    }
-
-    function updateProgressBar() {
-      const total = currentQuiz.questions.length;
-      const pct = ((currentQuestionIndex + 1) / total) * 100;
-      document.getElementById('progress-bar').style.width = pct + '%';
-    }
-
-    function updateNavButtons() {
-      const prevBtn = document.getElementById('prev-btn');
-      const skipBtn = document.getElementById('skip-btn');
-      const submitBtn = document.getElementById('submit-btn');
-      const q = currentQuiz.questions[currentQuestionIndex];
-
-      if (prevBtn) prevBtn.style.display = currentQuestionIndex > 0 ? '' : 'none';
-
-      if (q.type === 'essay') {
-        if (submitBtn) submitBtn.classList.remove('hidden');
-        if (skipBtn) skipBtn.style.display = '';
-      } else {
-        if (submitBtn) submitBtn.classList.add('hidden');
-        if (skipBtn) skipBtn.style.display = '';
-      }
-
-      if (questionAnswered) {
-        if (skipBtn) skipBtn.style.display = 'none';
-        if (submitBtn) submitBtn.classList.add('hidden');
-      }
-    }
-
-    function showCurrentQuestion() {
-      selectedIndex = null;
-      questionAnswered = false;
-      const q = currentQuiz.questions[currentQuestionIndex];
-      const total = currentQuiz.questions.length;
-      document.getElementById('progress').textContent = `${currentQuestionIndex + 1} / ${total}`;
-      updateProgressBar();
-      updateNavButtons();
-
-      let html = `
-        <div class="question-num">السؤال ${currentQuestionIndex + 1} من ${total}</div>
-        <div class="question-text">${q.question}</div>
-      `;
-
-      if (q.type === 'mcq') {
-        const dirs = ['slide-right','slide-left','slide-right','slide-left','slide-right'];
-        const delays = [0.1, 0.25, 0.4, 0.55, 0.7];
-        html += `<div class="options-grid">`;
-        q.options.forEach((opt, i) => {
-          html += `
-            <div class="option ${dirs[i]}" id="opt-${i}" onclick="selectOption(${i})" style="animation-delay:${delays[i]}s">
-              <span class="option-letter">${String.fromCharCode(65 + i)}</span>
-              <span>${opt}</span>
-            </div>`;
-        });
-        html += `</div>`;
-      } else if (q.type === 'tf') {
-        html += `
-          <div class="tf-grid">
-            <div class="tf-option slide-right" id="opt-0" onclick="selectOption(0)" style="animation-delay:0.05s">✅ صح</div>
-            <div class="tf-option slide-left"  id="opt-1" onclick="selectOption(1)" style="animation-delay:0.12s">❌ خطأ</div>
-          </div>`;
-      } else {
-        html += `<textarea id="essay-input" rows="6" placeholder="اكتب إجابتك هنا..." class="slide-right"></textarea>`;
-      }
-
-      document.getElementById('question-card').innerHTML = html;
-      document.getElementById('question-card').style.animation = 'none';
-      requestAnimationFrame(() => { document.getElementById('question-card').style.animation = ''; });
-    }
-
-    function selectOption(i) {
-      if (questionAnswered) return;
-      selectedIndex = i;
-      userAnswers[currentQuestionIndex] = i;
-      questionAnswered = true;
-      updateLiveScore();
-      showFeedback();
-    }
-
-    function submitEssay() {
-      const val = document.getElementById('essay-input') ? document.getElementById('essay-input').value.trim() : '';
-      if (!val) return toast('اكتب إجابة!', 'error');
-      userAnswers[currentQuestionIndex] = val;
-      questionAnswered = true;
-      updateLiveScore();
-      showFeedback();
-    }
-
-    function showFeedback() {
-      const q = currentQuiz.questions[currentQuestionIndex];
-      const container = document.getElementById('question-card');
-      const userChoice = userAnswers[currentQuestionIndex];
-      const isLast = currentQuestionIndex === currentQuiz.questions.length - 1;
-
-      updateNavButtons();
-
-      let html = `<div class="question-text">${q.question}</div>`;
-
-      if (q.type === 'mcq') {
-        const dirs = ['slide-right','slide-left','slide-right','slide-left','slide-right'];
-        const delays = [0.03, 0.08, 0.13, 0.18, 0.23];
-        html += `<div class="options-grid">`;
-        q.options.forEach((opt, i) => {
-          let cls = 'disabled';
-          if (i === q.correct) cls += ' correct';
-          else if (i === userChoice) cls += ' wrong';
-          html += `
-            <div class="option ${cls} ${dirs[i]}" style="animation-delay:${delays[i]}s">
-              <span class="option-letter">${String.fromCharCode(65 + i)}</span>
-              <span>${opt}</span>
-              ${i === q.correct ? '<i class="fas fa-check" style="margin-right:auto;color:var(--green)"></i>' : ''}
-              ${i === userChoice && i !== q.correct ? '<i class="fas fa-times" style="margin-right:auto;color:var(--red)"></i>' : ''}
-            </div>`;
-        });
-        html += `</div>`;
-        const isCorrect = userChoice === q.correct;
-        if (!isCorrect && q.explanation) {
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.25s"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
-        }
-      } else if (q.type === 'tf') {
-        html += `<div class="tf-grid">`;
-        ['✅ صح', '❌ خطأ'].forEach((label, i) => {
-          let cls = 'disabled ';
-          cls += i === q.correct ? 'correct' : i === userChoice ? 'wrong' : '';
-          const dir = i === 0 ? 'slide-right' : 'slide-left';
-          html += `<div class="tf-option ${cls} ${dir}" style="animation-delay:${i*0.08}s">${label}</div>`;
-        });
-        html += `</div>`;
-        if (userChoice !== q.correct) {
-          const correctLabel = q.correct === 0 ? 'صح' : 'خطأ';
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.2s">
-            <strong>💡 الإجابة الصحيحة هي: ${correctLabel}</strong>
-            ${q.explanation ? `<br><br>${q.explanation}` : ''}
-          </div>`;
-        }
-      } else {
-        const answer = userAnswers[currentQuestionIndex];
-        const essayCorrect = q.keywords && q.keywords.some(kw => answer.toLowerCase().includes(kw.toLowerCase()));
-        html += `
-          <div class="slide-right" style="background:var(--surface2);border-radius:12px;padding:1.2rem;margin-bottom:1rem;border:1px solid var(--border)">
-            <p style="color:var(--text-dim);margin-bottom:6px;font-size:0.85rem;font-weight:700">إجابتك:</p>
-            <p>${answer}</p>
-          </div>
-          <div class="slide-left" style="font-size:1.1rem;font-weight:800;color:${essayCorrect ? 'var(--green)' : 'var(--red)'}">
-            ${essayCorrect ? '✅ إجابة صحيحة' : '❌ إجابة خاطئة'}
-          </div>`;
-        if (!essayCorrect && q.explanation) {
-          html += `<div class="explanation slide-up-ex" style="animation-delay:0.2s"><strong>💡 الإجابة الصحيحة:</strong> ${q.explanation}</div>`;
-        }
-      }
-
-      html += `<div class="slide-up-ex" style="text-align:center;margin-top:1.8rem;animation-delay:0.35s">
-        <button class="btn btn-primary" onclick="nextQuestion()" style="padding:13px 44px;font-size:1rem">
-          ${isLast ? 'عرض النتائج <i class="fas fa-chart-bar"></i>' : 'السؤال التالي <i class="fas fa-arrow-left"></i>'}
-        </button>
-      </div>`;
-
-      container.innerHTML = html;
-      updateNavButtons();
-    }
-
-    function nextQuestion() {
-      questionAnswered = false;
-      currentQuestionIndex++;
-      if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
-      else showCurrentQuestion();
-    }
-
-    function skipQuestion() {
-      userAnswers[currentQuestionIndex] = null;
-      questionAnswered = false;
-      currentQuestionIndex++;
-      if (currentQuestionIndex >= currentQuiz.questions.length) showResults();
-      else showCurrentQuestion();
-    }
-
-    function goToPrevQuestion() {
-      if (currentQuestionIndex <= 0) return;
-      questionAnswered = false;
-      currentQuestionIndex--;
-      const prevAnswer = userAnswers[currentQuestionIndex];
-      if (prevAnswer !== null && prevAnswer !== undefined) {
-        questionAnswered = true;
-        showCurrentQuestion();
-        setTimeout(() => {
-          selectedIndex = prevAnswer;
-          showFeedback();
-        }, 50);
-      } else {
-        showCurrentQuestion();
-      }
     }
 
     async function exitQuiz() {
